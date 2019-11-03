@@ -15,7 +15,8 @@ const showMovieInfo = container => {
   const filmInfo = document.createElement("div");
   filmInfo.classList.add("film-info");
   filmInfo.innerHTML = `<div>
-      <h4>Click for Details</h4>
+      <h4 class="filmInfo-Title">Click for Details</h4>
+      <i class="fas fa-info-circle fa-4x"></i>
     </div>`;
   container.appendChild(filmInfo);
 };
@@ -38,12 +39,12 @@ const createMovieItem = movie => {
   movie.Poster !== "N/A"
     ? (itemContainer.innerHTML = `
       <div>
-        <p class="movie-list-title">${movie.Title}</p>
+        <p class="movieItem-Title">${movie.Title}</p>
         <img class="poster"src='${movie.Poster}'/>
       </div>`)
     : (itemContainer.innerHTML = `
     <div>
-      <p class="movie-list-title">${movie.Title}</p>
+      <p class="movieItem-Title">${movie.Title}</p>
       <div class=placeholder></div>
     </div>`);
   movieList.appendChild(itemContainer);

@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Details</title>
     <link rel="stylesheet" href="../assets/home.css" />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <title>myIMDB</title>
   </head>
   <body>
     <div class="navigation">
       <div class="navigation-items">
-        <h3 class="logo">myIMDB</h3>
+        <h3 class="logo">myIMDB <i class="fas fa-film"></i></h3>
         <ul class="navigation-menu">
-          <li class="menu-item">Home</li>
-          <li class="menu-item">Login</li>
-          <li class="menu-item">Register</li>
+          <li class="menu-item"><i class="fas fa-home"></i> Home</li>
+          <li class="menu-item"><i class="fas fa-user"></i> Login</li>
+          <li class="menu-item"><i class="fas fa-user-plus"></i> Register</li>
         </ul>
       </div>
     </div>
@@ -24,7 +28,9 @@
     <h1 class="detailsTitle3"></h1>
     <h1 class="detailsTitle4"></h1>
     <h1 class="detailsTitle5"></h1>
+    <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
+    <script src="../views/home.js"></script>
     <script src="../views/details.js"></script>
   </body>
 </html>

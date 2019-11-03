@@ -19,7 +19,7 @@ const removeMovieInfo = container => {
 };
 
 const showDetailsPage = movie => {
-  console.log(movie);
+  console.log(movie._id);
   sessionStorage.setItem("movieID", movie._id);
   window.location = `details.html`;
   return false;

@@ -34,7 +34,7 @@ const displayDetails = movie => {
         break
 
       default:
-          document.querySelector(".detailsContainer").appendChild(entrieContent);
+          document.querySelector(".detailsInfo").appendChild(entrieContent);
 
     }
 

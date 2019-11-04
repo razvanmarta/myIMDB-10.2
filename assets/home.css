@@ -191,3 +191,143 @@ body {
 }
 
 /* Search end */
+
+
+/*Footer*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-shadow: 0px 0px 20px grey;
+  max-width: 80%;
+  margin:auto;
+}
+
+footer {
+  font-family: "Times New Roman", Times, serif;
+  border: none;
+  background-color: #414040;
+  height: 200px;
+}
+
+/*Section one / first column*/
+
+sectionOne {
+  color: white;
+  width: 20%;
+  float: left;
+}
+
+sectionOne p {
+  padding: 20px 0px 2px 20px;
+}
+
+sectionOne p:hover {
+  opacity: 0.5;
+  color: rgb(226, 226, 71);
+}
+
+sectionOne p:last-child {
+  padding: 60px 0px 0px 10px;
+  font-size: 9px;
+  color: rgb(179, 174, 174);
+}
+
+/*Section two / second column*/
+
+sectionTwo {
+  color: white;
+  width: 20%;
+  float: left;
+}
+
+sectionTwo p {
+  padding: 20px 0px 2px 20px;
+}
+
+sectionTwo p:hover {
+  opacity: 0.5;
+  color: rgb(226, 226, 71);
+}
+
+/*Section three / third column*/
+
+sectionThree {
+  color: white;
+  width: 25%;
+  float: left;
+}
+
+.header {
+  margin: 20px 20px 10px 20px;
+  font-size: 21px;
+}
+
+.header:hover {
+  opacity: 0.5;
+  color: rgb(226, 226, 71);
+}
+
+sectionThree p {
+  text-align: center;
+}
+
+sectionThree p:hover {
+  opacity: 0.5;
+  color: rgb(226, 226, 71);
+}
+
+.join {
+  margin: 10px 0px 10px 35px;
+  background-color:rgb(105, 105, 46);
+  border: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 200px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.join:hover {
+  opacity: 0.5;
+  color: rgb(197, 197, 180);
+}
+
+
+/*Section four / forth column*/
+
+sectionFour {
+  color: white;
+  width: 35%;
+  float: left;
+}
+
+sectionFour p:hover {
+  opacity: 0.5;
+  color: rgb(226, 226, 71);
+}
+
+sectionFour p {
+  margin: 55px 0px 10px 60px;
+  font-size: 21px;
+}
+
+.fa {
+  margin: 10px 30px 0px 60px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.fa:hover {
+  opacity: 0.5;
+  color: rgb(226, 226, 71);
+}
+
+/*End of Footer*/

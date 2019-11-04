@@ -1,17 +1,45 @@
 const displayDetails = movie => {
-  const title = document.querySelector(".detailsTitle");
-  const title1 = document.querySelector(".detailsTitle1");
-  const title2 = document.querySelector(".detailsTitle2");
-  const title3 = document.querySelector(".detailsTitle3");
-  const title4 = document.querySelector(".detailsTitle4");
-  const title5 = document.querySelector(".detailsTitle5");
+  let movieKeys = Object.keys(movie);
 
-  title.innerText = "Title " + movie.Title;
-  title1.innerText = "Actors: " + movie.Actors;
-  title2.innerText = movie.Country;
-  title3.innerText = movie.Language;
-  title4.innerText = movie.Rated;
-  title5.innerText = movie.Type;
-};
+  for (let i = 0; i < movieKeys.length; i++) {
+
+    let entrieItem = movieKeys[i];
+    let title = entrieItem + ": " + movie[entrieItem];
+    let entrieContent = document.createElement("p");
+    entrieContent.innerText = title;
+    entrieContent.setAttribute("id", entrieItem)
+
+    switch (entrieItem) {
+      case "Title":
+          document.querySelector(".detailsTitle").appendChild(entrieContent)
+
+        break
+      case "Plot":
+        document.querySelector(".detailsPlot").appendChild(entrieContent)
+        break
+
+      case "Poster":
+        entrieContent = document.createElement("img");
+        document.querySelector(".detailsPoster").appendChild(entrieContent)
+        entrieContent.setAttribute("src", movie[entrieItem]);
+
+        break
+
+      case "_id":
+        entrieContent.innerText = null
+        break
+
+      case "Response":
+        entrieContent.innerText = null
+        break
+
+      default:
+          document.querySelector(".detailsInfo").appendChild(entrieContent);
+
+    }
+
+    
+  }
+}
 
 getMovie();

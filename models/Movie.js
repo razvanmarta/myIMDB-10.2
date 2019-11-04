@@ -7,7 +7,7 @@ const makeCallToServer = async apiURL => {
   movieList.innerHTML = "";
   const request = await fetch(apiURL);
   const data = await request.json();
-  console.log(data);
+
   const results = data.results;
   const page = data.pagination.links;
   const pageNumber = data.pagination.currentPage;
@@ -47,6 +47,6 @@ const getMovie = async () => {
     const movie = await response.json();
     displayDetails(movie);
   } catch (error) {
-    console.log("Error getting movie: ", error);
+    console.log("Error getting movie :-): ", error);
   }
 };

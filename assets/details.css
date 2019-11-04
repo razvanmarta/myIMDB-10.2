@@ -17,11 +17,8 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-gap: 5px;
-
-    
 }
 .detailsPlot{
-
     width: 80%;
     height: 60px;
     border: 1px solid red; 
@@ -36,7 +33,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }  
 
  img {
@@ -55,8 +51,7 @@ body{
     font-size: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center; 
 }
 .detailsInfo {
     border:1px solid blueviolet;
@@ -70,6 +65,5 @@ body{
 }  
 
 .detailsButtons {
-    
     width: 80%;
 }

@@ -42,8 +42,4 @@ const displayDetails = movie => {
   }
 }
 
-
-
-
-
 getMovie();

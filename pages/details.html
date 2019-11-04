@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/home.css" />
+    <link rel="stylesheet"  href = "../assets/details.css"/>
     <link
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
@@ -22,12 +23,17 @@
         </ul>
       </div>
     </div>
-    <h1 class="detailsTitle"></h1>
-    <h1 class="detailsTitle1"></h1>
-    <h1 class="detailsTitle2"></h1>
-    <h1 class="detailsTitle3"></h1>
-    <h1 class="detailsTitle4"></h1>
-    <h1 class="detailsTitle5"></h1>
+    <div class = "detailsContainer">
+        <div class = "detailsPoster"></div>
+        <div class = "detailsTitle"></div>
+        <div class = "detailsInfo"></div>
+        <div class = "detailsPlot"></div>
+        <div class = "detailsButtons">
+          <button id = "detailsViewBtn">View IMDB</button>
+          <button id= "detailsEditBtn">Edit</button>
+          <button id = "detailsDeleteBtn">Delete</button>
+        </div>
+  </div>
     <script src="../models/Auth.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../views/home.js"></script>

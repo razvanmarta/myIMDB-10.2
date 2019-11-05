@@ -1,6 +1,10 @@
+let imdbID = ""
+
 const displayDetails = movie => {
+  imdbID = movie.imdbID
   let movieKeys = Object.keys(movie);
 
+  console.log(movieKeys)
   for (let i = 0; i < movieKeys.length; i++) {
 
     let entrieItem = movieKeys[i];
@@ -9,9 +13,10 @@ const displayDetails = movie => {
     entrieContent.innerText = title;
     entrieContent.setAttribute("id", entrieItem)
 
+
     switch (entrieItem) {
       case "Title":
-          document.querySelector(".detailsTitle").appendChild(entrieContent)
+        document.querySelector(".detailsTitle").appendChild(entrieContent)
 
         break
       case "Plot":
@@ -34,12 +39,23 @@ const displayDetails = movie => {
         break
 
       default:
-          document.querySelector(".detailsInfo").appendChild(entrieContent);
-
+        document.querySelector(".detailsInfo").appendChild(entrieContent);
+      
     }
-
-    
   }
 }
 
+//eventListener on the ImdbButton
+
+let viewImdb = document.getElementById("detailsViewBtn");
+
+goToImdb = movie => {
+  const linkToImdb = "https://www.imdb.com/title/" + movie
+  console.log(viewImdb);
+  onclick = window.open(linkToImdb);
+}
+viewImdb.addEventListener("click", () => goToImdb(imdbID));
+
 getMovie();
+
+

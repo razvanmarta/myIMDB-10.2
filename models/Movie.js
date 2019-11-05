@@ -19,14 +19,14 @@ const makeCallToServer = async apiURL => {
 };
 
 //Search functionality function
-const renderFilteredMovies = async () => {
+const renderFilteredMovies = async param => {
   const filteredFilms = filteredMovies();
   if (!filteredFilms) {
     return;
   }
   movieList.innerHTML = "";
   const request = await fetch(
-    `https://movies-api-siit.herokuapp.com/movies?Title=${filteredFilms}`
+    `https://movies-api-siit.herokuapp.com/movies?${param}=${filteredFilms}`
   );
   const data = await request.json();
   const results = await data.results;

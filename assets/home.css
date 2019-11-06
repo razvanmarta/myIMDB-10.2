@@ -192,12 +192,75 @@ body {
 
 /* Search end */
 
+/*Registration dialog*/
+#modal-auth{
+  margin-left: 30%;
+  margin-right: 30%;
+  width: auto;
+  height: auto;
+  border-radius: 25px;
+}
+
+dialog{
+  margin: 20px;
+  padding: 1em;
+}
+
+.register-form{
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 20px;
+  width: auto;
+  height: auto;
+}
+
+#close-register-btn {
+  float: right;
+  position: relative;
+  margin-top: 5px;
+  right: 1px;
+  font-size: 25px;
+  color: gray;
+}
+
+#close-register-btn:hover {
+  cursor:pointer;
+}
+
+.fa-chevron-right{
+  color: blue;
+}
+
+#a-account h4 {
+  font-size: 15px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#a-account a {     
+    padding: 5px;
+}
+
+#create-account-button {
+    margin-top: 30px;     
+}
+
+.register-header {
+    padding-bottom: 40px;
+}
+
+#account-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
 
 /*Footer*/
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 0; 
 }
 
 body {

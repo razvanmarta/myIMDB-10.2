@@ -60,7 +60,6 @@ const createMovieItem = movie => {
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
 loginBtn.addEventListener("click", () => logIn(loginURL, user));
-registerBtn.addEventListener("click", () => registerNewUser(registerURL, user));
 searchfield.addEventListener("keyup", filteredMovies);
 search.addEventListener("click", renderFilteredMovies);
 prevPage.addEventListener("click", () => makeCallToServer(prev));

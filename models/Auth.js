@@ -3,12 +3,12 @@ const registerURL = apiURLl + "/auth/register";
 const loginURL = apiURLl + "/auth/login";
 const logoutURL = apiURLl + "/auth/logout";
 
-const registerButton = document.getElementById('register-button');
-registerButton.addEventListener('click', function(){
-    
-    document.getElementById('modal-auth').showModal();
-    }
-)
+// const registerButton = document.getElementById('register-button');
+// registerButton.addEventListener('click', function(){
+
+//     document.getElementById('modal-auth').showModal();
+//     }
+// )
 
 //hardcoded user (for testing purposes only)
 let user = {

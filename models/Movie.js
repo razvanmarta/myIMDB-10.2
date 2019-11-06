@@ -1,4 +1,3 @@
-const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 let next = null; //nextPage
 let prev = null; //previousPage
 
@@ -45,7 +44,11 @@ const getMovie = async () => {
       `https://movies-api-siit.herokuapp.com/movies/${movieID}`
     );
     const movie = await response.json();
-    displayDetails(movie);
+    const trailerResonse = await fetch(
+      `https://imdb-extras.herokuapp.com/${movie.imdbID}/trailer`
+    );
+    const trailer = await trailerResonse.json();
+    displayDetails(movie, trailer);
   } catch (error) {
     console.log("Error getting movie :-): ", error);
   }

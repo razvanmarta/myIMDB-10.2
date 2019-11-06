@@ -1,6 +1,7 @@
+
 let imdbID = ""
 
-const displayDetails = movie => {
+const displayDetails = (movie, trailer) => {
   imdbID = movie.imdbID
   let movieKeys = Object.keys(movie);
 
@@ -25,6 +26,7 @@ const displayDetails = movie => {
 
       case "Poster":
         entrieContent = document.createElement("img");
+        entrieContent.classList.add("img-thumbnail");
         document.querySelector(".detailsPoster").appendChild(entrieContent)
         entrieContent.setAttribute("src", movie[entrieItem]);
 
@@ -57,5 +59,4 @@ goToImdb = movie => {
 viewImdb.addEventListener("click", () => goToImdb(imdbID));
 
 getMovie();
-
 

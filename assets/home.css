@@ -192,6 +192,7 @@ body {
 
 /* Search end */
 
+
 /*Registration dialog*/
 #modal-auth {
   margin-left: 30%;
@@ -266,7 +267,6 @@ body {
   box-shadow: 0px 0px 20px grey;
   max-width: 80%;
   margin: auto;
-} */
 
 footer {
   font-family: "Times New Roman", Times, serif;
@@ -392,3 +392,45 @@ sectionFour p {
 }
 
 /*End of Footer*/
+
+/* Searchfield container */
+
+.searchfield-container {
+  height: 40px;
+}
+
+#searchfield {
+  border: 3px solid rgba(173, 173, 171, 0.877);
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: rgba(173, 173, 171, 0.877);
+  margin: 0px;
+}
+
+#searchfield:focus {
+  color: rgba(184, 177, 184, 1);
+}
+
+select {
+  height: 30px;
+  border: 3px solid rgba(173, 173, 171, 0.877);
+  color: rgba(184, 177, 184, 1);
+  font-weight: bold;
+}
+
+#search {
+  width: 35px;
+  height: 30px;
+  border: 1px solid rgba(173, 173, 171, 0.877);
+  background: rgba(173, 173, 171, 0.877);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* End of searchfield container */

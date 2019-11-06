@@ -3,6 +3,7 @@
 const movieList = document.querySelector(".movieList");
 const searchfield = document.getElementById("searchfield");
 const search = document.getElementById("search");
+const searchCategories = document.getElementById("search-options");
 const homeBtn = document.getElementsByClassName("menu-item")[0];
 const loginBtn = document.getElementsByClassName("menu-item")[1];
 const registerBtn = document.getElementsByClassName("menu-item")[2];
@@ -12,6 +13,12 @@ const pageNr = document.querySelector(".pageNumber");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 
 let filteredMovies = () => searchfield.value;
+
+let searchedCategory = () => {
+  const selection = searchCategories[searchCategories.selectedIndex].value;
+  console.log(selection);
+  return selection;
+};
 
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
@@ -67,6 +74,9 @@ homeBtn.addEventListener("click", () => (window.location = "home.html"));
 //loginBtn.addEventListener("click", () => logIn(loginURL, user));
 searchfield.addEventListener("keyup", filteredMovies);
 search.addEventListener("click", renderFilteredMovies);
+search.addEventListener("click", () =>
+  renderFilteredMovies(searchedCategory())
+);
 prevPage.addEventListener("click", () => makeCallToServer(prev));
 nextPage.addEventListener("click", () => makeCallToServer(next));
 

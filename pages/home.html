@@ -32,7 +32,27 @@
         id="searchfield"
         placeholder="Search..."
       />
-      <button id="search">Search</button>
+      <div class="dropdown-wrapper">
+        <select name="" id="search-options">
+          <option value="">Search by</option>
+          <option value="Title">Title</option>
+          <option value="Year">Year</option>
+          <option value="Runtime">Runtime</option>
+          <option value="Genre">Genre</option>
+          <option value="Language">Language</option>
+          <option value="Country">Country</option>
+          <option value="Poster">Poster</option>
+          <option value="imdbRating">IMDbRating</option>
+          <option value="imdbVotes">IMDbVotes</option>
+          <option value="imdbID">IMDbID</option>
+          <option value="Type">Type</option>
+        </select>
+      </div>
+      <button id="search">
+        <div>
+          <i class="fas fa-search"></i>
+        </div>
+      </button>
     </div>
     <div class="movieList-container">
       <h1 class="movieList-Title">All Movies</h1>

@@ -3,12 +3,14 @@ const registerURL = apiURLl + "/auth/register";
 const loginURL = apiURLl + "/auth/login";
 const logoutURL = apiURLl + "/auth/logout";
 
+
 // Open register-modal
 const registerButton = document.getElementById('register-button');
 registerButton.addEventListener('click', function(){    
     document.getElementById('modal-auth').showModal();    
     }
 )
+
 
 // Close register-modal + empty fields and hide alert if it's the case
 

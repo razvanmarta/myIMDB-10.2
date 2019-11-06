@@ -1,6 +1,6 @@
 body {
   margin: 1px;
-  background-color: rgb(192, 192, 192);
+  background-color: rgb(27, 27, 27);
 }
 
 /* Navbar Start */
@@ -53,7 +53,7 @@ body {
   margin: 20px auto;
   padding-top: 20px;
   width: 75%;
-  background-color: rgba(173, 173, 171, 0.877);
+  background-color: rgba(82, 82, 82, 0.877);
   position: relative;
   border-radius: 5px;
   border-style: ridge;
@@ -70,16 +70,16 @@ body {
 .movieList {
   margin: 30px auto;
   width: 85%;
-  height: 600px;
+  height: 650px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   border: 0.5px solid black;
   border-radius: 5px;
-  background-color: rgb(73, 73, 73);
+  background-color: rgb(49, 49, 49);
   padding: 1.5%;
   position: relative;
-  overflow: auto;
+  overflow-y: auto;
 }
 .movie-item {
   cursor: pointer;
@@ -193,7 +193,7 @@ body {
 /* Search end */
 
 /*Registration dialog*/
-#modal-auth{
+#modal-auth {
   margin-left: 30%;
   margin-right: 30%;
   width: auto;
@@ -201,12 +201,12 @@ body {
   border-radius: 25px;
 }
 
-dialog{
+dialog {
   margin: 20px;
   padding: 1em;
 }
 
-.register-form{
+.register-form {
   margin-left: 30%;
   margin-right: 30%;
   padding: 20px;
@@ -224,10 +224,10 @@ dialog{
 }
 
 #close-register-btn:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.fa-chevron-right{
+.fa-chevron-right {
   color: blue;
 }
 
@@ -237,28 +237,27 @@ dialog{
   text-align: center;
 }
 
-#a-account a {     
-    padding: 5px;
+#a-account a {
+  padding: 5px;
 }
 
 #create-account-button {
-    margin-top: 30px;     
+  margin-top: 30px;
 }
 
 .register-header {
-    padding-bottom: 40px;
+  padding-bottom: 40px;
 }
 
-#account-button-container{
+#account-button-container {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
-
 
 /*Footer*/
 
-* {
+/* * {
   margin: 0;
   padding: 0; 
 }
@@ -266,8 +265,8 @@ dialog{
 body {
   box-shadow: 0px 0px 20px grey;
   max-width: 80%;
-  margin:auto;
-}
+  margin: auto;
+} */
 
 footer {
   font-family: "Times New Roman", Times, serif;
@@ -345,7 +344,7 @@ sectionThree p:hover {
 
 .join {
   margin: 10px 0px 10px 35px;
-  background-color:rgb(105, 105, 46);
+  background-color: rgb(105, 105, 46);
   border: none;
   border-radius: 10px;
   height: 35px;
@@ -359,7 +358,6 @@ sectionThree p:hover {
   opacity: 0.5;
   color: rgb(197, 197, 180);
 }
-
 
 /*Section four / forth column*/
 

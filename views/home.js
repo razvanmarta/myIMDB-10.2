@@ -1,3 +1,5 @@
+// Variables!!! check here if the element you need is not already assigned to a variable
+// Here is where you will add it if it's not
 const movieList = document.querySelector(".movieList");
 const searchfield = document.getElementById("searchfield");
 const search = document.getElementById("search");
@@ -7,6 +9,7 @@ const registerBtn = document.getElementsByClassName("menu-item")[2];
 const prevPage = document.querySelector(".previous-page");
 const nextPage = document.querySelector(".next-page");
 const pageNr = document.querySelector(".pageNumber");
+const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 
 let filteredMovies = () => searchfield.value;
 
@@ -57,9 +60,11 @@ const createMovieItem = movie => {
   itemContainer.addEventListener("click", () => showDetailsPage(movie));
 };
 
+const disableLink = link => {};
+
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
-loginBtn.addEventListener("click", () => logIn(loginURL, user));
+//loginBtn.addEventListener("click", () => logIn(loginURL, user));
 searchfield.addEventListener("keyup", filteredMovies);
 search.addEventListener("click", renderFilteredMovies);
 prevPage.addEventListener("click", () => makeCallToServer(prev));

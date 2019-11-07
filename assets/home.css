@@ -48,6 +48,80 @@ body {
 
 /* Navbar End */
 
+/* style burgerMenu and the list of items */
+#burgerButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding-top: 30px;
+  height: 50px;
+  width: 50px;
+  background-image: url("../assets/photo/hamburger-menu.jpg");
+  background-size: cover;
+}
+#containsLi {
+  position: relative;
+  width: 180px;
+  text-align: center;
+  right: 140px;
+  top: 25px;
+}
+
+#menu-item {
+  background-color: rgb(77, 66, 66);
+  text-align: center;
+  list-style: none;
+  padding: 15px;
+  font-size: 15px;
+  color: white;
+  font-style: oblique;
+  font-size: 1.2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#menu-item:hover {
+  color: #f00;
+  cursor: pointer;
+}
+.arrow {
+  position: absolute;
+  background: rgb(77, 66, 66);
+  top: -5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+}
+
+@media screen and (min-width: 600px) {
+  #burgerButton {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation-menu {
+    display: none;
+  }
+  .logo {
+    position: absolute;
+    top: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Indie Flower", cursive;
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0px 0px 0px 10%;
+    text-align: center;
+  }
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+/* end of styling burger menu */
+
 /* Movie Container items start */
 .movieList-container {
   margin: 20px auto;
@@ -267,7 +341,6 @@ body {
   box-shadow: 0px 0px 20px grey;
   max-width: 80%;
   margin: auto;
-} */
 
 footer {
   font-family: "Times New Roman", Times, serif;
@@ -393,3 +466,45 @@ sectionFour p {
 }
 
 /*End of Footer*/
+
+/* Searchfield container */
+
+.searchfield-container {
+  height: 40px;
+}
+
+#searchfield {
+  border: 3px solid rgba(173, 173, 171, 0.877);
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: rgba(173, 173, 171, 0.877);
+  margin: 0px;
+}
+
+#searchfield:focus {
+  color: rgba(184, 177, 184, 1);
+}
+
+select {
+  height: 30px;
+  border: 3px solid rgba(173, 173, 171, 0.877);
+  color: rgba(184, 177, 184, 1);
+  font-weight: bold;
+}
+
+#search {
+  width: 35px;
+  height: 30px;
+  border: 1px solid rgba(173, 173, 171, 0.877);
+  background: rgba(173, 173, 171, 0.877);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* End of searchfield container */

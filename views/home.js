@@ -6,6 +6,7 @@ const movieList = document.querySelector(".movieList");
 // Search related variables
 const searchfield = document.getElementById("searchfield");
 const search = document.getElementById("search");
+const searchCategories = document.getElementById("search-options");
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
@@ -13,6 +14,7 @@ const loginBtn = document.getElementById("login-button");
 const registerBtn = document.getElementById("register-button");
 
 // Movie container variables
+
 const prevPage = document.querySelector(".previous-page");
 const nextPage = document.querySelector(".next-page");
 const pageNr = document.querySelector(".pageNumber");
@@ -27,6 +29,12 @@ const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
 
 let filteredMovies = () => searchfield.value;
+
+let searchedCategory = () => {
+  const selection = searchCategories[searchCategories.selectedIndex].value;
+  console.log(selection);
+  return selection;
+};
 
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
@@ -103,6 +111,9 @@ homeBtn.addEventListener("click", () => (window.location = "home.html"));
 //loginBtn.addEventListener("click", () => logIn(loginURL, user));
 searchfield.addEventListener("keyup", filteredMovies);
 search.addEventListener("click", renderFilteredMovies);
+search.addEventListener("click", () =>
+  renderFilteredMovies(searchedCategory())
+);
 prevPage.addEventListener("click", () => makeCallToServer(prev));
 nextPage.addEventListener("click", () => makeCallToServer(next));
 

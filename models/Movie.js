@@ -44,11 +44,7 @@ const getMovie = async () => {
       `https://movies-api-siit.herokuapp.com/movies/${movieID}`
     );
     const movie = await response.json();
-    const trailerResonse = await fetch(
-      `https://imdb-extras.herokuapp.com/${movie.imdbID}/trailer`
-    );
-    const trailer = await trailerResonse.json();
-    displayDetails(movie, trailer);
+    displayDetails(movie);
   } catch (error) {
     console.log("Error getting movie :-): ", error);
   }

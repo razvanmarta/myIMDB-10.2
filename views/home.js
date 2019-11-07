@@ -1,16 +1,32 @@
 // Variables!!! check here if the element you need is not already assigned to a variable
 // Here is where you will add it if it's not
+
 const movieList = document.querySelector(".movieList");
+
+// Search related variables
 const searchfield = document.getElementById("searchfield");
 const search = document.getElementById("search");
 const searchCategories = document.getElementById("search-options");
-const homeBtn = document.getElementsByClassName("menu-item")[0];
-const loginBtn = document.getElementsByClassName("menu-item")[1];
-const registerBtn = document.getElementsByClassName("menu-item")[2];
+
+// Navbar variables
+const homeBtn = document.getElementById("home-button");
+const loginBtn = document.getElementById("login-button");
+const registerBtn = document.getElementById("register-button");
+
+// Movie container variables
+
 const prevPage = document.querySelector(".previous-page");
 const nextPage = document.querySelector(".next-page");
 const pageNr = document.querySelector(".pageNumber");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
+
+// Register variables
+const modalAuth = document.getElementById("modal-auth");
+const closeRegister = document.getElementById("close-register-btn");
+const registerUsername = document.getElementById("exampleInputUsername");
+const registerPassword = document.getElementById("exampleInputPassword1");
+const registerPassword2 = document.getElementById("exampleInputPassword2");
+let registerAlert = document.getElementById("register-alert");
 
 let filteredMovies = () => searchfield.value;
 
@@ -68,6 +84,27 @@ const createMovieItem = movie => {
 };
 
 const disableLink = link => {};
+
+// Open register-modal function
+let openRegisterModal = () => {
+  modalAuth.showModal();
+};
+
+//Close register-modal function + empty fields and hide alert if it's the case
+let closeRegisterModal = () => {
+  modalAuth.close();
+  registerUsername.value = "";
+  registerPassword.value = "";
+  registerPassword2.value = "";
+  registerAlert.classList.add("hidden");
+  registerAlert.innerHTML = "";
+};
+
+//Open register-modal eventlistener
+registerBtn.addEventListener("click", openRegisterModal);
+
+//Close register-modal eventlistener
+closeRegister.addEventListener("click", closeRegisterModal);
 
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));

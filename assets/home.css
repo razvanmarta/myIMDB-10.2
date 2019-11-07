@@ -54,28 +54,29 @@ body {
   top: 10px;
   right: 10px;
   padding-top: 30px;
-  height: 20px;
+  height: 50px;
   width: 50px;
   background-image: url("../assets/photo/hamburger-menu.jpg");
   background-size: cover;
 }
 #containsLi {
-  position: absolute;
-  width: 170px;
+  position: relative;
+  width: 180px;
   text-align: center;
-  right: 10px;
-  top: 40px;
+  right: 140px;
+  top: 25px;
 }
 
 #menu-item {
-  list-style: none;
-  padding: 10px;
   background-color: rgb(77, 66, 66);
+  text-align: center;
+  list-style: none;
+  padding: 15px;
   font-size: 15px;
   color: white;
   font-style: oblique;
   font-size: 1.2em;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #menu-item:hover {
   color: #f00;
@@ -84,7 +85,7 @@ body {
 .arrow {
   position: absolute;
   background: rgb(77, 66, 66);
-  top: 10px;
+  top: -5px;
   right: 10px;
   width: 20px;
   height: 20px;
@@ -100,6 +101,17 @@ body {
 @media screen and (max-width: 600px) {
   .navigation-menu {
     display: none;
+  }
+  .logo {
+    position: absolute;
+    top: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Indie Flower", cursive;
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0px 0px 0px 10%;
+    text-align: center;
   }
 }
 .show {

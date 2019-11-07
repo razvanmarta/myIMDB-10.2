@@ -18,6 +18,7 @@
 </head>
 
 <body>
+<div id="generalHideNavItem">
   <div class="navigation">
     <div class="navigation-items">
       <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
@@ -121,7 +122,20 @@
       </div>
     </div>
   </div>
-
+</div>
+  <!-- html burgerMenu -->
+  <div id="burgerButton">
+      <div id="containsLi" class="hide">
+        <div class="arrow"></div>
+        <ul>
+          <li id="menu-item">Home</li>
+          <li id="menu-item">Login</li>
+          <li id="menu-item">Register</li>
+        </ul>
+      </div>
+    </div>
+<!-- end of burgerMenu -->
+<script src="../views/burgerMenu.js"></script>
   <script src="../models/Auth.js"></script>
   <script src="../models/Movie.js"></script>
   <script src="../views/home.js"></script>

@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../assets/home.css" />
   <link rel="stylesheet" href="../assets/details.css" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
@@ -22,8 +19,8 @@
     <div class="navigation-items">
       <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
       <ul class="navigation-menu">
-        <li class="menu-item"><i class="fas fa-home"></i> Home</li>
-        <li class="menu-item"><i class="fas fa-user"></i> Login</li>
+        <li class="menu-item" id="home-button"><i class="fas fa-home"></i> Home</li>
+        <li class="menu-item" id="login-button"><i class="fas fa-user"></i> Login</li>
         <li class="menu-item" id="register-button"><i class="fas fa-user-plus"></i> Register</li>
       </ul>
     </div>
@@ -43,7 +40,9 @@
       <button id="detailsDeleteBtn" class="btn btn-primary">Delete</button>
     </div>
 
+    <!--Modal Register-->
     <dialog id="modal-auth">
+      <div id="dialog-container">
       <span class="glyphicon glyphicon-remove-circle" id='close-register-btn'></span>  
       
       <h2 id="register-header">Register</h2>
@@ -66,13 +65,15 @@
         </div>
 
         <div id="account-button-container">
-          <button id="create-account-button" type="submit" class="btn btn-primary">Create account</button>
+          <button id="create-account-button" class="btn btn-primary">Create account</button>
         </div>
         <div id="a-account">
           <h4>Already have an account?<a href="#">Sign in</a><i class="fas fa-chevron-right fa-xs"></i></h4>          
         </div>
-      </form>      
-  </dialog>
+      </form> 
+      </div>     
+    </dialog>
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -122,16 +123,18 @@
     </div>
   </div>
 
-  <script src="../models/Auth.js"></script>
-  <script src="../models/Movie.js"></script>
   <script src="../views/home.js"></script>
+  <script src="../models/Auth.js"></script> 
+  <script src="../views/register.js"></script> 
+  <script src="../models/Movie.js"></script>  
   <script src="../views/details.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
 </body>
 
 </html>

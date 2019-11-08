@@ -3,7 +3,7 @@
 movieDetails = {
 
   displayMovieDetails: function () {
-    console.log(this)
+    console.log("From displayMovieDetails: ",this)
     const detailsContainer = document.getElementById("movie");
 
     detailsContainer.innerHTML = `
@@ -55,14 +55,16 @@ movieDetails = {
     //event listener in editDetailsBtn
     let editDetailsdBtn = document.querySelector("#detailsEditBtn")
     editDetailsdBtn.addEventListener("click", () => {
-      console.log("edit");
-
-
+      this.editBtnEvents();
     })
+
 
   },
 
-  editBtnEvents() { }
+  editBtnEvents() {
+    console.log("from editBtnEvents: ", this)
+
+   }
 
 };
 

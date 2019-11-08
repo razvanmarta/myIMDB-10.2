@@ -1,0 +1,100 @@
+#register-container {
+  margin-left: 30%;
+  margin-right: 30%;
+  width: auto;
+  height: auto;
+  border-style: solid;
+  border-color: black;
+  border-radius: 25px;
+  padding: 1.5em;
+  min-width: 250px;
+}
+
+.register-form {
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 20px;
+  width: auto;
+  height: auto;
+}
+
+#close-register-btn {
+  float: right;
+  position: relative;
+  margin-top: 5px;
+  right: 1px;
+  font-size: 25px;
+  color: gray;
+}
+
+#close-register-btn:hover {
+  cursor: pointer;
+}
+
+.fa-chevron-right {
+  color: blue;
+}
+
+#a-account h4 {
+  font-size: 15px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#a-account a {
+  padding: 5px;
+}
+
+#a-account1 {
+  color: #212529;
+}
+
+#exampleInputUsername,
+#exampleInputPassword1,
+#exampleInputPassword2 {
+  border-color: #ced4da;
+}
+
+.register-class-form {
+  font-size: 1rem;
+}
+
+#create-account-button {
+  margin-top: 30px;
+  background-color: #337ab7;
+}
+
+#register-header {
+  padding-bottom: 20px;
+  color: #212529;
+  font-size: 2rem;
+}
+
+#account-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#register-alert {
+  color: #6a0000;
+  background-color: #f5cccc;
+}
+
+#registrated-alert {
+  position: absolute;
+  top: 5.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: lightskyblue;
+  border-radius: 25px;
+  color: #0f5561;
+  background-color: #d1ecf1;
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}

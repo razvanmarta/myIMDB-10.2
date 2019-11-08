@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="../assets/home.css" />
   <link rel="stylesheet" href="../assets/details.css" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
@@ -33,66 +33,26 @@
   <div class = "container">
       <div id="movie" class="card card-body bg-light"></div>
   </div>
-
-
+</div>
   <!-- Modal Edit-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal" tabindex="-1" id = "editModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit movie</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" aria-label="Close" id = "editModalClose" >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body form-group">
-
-          <label for="editTitle">Title:</label>
-          <input type="text" id="editTitle" value=" " required></input>
-
-          <label for="editAuthor">Author:</label>
-          <input type="text" id="editAuthor" value=" " required></input>
-
-          <label for="editYear">Year:</label>
-          <input type="text" id="editYear" value=" " required></input>
-
-          <label for="editLanguage">Language:</label>
-          <input type="text" id="editLanguage" value=" " required></input>
-  
-          <label for="editActors" id="editActors">Actors:</label>
-          <input type="text" id="editActors" value=" " required></input>
-
-          <label for="editPlot">Plot:</label>
-          <textarea type="text" id="editPlot" value=" " required></textarea>
-
-          <lable for="editGenre"> Genre: </lable>
-          <label for="editAction">Action</label>
-          <input type="checkbox" id="editAction" value="Action"></input>
-
-          <label for id="editAdventure">Adventure</label>
-          <input type="checkbox" id="editAdventure" value="Adventure"></input>
-
-          <label for="editCrime">Crime</label>
-          <input type="checkbox" id="editCrime" value="Crime"></input>
-
-          <label for="editDrama">Drama</label>
-          <input type="checkbox" id="editDrama" value="Drama"></input>
-
-          <label for="editSciFi">Sc-Fi</label>
-          <input type="checkbox" id="editSciFi" value="Sc-Fi"></input>
-
-          <label for="editAnimation">Animation</label>
-          <input type="checkbox" id="editAnimation" value="Animation"></input>
-
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" id = "editSaveChanges">Save changes</button>
+          <button type="button" class="btn btn-danger" id = "editClose">Close</button>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
     <!--Modal Register-->
@@ -147,7 +107,7 @@
 <script src="../views/register.js"></script> 
 <script src="../models/Movie.js"></script>  
 <script src="../views/details.js"></script>
-  
+
 </body>
 
 </html>

@@ -12,8 +12,7 @@ movieDetails = {
       <img src = "${this.Poster}" class = "img-thumbnail">
       <div id = "detailsButtons">
         <button class = "btn btn-primary m-1" id = "detailsViewBtn">View IMDB</button>
-        <button class = "btn btn-success m-1" id = "detailsEditBtn" data-toggle="modal" data-target="#exampleModal">
-        Edit Movie</button>
+        <button class = "btn btn-success m-1 show" id = "detailsEditBtn" data-toggle="modal" data-target="#myModal">Edit Movie</button>
         <button class = "btn btn-danger m-1" id = "detailsDeleteBtn">Delete Movie</button>
       </div>
     </div>
@@ -53,19 +52,83 @@ movieDetails = {
     })
 
     //event listener in editDetailsBtn
+    let editModalCloseBtn = document.querySelector("#editModalClose");
+    let editCloseBtn = document.querySelector("#editClose");
     let editDetailsdBtn = document.querySelector("#detailsEditBtn")
+
+    // close and open the Edit Modal
+    let editModal = document.querySelector("#editModal");
+
     editDetailsdBtn.addEventListener("click", () => {
       this.editBtnEvents();
+      editModal.style.display ="block";
+    })
+
+    editModalCloseBtn.addEventListener("click", () => {
+      editModal.style.display ="none";
+    })
+
+    editCloseBtn.addEventListener("click", () => {
+      editModal.style.display ="none";
     })
 
 
   },
 
   editBtnEvents() {
-    console.log("from editBtnEvents: ", this)
+    let editModal = document.querySelector(".modal-body");
+   
+  editModal.innerHTML = `
+
+          <label for = "editTitle">Title:</label>
+          <input type="text" class="form-control" id="editTitle" value =" ">
+          
+          <label for="editGenre">Genre:</label>
+          <input type="text" class="form-control" id="editGenre" value=" ">
+
+          <label for = "editType">Type:</label>
+          <input type="text" class="form-control" id="editType" value=" ">
+
+          <label for = "editReleased">Released:</label>
+          <input type="text" class="form-control" id="editReleased" value=" ">
+
+         <label for = "editRated">Rated:</label>
+          <input type="text" class="form-control" id="editRated" value=" ">
+
+          <label for = "editimdbRating">imdbRating:</label>
+          <input type="text" class="form-control" id="editimdbRating" value=" ">
+
+          <label for="editDirector">Director:</label>
+          <input type="text" class="form-control" id="editDirector" value=" ">
+
+          <label for="editWriter">Writer:</label>
+          <input type="text" class="form-control" id="editWriter" value=" ">
+
+          <label for="editAuthor">Actors:</label>
+          <input type="text" class="form-control" id="editActors" value=" ">
+
+          <label for="editRuntime">Runtime:</label>
+          <input type="text" class="form-control" id="editRuntime" value=" ">
+
+          <label for="editLanguage">Language:</label>
+          <input type="text" class="form-control" id="editLanguage" value=" ">
+
+          <label for="editAwards">Awards:</label>
+          <input type="text" class="form-control" rows="3" id="editAwards" value=" ">
+
+          <label for="editPlot">Plot:</label>
+          <textarea class="form-control"  id="editPlot" rows="3" value = " "></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>`
+
+  let editModalTitle = document.querySelector(".modal-title");
+  editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`
 
    }
-
+  
 };
 
 

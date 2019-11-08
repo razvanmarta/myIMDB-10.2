@@ -44,8 +44,13 @@ const getMovie = async () => {
       `https://movies-api-siit.herokuapp.com/movies/${movieID}`
     );
     const movie = await response.json();
-    displayDetails(movie);
+    console.log(movie);
+    console.log("details", movieDetails);
+    Object.assign(movieDetails, movie);
+    movieDetails.displayMovieDetails();
+
   } catch (error) {
     console.log("Error getting movie :-): ", error);
   }
 };
+

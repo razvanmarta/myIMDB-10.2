@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="../assets/details.css" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
 
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
+  <link rel="stylesheet" href="../assets/bootstrap.min.css" />
 
   <title>myIMDB</title>
 </head>
@@ -27,20 +29,71 @@
       </ul>
     </div>
   </div>
-  <div class="detailsContainer">
-    <div class="detailsPoster"></div>
-    <div class="detailsTitle"></div>
-    <div class="detailsInfo"></div>
-    <div class="detailsPlot"></div>
-    <div class="detailsButtons">
-      <button id="detailsViewBtn" class="btn btn-primary">View IMDB </button>
+  
+  <div class = "container">
+      <div id="movie" class="card card-body bg-light"></div>
+  </div>
 
-      <!-- ModalBtn -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="detailsEditBtn">
-        Edit
-      </button>
-      <button id="detailsDeleteBtn" class="btn btn-primary">Delete</button>
+
+  <!-- Modal Edit-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit movie</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body form-group">
+
+          <label for="editTitle">Title:</label>
+          <input type="text" id="editTitle" value=" " required></input>
+
+          <label for="editAuthor">Author:</label>
+          <input type="text" id="editAuthor" value=" " required></input>
+
+          <label for="editYear">Year:</label>
+          <input type="text" id="editYear" value=" " required></input>
+
+          <label for="editLanguage">Language:</label>
+          <input type="text" id="editLanguage" value=" " required></input>
+  
+          <label for="editActors" id="editActors">Actors:</label>
+          <input type="text" id="editActors" value=" " required></input>
+
+          <label for="editPlot">Plot:</label>
+          <textarea type="text" id="editPlot" value=" " required></textarea>
+
+          <lable for="editGenre"> Genre: </lable>
+          <label for="editAction">Action</label>
+          <input type="checkbox" id="editAction" value="Action"></input>
+
+          <label for id="editAdventure">Adventure</label>
+          <input type="checkbox" id="editAdventure" value="Adventure"></input>
+
+          <label for="editCrime">Crime</label>
+          <input type="checkbox" id="editCrime" value="Crime"></input>
+
+          <label for="editDrama">Drama</label>
+          <input type="checkbox" id="editDrama" value="Drama"></input>
+
+          <label for="editSciFi">Sc-Fi</label>
+          <input type="checkbox" id="editSciFi" value="Sc-Fi"></input>
+
+          <label for="editAnimation">Animation</label>
+          <input type="checkbox" id="editAnimation" value="Animation"></input>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
+  </div>
+  </div>
 
     <!--Modal Register-->
     <div id="id01" class="w3-modal">
@@ -75,56 +128,6 @@
         </div>
       </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit movie</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <label for="editTitle">Title:</label>
-            <input type="text" id="editTitle" value="" required></input>
-            <label for="editAuthor">Author:</label>
-            <input type="text" id="editAuthor" value="" required></input>
-            <label for="editYear">Year:</label>
-            <input type="text" id="editYear" value="" required></input>
-            <label for="editLanguage">Language:</label>
-            <input type="text" id="editLanguage" value="" required></input>
-            <label for="editActors" id="editActors">Actors:</label>
-            <input type="text" id="editActors" value="" required></input>
-            <label for="editPlot">Plot:</label>
-            <textarea type="text" id="editPlot" value="" required></textarea>
-            <lable for="editGenre"> Genre:
-              <label for="editAction">Action</label>
-              <input type="checkbox" id="editAction" value="" ></input>
-              <label for id="editAdventure">Adventure</label>
-              <input type="checkbox" id="editAdventure"></input>
-              <label for="editCrime">Crime</label>
-              <input type="checkbox" id="editCrime" value=""></input>
-              <label for="editDrama">Drama</label>
-              <input type="checkbox" id="editDrama" value=""></input>
-              <label for="editSciFi">Sc-Fi</label>
-              <input type="checkbox" id="editSciFi" value=""></input>
-              <label for="editAnimation">Animation</label>
-              <input type="checkbox" id="editAnimation"></input>
-            </lable>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-</div>
   <!-- html burgerMenu -->
   <div id="burgerButton">
       <div id="containsLi" class="hide">
@@ -148,4 +151,3 @@
 </body>
 
 </html>
-

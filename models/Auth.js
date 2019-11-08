@@ -3,20 +3,7 @@ const registerURL = apiURLl + "/auth/register";
 const loginURL = apiURLl + "/auth/login";
 const logoutURL = apiURLl + "/auth/logout";
 
-// const registerButton = document.getElementById('register-button');
-// registerButton.addEventListener('click', function(){
-
-//     document.getElementById('modal-auth').showModal();
-//     }
-// )
-
-//hardcoded user (for testing purposes only)
-let user = {
-  username: "-=687697846876",
-  password: "1234"
-};
-
-//register function
+// Register function
 function registerNewUser(url, user) {
   fetch(url, {
     method: "POST",
@@ -25,11 +12,30 @@ function registerNewUser(url, user) {
     },
     body: JSON.stringify(user)
   })
-    .then(response => response.json())
-    .then(data => console.log(data));
+    .then(response => {
+      console.log("RESPONSE: ", response);
+      if (response.status == 200) {
+        modalAuth.style.display = "none";
+        registerUsername.value = "";
+        registerPassword.value = "";
+        registerPassword2.value = "";
+        registratedAlert.classList.remove("d-none");
+        setTimeout(function() {
+          registratedAlert.classList.add("d-none");
+        }, 3000);
+      } else if (response.status == 409) {
+        registerAlert.innerHTML = "Username already exists!";
+        registerAlert.classList.remove("d-none");
+      }
+      return response.json();
+    })
+    .then(data => {
+      const { accessToken } = data;
+      sessionStorage.setItem("accessToken", accessToken);
+    });
 }
 
-//login function
+// Login function
 function logIn(url, user) {
   fetch(url, {
     method: "POST",

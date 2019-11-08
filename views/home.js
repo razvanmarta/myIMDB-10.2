@@ -1,17 +1,41 @@
 // Variables!!! check here if the element you need is not already assigned to a variable
 // Here is where you will add it if it's not
+
 const movieList = document.querySelector(".movieList");
+
+// Search related variables
 const searchfield = document.getElementById("searchfield");
 const search = document.getElementById("search");
-const homeBtn = document.getElementsByClassName("menu-item")[0];
-const loginBtn = document.getElementsByClassName("menu-item")[1];
-const registerBtn = document.getElementsByClassName("menu-item")[2];
+const searchCategories = document.getElementById("search-options");
+
+// Navbar variables
+const homeBtn = document.getElementById("home-button");
+const loginBtn = document.getElementById("login-button");
+const registerBtn = document.getElementById("register-button");
+
+// Movie container variables
+
 const prevPage = document.querySelector(".previous-page");
 const nextPage = document.querySelector(".next-page");
 const pageNr = document.querySelector(".pageNumber");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 
+// Register variables
+const modalAuth = document.getElementById("id01");
+const closeRegister = document.getElementById("close-register-btn");
+const registerUsername = document.getElementById("exampleInputUsername");
+const registerPassword = document.getElementById("exampleInputPassword1");
+const registerPassword2 = document.getElementById("exampleInputPassword2");
+let registerAlert = document.getElementById("register-alert");
+let registratedAlert = document.getElementById("registrated-alert");
+
 let filteredMovies = () => searchfield.value;
+
+let searchedCategory = () => {
+  const selection = searchCategories[searchCategories.selectedIndex].value;
+  console.log(selection);
+  return selection;
+};
 
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
@@ -62,12 +86,41 @@ const createMovieItem = movie => {
 
 const disableLink = link => {};
 
+// Open register-modal function
+let displayElement = element => {
+  element.style.display = "block";
+};
+
+//Close register-modal function + empty fields and hide alert if it's the case
+let hideElement = element => {
+  element.style.display = "none";
+};
+
+const clearModalFields = () => {
+  registerUsername.value = "";
+  registerPassword.value = "";
+  registerPassword2.value = "";
+  registerAlert.classList.add("d-none");
+  registerAlert.innerHTML = "";
+};
+
+//Open register-modal eventlistener
+registerBtn.addEventListener("click", () => displayElement(modalAuth));
+
+//Close register-modal eventlistener
+closeRegister.addEventListener("click", () => {
+  hideElement(modalAuth);
+  clearModalFields();
+});
+
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
-loginBtn.addEventListener("click", () => logIn(loginURL, user));
-registerBtn.addEventListener("click", () => registerNewUser(registerURL, user));
+//loginBtn.addEventListener("click", () => logIn(loginURL, user));
 searchfield.addEventListener("keyup", filteredMovies);
 search.addEventListener("click", renderFilteredMovies);
+search.addEventListener("click", () =>
+  renderFilteredMovies(searchedCategory())
+);
 prevPage.addEventListener("click", () => makeCallToServer(prev));
 nextPage.addEventListener("click", () => makeCallToServer(next));
 

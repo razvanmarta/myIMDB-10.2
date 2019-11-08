@@ -18,14 +18,14 @@ const makeCallToServer = async apiURL => {
 };
 
 //Search functionality function
-const renderFilteredMovies = async () => {
+const renderFilteredMovies = async param => {
   const filteredFilms = filteredMovies();
   if (!filteredFilms) {
     return;
   }
   movieList.innerHTML = "";
   const request = await fetch(
-    `https://movies-api-siit.herokuapp.com/movies?Title=${filteredFilms}`
+    `https://movies-api-siit.herokuapp.com/movies?${param}=${filteredFilms}`
   );
   const data = await request.json();
   const results = await data.results;
@@ -45,11 +45,10 @@ const getMovie = async () => {
     );
     const movie = await response.json();
     console.log(movie);
-    
     console.log("details", movieDetails);
     Object.assign(movieDetails, movie);
     movieDetails.displayMovieDetails();
-   
+
   } catch (error) {
     console.log("Error getting movie :-): ", error);
   }

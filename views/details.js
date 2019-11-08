@@ -1,4 +1,5 @@
 
+
 movieDetails = {
 
   displayMovieDetails: function () {

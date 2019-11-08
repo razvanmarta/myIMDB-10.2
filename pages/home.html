@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../assets/home.css" />
     
     <link
@@ -19,6 +21,7 @@
     <div class="navigation">
       <div class="navigation-items">
         <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
+        <div class="alert alert-info d-none" role="alert" id="registrated-alert">Registration was successful !</div>
         <ul class="navigation-menu">
           <li class="menu-item" id="home-button"><i class="fas fa-home"></i> Home</li>
           <li class="menu-item" id="login-button"><i class="fas fa-user"></i> Login</li>
@@ -64,13 +67,13 @@
       <h2 class="pageNumber">-1-</h2>
     </div>
 
-    <!--Modal Register-->
-    <dialog id="modal-auth">
+    <!--Modal Register-->  
+    
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4" id="register-container">    
       <div id="dialog-container">
-      <span class="glyphicon glyphicon-remove-circle" id='close-register-btn'></span>  
-      
+      <i class="far fa-times-circle 2x" id='close-register-btn'></i>       
       <h2 id="register-header">Register</h2>
-
       <form id="register-form">
         <div class="form-group">
           <label for="exampleInputEmail1">Username</label>
@@ -85,9 +88,8 @@
           <label for="exampleInputPassword1">Re-enter password</label>
           <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-enter password here">
         </div>
-        <div class="alert alert-danger hidden" role="alert" id="register-alert">            
+        <div class="alert alert-danger d-none" role="alert" id="register-alert">            
         </div>
-
         <div id="account-button-container">
           <button id="create-account-button" class="btn btn-primary">Create account</button>
         </div>
@@ -95,8 +97,10 @@
           <h4>Already have an account?<a href="#">Sign in</a><i class="fas fa-chevron-right fa-xs"></i></h4>          
         </div>
       </form> 
-      </div>     
-    </dialog>
+      </div>    
+      </div>
+    </div>
+    
 
     <footer>
       <sectionOne>

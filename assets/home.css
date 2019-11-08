@@ -267,17 +267,16 @@ body {
 /* Search end */
 
 /*Registration dialog*/
-#modal-auth {
+#register-container {
   margin-left: 30%;
   margin-right: 30%;
   width: auto;
   height: auto;
+  border-style: solid;
+  border-color: black;
   border-radius: 25px;
-}
-
-dialog {
-  margin: 20px;
-  padding: 1em;
+  padding: 1.5em;
+  min-width: 250px;
 }
 
 .register-form {
@@ -330,9 +329,22 @@ dialog {
   justify-content: center;
 }
 
+#registrated-alert {
+  position: absolute;
+  top: 5.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: lightskyblue;
+  border-radius: 25px;
+}
+
 /*Footer*/
 
-/* * {
+/* {
   margin: 0;
   padding: 0; 
 }
@@ -347,7 +359,7 @@ footer {
   border: none;
   background-color: #414040;
   height: 200px;
-}
+} */
 
 /*Section one / first column*/
 

@@ -21,12 +21,13 @@ const pageNr = document.querySelector(".pageNumber");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 
 // Register variables
-const modalAuth = document.getElementById("modal-auth");
+const modalAuth = document.getElementById("id01");
 const closeRegister = document.getElementById("close-register-btn");
 const registerUsername = document.getElementById("exampleInputUsername");
 const registerPassword = document.getElementById("exampleInputPassword1");
 const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
+let registratedAlert = document.getElementById("registrated-alert");
 
 let filteredMovies = () => searchfield.value;
 
@@ -86,25 +87,31 @@ const createMovieItem = movie => {
 const disableLink = link => {};
 
 // Open register-modal function
-let openRegisterModal = () => {
-  modalAuth.showModal();
+let displayElement = element => {
+  element.style.display = "block";
 };
 
 //Close register-modal function + empty fields and hide alert if it's the case
-let closeRegisterModal = () => {
-  modalAuth.close();
+let hideElement = element => {
+  element.style.display = "none";
+};
+
+const clearModalFields = () => {
   registerUsername.value = "";
   registerPassword.value = "";
   registerPassword2.value = "";
-  registerAlert.classList.add("hidden");
+  registerAlert.classList.add("d-none");
   registerAlert.innerHTML = "";
 };
 
 //Open register-modal eventlistener
-registerBtn.addEventListener("click", openRegisterModal);
+registerBtn.addEventListener("click", () => displayElement(modalAuth));
 
 //Close register-modal eventlistener
-closeRegister.addEventListener("click", closeRegisterModal);
+closeRegister.addEventListener("click", () => {
+  hideElement(modalAuth);
+  clearModalFields();
+});
 
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));

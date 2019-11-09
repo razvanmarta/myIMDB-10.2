@@ -42,7 +42,7 @@ movieDetails = {
     </div>
     </div>`;
 
-    //event listener in viewImdb Button with window.open() approach  
+    //event listener for the viewImdb Button with window.open() approach  
 
     let viewImdbBtn = document.querySelector("#detailsViewBtn");
 
@@ -51,73 +51,75 @@ movieDetails = {
     onclick = window.open(linkToImdb);
     })
 
-    //event listener in editDetailsBtn
+    //event listener for the editDetailsBtn
     let editModalCloseBtn = document.querySelector("#editModalClose");
     let editCloseBtn = document.querySelector("#editClose");
     let editDetailsdBtn = document.querySelector("#detailsEditBtn")
 
-    // close and open the Edit Modal
+    
     let editModal = document.querySelector("#editModal");
 
+    //display data in Edit Modal
     editDetailsdBtn.addEventListener("click", () => {
       this.editBtnEvents();
-      editModal.style.display ="block";
+      displayElement(editModal);
     })
 
+    // close and open the Edit Modal
     editModalCloseBtn.addEventListener("click", () => {
-      editModal.style.display ="none";
+      hideElement(editModal);
     })
 
     editCloseBtn.addEventListener("click", () => {
-      editModal.style.display ="none";
+      hideElement(editModal);
     })
 
 
   },
 
   editBtnEvents() {
-    let editModal = document.querySelector(".modal-body");
-   
-  editModal.innerHTML = `
+    let editModalBody = document.querySelector(".modal-body");
+
+  editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <input type="text" class="form-control" id="editTitle" value =" ">
+          <textarea class="form-control-me" id="editTitle" value = " "></textarea>
           
           <label for="editGenre">Genre:</label>
-          <input type="text" class="form-control" id="editGenre" value=" ">
+          <textarea class="form-control-me" id="editGenre" value=" "></textarea>
 
           <label for = "editType">Type:</label>
-          <input type="text" class="form-control" id="editType" value=" ">
+          <textarea class="form-control-me" id="editType" name = "Genre" value=" "></textarea>
 
           <label for = "editReleased">Released:</label>
-          <input type="text" class="form-control" id="editReleased" value=" ">
+          <textarea class="form-control-me" id="editReleased" value=" "></textarea>
 
          <label for = "editRated">Rated:</label>
-          <input type="text" class="form-control" id="editRated" value=" ">
+         <textarea class="form-control-me" id="editRated" value=" "></textarea>
 
           <label for = "editimdbRating">imdbRating:</label>
-          <input type="text" class="form-control" id="editimdbRating" value=" ">
+          <textarea class="form-control-me" id="editimdbRating" value=" "></textarea>
 
           <label for="editDirector">Director:</label>
-          <input type="text" class="form-control" id="editDirector" value=" ">
+          <textarea class="form-control-me" id="editDirector" value=" "></textarea>
 
           <label for="editWriter">Writer:</label>
-          <input type="text" class="form-control" id="editWriter" value=" ">
+          <textarea class="form-control-me" id="editWriter" value=" "></textarea>
 
           <label for="editAuthor">Actors:</label>
-          <input type="text" class="form-control" id="editActors" value=" ">
+          <textarea class="form-control-me" id="editActors" value=" "></textarea>
 
           <label for="editRuntime">Runtime:</label>
-          <input type="text" class="form-control" id="editRuntime" value=" ">
+          <textarea class="form-control-me" id="editRuntime" value=" "></textarea>
 
           <label for="editLanguage">Language:</label>
-          <input type="text" class="form-control" id="editLanguage" value=" ">
+          <textarea class="form-control-me" id="editLanguage" value=" "></textarea>
 
           <label for="editAwards">Awards:</label>
-          <input type="text" class="form-control" rows="3" id="editAwards" value=" ">
+          <textarea class="form-control-me" rows="3" id="editAwards" value=" "></textarea>
 
           <label for="editPlot">Plot:</label>
-          <textarea class="form-control"  id="editPlot" rows="3" value = " "></textarea>
+          <textarea class="form-control-me"  id="editPlot" rows="3" value = " "></textarea>
         </div>
       </div>
     </div>

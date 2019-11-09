@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="../assets/home.css" />
+
     <link rel="stylesheet" href="../assets/register.css" />
     <link
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
     />
     <link rel="stylesheet" href="../assets/bootstrap.min.css" />
+
     <title>myIMDB</title>
   </head>
   <body>
@@ -146,21 +148,21 @@
     </div>
 
     <!-- html burgerMenu -->
-    <div id="burgerButton">
-      <div id="containsLi" class="hide">
-        <div class="arrow"></div>
-        <ul>
-          <li id="menu-item">Home</li>
-          <li id="menu-item">Login</li>
-          <li id="menu-item">Register</li>
-        </ul>
-      </div>
-    </div>
-    <!-- end of burgerMenu -->
 
+    <div id="wrap-burger-menu">
+      <div id="burgerButton"></div>
+      <ul id="dropDownList" class="hideDropDownList">
+        <div class="arrow"></div>
+        <li id="menuBurger-home">Home</li>
+        <li id="menuBurger-login">Login</li>
+        <li id="menuBurger-register">Register</li>
+      </ul>
+    </div>
+
+    <!-- end of burgerMenu -->
+    <script src="../views/burgerMenu.js"></script>
     <script src="../views/home.js"></script>
     <script src="../models/Movie.js"></script>
-    <script src="../views/burgerMenu.js"></script>
     <script src="../views/search.js"></script>
     <script src="../views/pagination.js"></script>
     <script src="../models/Auth.js"></script>

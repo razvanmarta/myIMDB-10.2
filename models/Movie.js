@@ -1,7 +1,6 @@
 let next = null; //nextPage
 let prev = null; //previousPage
 
-//Search functionality function
 const renderFilteredMovies = async param => {
   const filteredFilms = filteredMovies();
   console.log(filteredFilms.length);

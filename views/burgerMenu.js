@@ -1,18 +1,53 @@
-// burgerMenu- add .show to click on it
+// burgerMenu- add .show
 const burgerButton = document.getElementById("burgerButton");
-burgerButton.addEventListener("click", () => {
-  const ulList = document.getElementById("containsLi");
-  if ((ulList.className = "hide")) {
-    ulList.classList.remove("hide");
-    ulList.classList.add("show");
+console.log(burgerButton);
+const dropDownList = document.getElementById("dropDownList");
+console.log(dropDownList);
+const outsideClick = document.getElementById("generalHideNavItem");
+const homeBurgerBtn = document.getElementById("menuBurger-home");
+const loginBurgerBtn = document.getElementById("menuBurger-login");
+const registerBurgerBtn = document.getElementById("menuBurger-register");
+
+function toggleDropList() {
+  if ((dropDownList.className = "hideDropDownList")) {
+    dropDownList.classList.remove("hideDropDownList");
+    dropDownList.classList.add("showDropDownList");
+  }
+}
+
+//show or hide menu list
+burgerButton.addEventListener("click", toggleDropList);
+
+// hide menu-item on click outside the list of items
+outsideClick.addEventListener("click", () => {
+  if ((dropDownList.className = "showDropDownList")) {
+    dropDownList.classList.remove("showDropDownList");
+    dropDownList.classList.add("hideDropDownList");
   }
 });
-// hide menu-item on click outside the list of items
-const outsideClick = document.getElementById("generalHideNavItem");
-outsideClick.addEventListener("click", () => {
-  const ulList = document.getElementById("containsLi");
-  if ((ulList.className = "show")) {
-    ulList.classList.remove("show");
-    ulList.classList.add("hide");
+
+// hide home
+
+homeBurgerBtn.addEventListener("click", () => {
+  if ((dropDownList.className = "showDropDownList")) {
+    dropDownList.classList.remove("showDropDownList");
+    dropDownList.classList.add("hideDropDownList");
   }
+});
+
+// // hide login
+
+loginBurgerBtn.addEventListener("click", () => {
+  if ((dropDownList.className = "showDropDownList")) {
+    dropDownList.classList.remove("showDropDownList");
+    dropDownList.classList.add("hideDropDownList");
+  }
+});
+
+registerBurgerBtn.addEventListener("click", () => {
+  if ((dropDownList.className = "showDropDownList")) {
+    dropDownList.classList.remove("showDropDownList");
+    dropDownList.classList.add("hideDropDownList");
+  }
+  displayElement(modalAuth);
 });

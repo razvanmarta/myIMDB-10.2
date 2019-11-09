@@ -127,7 +127,7 @@ body {
   margin: 20px auto;
   padding-top: 20px;
   width: 75%;
-  background-color: rgba(82, 82, 82, 0.877);
+  background-color: rgba(51, 51, 51, 0.877);
   position: relative;
   border-radius: 5px;
   border-style: ridge;
@@ -143,14 +143,14 @@ body {
 }
 .movieList {
   margin: 30px auto;
-  width: 85%;
+  width: 95%;
   height: 650px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 0.5px solid black;
+  border: 1px solid rgb(214, 214, 214);
   border-radius: 5px;
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(19, 19, 19);
   padding: 1.5%;
   position: relative;
   overflow-y: auto;
@@ -178,7 +178,8 @@ body {
 .movieItem-Title {
   font-family: sans-serif;
   font-weight: bold;
-  padding: 1px;
+  padding: 2px;
+  margin-top: 5px;
 }
 .film-info {
   display: flex;
@@ -200,45 +201,37 @@ body {
   font-family: cursive;
 }
 .poster {
-  width: 200px;
+  width: 190px;
   height: 200px;
-  bottom: 0;
+  border: 1px solid gray;
 }
 .placeholder {
-  width: 200px;
+  max-width: 190px;
   height: 200px;
   background-image: url("placeholder.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  margin: auto;
+  border-radius: 2px;
+  border: 1px solid gray;
 }
-.movie-counter {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 15px solid rgb(27, 27, 27);
+.page-counter {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 .next-page {
-  position: absolute;
-  right: calc(1% + 5px);
-  top: calc(50% - 10px);
-  width: 0;
-  height: 0;
+  margin-left: 10px;
+  margin-bottom: 5px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 10px solid rgb(27, 27, 27);
   cursor: pointer;
 }
 .previous-page {
-  position: absolute;
-  left: calc(1% + 5px);
-  top: calc(50% - 10px);
-  width: 0;
-  height: 0;
+  margin-right: 10px;
+  margin-bottom: 5px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-right: 10px solid rgb(27, 27, 27);
@@ -251,22 +244,10 @@ body {
 }
 /* Movie Container items end */
 
-/* Search start */
-.searchfield-container {
-  background-color: gray;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#searchfield {
-  margin: 10px;
-  padding: 5px;
-  width: 35%;
-}
-
-/* Search end */
-
 /*Registration dialog*/
+#id01 {
+  background-color: rgba(0, 0, 0, 0.9);
+}
 #register-container {
   margin-left: 30%;
   margin-right: 30%;
@@ -342,152 +323,30 @@ body {
   border-radius: 25px;
 }
 
-/*Footer*/
-
-/* {
-  margin: 0;
-  padding: 0; 
-}
-
-body {
-  box-shadow: 0px 0px 20px grey;
-  max-width: 80%;
-  margin: auto;
-
-footer {
-  font-family: "Times New Roman", Times, serif;
-  border: none;
-  background-color: #414040;
-  height: 200px;
-} */
-
-/*Section one / first column*/
-
-sectionOne {
-  color: white;
-  width: 20%;
-  float: left;
-}
-
-sectionOne p {
-  padding: 20px 0px 2px 20px;
-}
-
-sectionOne p:hover {
-  opacity: 0.5;
-  color: rgb(226, 226, 71);
-}
-
-sectionOne p:last-child {
-  padding: 60px 0px 0px 10px;
-  font-size: 9px;
-  color: rgb(179, 174, 174);
-}
-
-/*Section two / second column*/
-
-sectionTwo {
-  color: white;
-  width: 20%;
-  float: left;
-}
-
-sectionTwo p {
-  padding: 20px 0px 2px 20px;
-}
-
-sectionTwo p:hover {
-  opacity: 0.5;
-  color: rgb(226, 226, 71);
-}
-
-/*Section three / third column*/
-
-sectionThree {
-  color: white;
-  width: 25%;
-  float: left;
-}
-
-.header {
-  margin: 20px 20px 10px 20px;
-  font-size: 21px;
-}
-
-.header:hover {
-  opacity: 0.5;
-  color: rgb(226, 226, 71);
-}
-
-sectionThree p {
-  text-align: center;
-}
-
-sectionThree p:hover {
-  opacity: 0.5;
-  color: rgb(226, 226, 71);
-}
-
-.join {
-  margin: 10px 0px 10px 35px;
-  background-color: rgb(105, 105, 46);
-  border: none;
-  border-radius: 10px;
-  height: 35px;
-  width: 200px;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.join:hover {
-  opacity: 0.5;
-  color: rgb(197, 197, 180);
-}
-
-/*Section four / forth column*/
-
-sectionFour {
-  color: white;
-  width: 35%;
-  float: left;
-}
-
-sectionFour p:hover {
-  opacity: 0.5;
-  color: rgb(226, 226, 71);
-}
-
-sectionFour p {
-  margin: 55px 0px 10px 60px;
-  font-size: 21px;
-}
-
-.fa {
-  margin: 10px 30px 0px 60px;
-  width: 30px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-size: 30px;
-}
-
-.fa:hover {
-  opacity: 0.5;
-  color: rgb(226, 226, 71);
-}
-
-/*End of Footer*/
-
 /* Searchfield container */
 
+/* Search start */
 .searchfield-container {
-  height: 40px;
+  width: 55%;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 15px auto 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
 }
+#searchfield {
+  margin: 10px;
+  padding: 35px;
+  width: 50%;
+  min-width: 150px;
+}
+
+/* Search end */
 
 #searchfield {
   border: 3px solid rgba(173, 173, 171, 0.877);
-  border-right: none;
   padding: 5px;
   height: 30px;
   border-radius: 5px 0 0 5px;
@@ -520,3 +379,6 @@ select {
 }
 
 /* End of searchfield container */
+::-webkit-scrollbar {
+  display: none;
+}

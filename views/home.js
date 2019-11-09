@@ -7,6 +7,7 @@ const movieList = document.querySelector(".movieList");
 const searchfield = document.getElementById("searchfield");
 const search = document.getElementById("search");
 const searchCategories = document.getElementById("search-options");
+console.log(searchCategories);
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
@@ -56,6 +57,7 @@ const removeMovieInfo = container => {
 // Store movie id in session storage and switch url to /details/html
 const showDetailsPage = movie => {
   sessionStorage.setItem("movieID", movie._id);
+  sessionStorage.setItem("imdbID", movie.imdbID);
   window.location = `details.html`;
 };
 
@@ -66,13 +68,13 @@ const createMovieItem = movie => {
   movie.Poster !== "N/A"
     ? (itemContainer.innerHTML = `
       <div>
-        <p class="movieItem-Title">${movie.Title}</p>
+        <p class="movieItem-Title ">${movie.Title}</p>
         <img class="poster"src='${movie.Poster}'/>
       </div>`)
     : (itemContainer.innerHTML = `
     <div>
       <p class="movieItem-Title">${movie.Title}</p>
-      <div class=placeholder></div>
+      <div class="placeholder"></div>
     </div>`);
   movieList.appendChild(itemContainer);
   itemContainer.addEventListener("mouseenter", () =>
@@ -83,8 +85,6 @@ const createMovieItem = movie => {
   );
   itemContainer.addEventListener("click", () => showDetailsPage(movie));
 };
-
-const disableLink = link => {};
 
 // Open register-modal function
 let displayElement = element => {
@@ -109,8 +109,8 @@ registerBtn.addEventListener("click", () => displayElement(modalAuth));
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {
-  hideElement(modalAuth);
   clearModalFields();
+  hideElement(modalAuth);
 });
 
 //Event Listeners

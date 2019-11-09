@@ -1,24 +1,44 @@
-
-
-  #detailsButtons {
-    margin: 30px auto 0px auto;
-  }
-
-  .modal-content{
-    height: 500px;
-    overflow: scroll;
-    position: relative; 
-    top: 80px;
-    left: 10%;   
-  }
-
-  ::-webkit-scrollbar{
-    display: none;
-  }
-
-.modal{
-  top:50%;
+#detailsButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px auto 0px auto;
 }
-#editPlot{
+#detailsButtons * {
+  padding: 10px;
+}
+#movie {
+  margin-top: 20px;
+}
+.modal-content {
+  height: 500px;
+  overflow: scroll;
+  position: relative;
+  top: 80px;
+  left: 10%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.modal {
+  top: 50%;
+}
+#editModal {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+#editPlot {
   height: calc((2em + 1.5rem) + 2px);
+}
+#register-header {
+  color: gray;
+}
+#modalContainer {
+  border-style: ridge;
+  border: 2px solid #fff;
+}
+#Title {
+  margin-top: 10px;
+  text-align: center;
 }

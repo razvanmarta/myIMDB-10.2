@@ -21,6 +21,7 @@ function registerNewUser(url, user) {
         setTimeout(function() {
           registratedAlert.classList.add("d-none");
         }, 3000);
+        showUserIsLoggedIn();
       } else if (response.status == 409) {
         registerAlert.innerHTML = "Username already exists!";
         registerAlert.classList.remove("d-none");

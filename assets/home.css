@@ -73,7 +73,7 @@ body {
   top: 65px;
 }
 
-#menu-home {
+#menuBurger-home {
   background-color: rgb(12, 2, 2);
   text-align: center;
   list-style-type: none;
@@ -86,8 +86,8 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-#menu-login,
-#menu-register {
+#menuBurger-login,
+#menuBurger-register {
   background-color: rgb(12, 2, 2);
   text-align: center;
   list-style-type: none;
@@ -98,9 +98,9 @@ body {
   font-size: 1.2em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#menu-home:hover,
-#menu-login:hover,
-#menu-register:hover {
+#menuBurger-home:hover,
+#menuBurger-login:hover,
+#menuBurger-register:hover {
   color: #f00;
   cursor: pointer;
 }
@@ -136,10 +136,10 @@ body {
     text-align: center;
   }
 }
-.show {
+.showDropDawnList {
   display: block;
 }
-.hide {
+.hideDropDownList {
   display: none;
 }
 /* end of styling burger menu */

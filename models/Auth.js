@@ -31,8 +31,9 @@ function registerNewUser(url, user) {
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {
+        newUser = sessionStorage.getItem("userName");
         showUserIsLoggedIn();
-        displayUserName(newUser.username);
+        displayUserName(newUser);
       }
     });
 }

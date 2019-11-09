@@ -3,13 +3,14 @@
 
 const movieList = document.querySelector(".movieList");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
-const newUser = {};
+let newUser = sessionStorage.getItem("userName");
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
 const loginBtn = document.getElementById("login-button");
 const registerBtn = document.getElementById("register-button");
 const logOutBtn = document.getElementById("logout-button");
+const userContainer = document.getElementById("userContainer");
 const helloUser = document.getElementById("helloUser");
 
 // Register variables
@@ -130,14 +131,14 @@ const showUserIsLoggedIn = () => {
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
-  displayElement(helloUser);
+  displayElement(userContainer);
 };
 
 const showUserIsLoggedOut = () => {
   displayElement(loginBtn);
   displayElement(registerBtn);
   hideElement(logOutBtn);
-  hideElement(helloUser);
+  hideElement(userContainer);
 };
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
@@ -179,5 +180,5 @@ const displayUserName = user => {
 
 if (checkIfLoggedIn()) {
   showUserIsLoggedIn();
-  displayUserName(newUser.username);
+  displayUserName(newUser);
 }

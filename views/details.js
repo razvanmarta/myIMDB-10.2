@@ -39,18 +39,14 @@ movieDetails = {
             <h3 class="card-title">Trailer</h3>
             <hr/>
             <div class="embed-responsive">
-<<<<<<< HEAD
-              <iframe class="embed-responsive-item" src="" allowfullscreen scrolling="no"></iframe>
-=======
               <iframe class="embed-responsive-item" src="" allowfullscreen scrolling ="no"></iframe>
->>>>>>> 69b7dfa6cc6de838a732356ed3fe69749b62ca63
             </div>
       </div>
     </div>
     `;
 
+    //event listener in viewImdb Button with window.open() approach
 
-    //event listener for the viewImdb Button with window.open() approach  
     let viewImdbBtn = document.querySelector("#detailsViewBtn");
 
     viewImdbBtn.addEventListener("click", () => {
@@ -58,81 +54,71 @@ movieDetails = {
       onclick = window.open(linkToImdb);
     });
 
-    //event listener for the editDetailsBtn
+    //event listener in editDetailsBtn
     let editModalCloseBtn = document.querySelector("#editModalClose");
     let editCloseBtn = document.querySelector("#editClose");
     let editDetailsdBtn = document.querySelector("#detailsEditBtn");
 
-    
+    // close and open the Edit Modal
     let editModal = document.querySelector("#editModal");
 
-    //display data in Edit Modal
     editDetailsdBtn.addEventListener("click", () => {
       this.editBtnEvents();
       displayElement(editModal);
-    })
+    });
 
-
-    // close and open the Edit Modal
     editModalCloseBtn.addEventListener("click", () => {
       hideElement(editModal);
-    })
+    });
 
     editCloseBtn.addEventListener("click", () => {
-      hideElement(editModal);
-    })
-
-
+      editModal.style.display = "none";
+    });
   },
 
   editBtnEvents() {
-    let editModalBody = document.querySelector(".modal-body");
+    let editModal = document.querySelector(".modal-body");
 
-  editModalBody.innerHTML = `
+    editModal.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle" value = " "></textarea>
+          <input type="text" class="form-control" id="editTitle" value ="">
           
           <label for="editGenre">Genre:</label>
-          <textarea class="form-control-me" id="editGenre" value=" "></textarea>
+          <input type="text" class="form-control" id="editGenre" value=" ">
 
           <label for = "editType">Type:</label>
-          <textarea class="form-control-me" id="editType" name = "Genre" value=" "></textarea>
+          <input type="text" class="form-control" id="editType" value=" ">
 
           <label for = "editReleased">Released:</label>
-          <textarea class="form-control-me" id="editReleased" value=" "></textarea>
+          <input type="text" class="form-control" id="editReleased" value=" ">
 
-<<<<<<< HEAD
           <label for = "editRated">Rated:</label>
           <input type="text" class="form-control" id="editRated" value=" ">
-=======
-         <label for = "editRated">Rated:</label>
-         <textarea class="form-control-me" id="editRated" value=" "></textarea>
->>>>>>> 69b7dfa6cc6de838a732356ed3fe69749b62ca63
 
           <label for = "editimdbRating">imdbRating:</label>
-          <textarea class="form-control-me" id="editimdbRating" value=" "></textarea>
+          <input type="text" class="form-control" id="editimdbRating" value=" ">
 
           <label for="editDirector">Director:</label>
-          <textarea class="form-control-me" id="editDirector" value=" "></textarea>
+          <input type="text" class="form-control" id="editDirector" value=" ">
 
           <label for="editWriter">Writer:</label>
-          <textarea class="form-control-me" id="editWriter" value=" "></textarea>
+          <input type="text" class="form-control" id="editWriter" value=" ">
 
           <label for="editAuthor">Actors:</label>
-          <textarea class="form-control-me" id="editActors" value=" "></textarea>
+          <input type="text" class="form-control" id="editActors" value=" ">
 
           <label for="editRuntime">Runtime:</label>
-          <textarea class="form-control-me" id="editRuntime" value=" "></textarea>
+          <input type="text" class="form-control" id="editRuntime" value=" ">
 
           <label for="editLanguage">Language:</label>
-          <textarea class="form-control-me" id="editLanguage" value=" "></textarea>
+          <input type="text" class="form-control" id="editLanguage" value=" ">
 
           <label for="editAwards">Awards:</label>
-          <textarea class="form-control-me" rows="3" id="editAwards" value=" "></textarea>
+          <input type="text" class="form-control" rows="3" id="editAwards" value=" ">
 
           <label for="editPlot">Plot:</label>
-          <textarea class="form-control-me"  id="editPlot" rows="3" value = " "></textarea>
+          <textarea class="form-control"  id="editPlot" rows="3" value = " "></textarea>
         </div>
       </div>
     </div>
@@ -156,4 +142,4 @@ const displayTrailer = trailer => {
 };
 
 getMovie();
-getTrailer();
+// getTrailer();

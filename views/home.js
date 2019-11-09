@@ -2,24 +2,14 @@
 // Here is where you will add it if it's not
 
 const movieList = document.querySelector(".movieList");
-
-// Search related variables
-const searchfield = document.getElementById("searchfield");
-const search = document.getElementById("search");
-const searchCategories = document.getElementById("search-options");
-console.log(searchCategories);
+const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
 const loginBtn = document.getElementById("login-button");
 const registerBtn = document.getElementById("register-button");
-
-// Movie container variables
-
-const prevPage = document.querySelector(".previous-page");
-const nextPage = document.querySelector(".next-page");
-const pageNr = document.querySelector(".pageNumber");
-const apiURL = "https://movies-api-siit.herokuapp.com/movies";
+const logOutBtn = document.getElementById("logout-button");
+const helloUser = document.getElementById("helloUser");
 
 // Register variables
 const modalAuth = document.getElementById("id01");
@@ -29,14 +19,6 @@ const registerPassword = document.getElementById("exampleInputPassword1");
 const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
 let registratedAlert = document.getElementById("registrated-alert");
-
-let filteredMovies = () => searchfield.value;
-
-let searchedCategory = () => {
-  const selection = searchCategories[searchCategories.selectedIndex].value;
-  console.log(selection);
-  return selection;
-};
 
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
@@ -113,16 +95,40 @@ closeRegister.addEventListener("click", () => {
   hideElement(modalAuth);
 });
 
+const showUserIsLoggedIn = () => {
+  hideElement(loginBtn);
+  hideElement(registerBtn);
+  displayElement(logOutBtn);
+  displayElement(helloUser);
+};
+
+const showUserIsLoggedOut = () => {
+  displayElement(loginBtn);
+  displayElement(registerBtn);
+  hideElement(logOutBtn);
+  hideElement(helloUser);
+};
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
-//loginBtn.addEventListener("click", () => logIn(loginURL, user));
-searchfield.addEventListener("keyup", filteredMovies);
-search.addEventListener("click", renderFilteredMovies);
-search.addEventListener("click", () =>
-  renderFilteredMovies(searchedCategory())
-);
-prevPage.addEventListener("click", () => makeCallToServer(prev));
-nextPage.addEventListener("click", () => makeCallToServer(next));
+loginBtn.addEventListener("click", () => showUserIsLoggedIn());
+logOutBtn.addEventListener("click", () => showUserIsLoggedOut());
+
+// Used to handle servercalls for movies
+const makeCallToServer = async apiURL => {
+  movieList.innerHTML = "";
+  const request = await fetch(apiURL);
+  const data = await request.json();
+
+  const results = data.results;
+  const page = data.pagination.links;
+  const pageNumber = data.pagination.currentPage;
+  pageNr.innerText = ` - ${pageNumber} - `;
+  next = page.next;
+  prev = page.prev;
+  results.forEach(result => createMovieItem(result));
+};
 
 //Initial Call to fetch the movies from the database
-makeCallToServer(apiURL);
+if (window.location.href.includes("home.html")) {
+  makeCallToServer(apiURL);
+}

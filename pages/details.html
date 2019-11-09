@@ -34,23 +34,24 @@
           </div>
           <ul class="navigation-menu">
             <li class="menu-item" id="home-button">
-              <i class="fas fa-home"></i> Home
+              <i class="fas fa-home fa-lg"></i> Home
             </li>
             <li class="menu-item" id="login-button">
-              <i class="fas fa-user"></i> Login
+              <i class="fas fa-user fa-lg"></i> Login
             </li>
             <li class="menu-item" id="register-button">
-              <i class="fas fa-user-plus"></i> Register
+              <i class="fas fa-user-plus fa-lg"></i> Register
+            </li>
+            <li class="menu-item" id="logout-button">
+              <i class="fas fa-sign-out-alt fa-lg"></i> Logout
+            </li>
+            <li class="menu-item" id="helloUser">
+              <i class="far fa-handshake fa-lg"></i> Hello, User
             </li>
           </ul>
         </div>
       </div>
-
-      <div class="container">
-        <div id="movie" class="card card-body bg-light"></div>
-      </div>
     </div>
-  </div>
   
   <div class = "container">
       <div id="movie" class="card card-body bg-light"></div>
@@ -74,6 +75,7 @@
           <button type="button" class="btn btn-danger" id = "editClose">Close</button>
         </div>
       </div>
+    </div>
     </div>
 
     <!--Modal Register-->
@@ -148,10 +150,10 @@
     <!-- end of burgerMenu -->
 
     <script src="../views/home.js"></script>
+    <script src="../models/Movie.js"></script>
     <script src="../views/burgerMenu.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../views/register.js"></script>
-    <script src="../models/Movie.js"></script>
     <script src="../views/details.js"></script>
   </body>
 </html>

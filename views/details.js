@@ -43,10 +43,10 @@ movieDetails = {
             </div>
       </div>
     </div>
+  </div>
     `;
 
-
-    //event listener for the viewImdb Button with window.open() approach  
+    //event listener for the viewImdb Button with window.open() approach
     let viewImdbBtn = document.querySelector("#detailsViewBtn");
 
     viewImdbBtn.addEventListener("click", () => {
@@ -58,82 +58,75 @@ movieDetails = {
     let editModalCloseBtn = document.querySelector("#editModalClose");
     let editCloseBtn = document.querySelector("#editClose");
     let editDetailsdBtn = document.querySelector("#detailsEditBtn");
-
-    
     let editModal = document.querySelector("#editModal");
 
     //display data in Edit Modal
     editDetailsdBtn.addEventListener("click", () => {
+      let input = document.getElementById("#editTitle");
+      console.log(input);
       this.editBtnEvents();
       displayElement(editModal);
-    })
-
+    });
 
     // close and open the Edit Modal
     editModalCloseBtn.addEventListener("click", () => {
       hideElement(editModal);
-    })
+    });
 
     editCloseBtn.addEventListener("click", () => {
       hideElement(editModal);
-    })
-
+    });
   },
 
   editBtnEvents() {
     let editModalBody = document.querySelector(".modal-body");
 
-  editModalBody.innerHTML = `
+    editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle" value = " "></textarea>
+          <textarea class="form-control-me" id="editTitle" value ="">${this.Title}</textarea>
           
           <label for="editGenre">Genre:</label>
-          <textarea class="form-control-me" id="editGenre" value=" "></textarea>
+          <textarea class="form-control-me" id="editGenre" value=" ">${this.Genre}</textarea>
 
           <label for = "editType">Type:</label>
-          <textarea class="form-control-me" id="editType" name = "Genre" value=" "></textarea>
+          <textarea class="form-control-me" id="editType" value=" ">${this.Type}</textarea>
 
           <label for = "editReleased">Released:</label>
-          <textarea class="form-control-me" id="editReleased" value=" "></textarea>
+          <textarea class="form-control-me" id="editReleased" value=" ">${this.Released}</textarea>
 
          <label for = "editRated">Rated:</label>
-         <textarea class="form-control-me" id="editRated" value=" "></textarea>
+         <textarea class="form-control-me" id="editRated" value=" ">${this.Rated}</textarea>
 
           <label for = "editimdbRating">imdbRating:</label>
-          <textarea class="form-control-me" id="editimdbRating" value=" "></textarea>
+          <textarea class="form-control-me" id="editimdbRating" value=" ">${this.imdbRating}</textarea>
 
           <label for="editDirector">Director:</label>
-          <textarea class="form-control-me" id="editDirector" value=" "></textarea>
+          <textarea class="form-control-me" id="editDirector" value=" ">${this.Director}</textarea>
 
           <label for="editWriter">Writer:</label>
-          <textarea class="form-control-me" id="editWriter" value=" "></textarea>
+          <textarea class="form-control-me" id="editWriter" value=" ">${this.Writer}</textarea>
 
           <label for="editAuthor">Actors:</label>
-          <textarea class="form-control-me" id="editActors" value=" "></textarea>
+          <textarea class="form-control-me" id="editActors" value=" ">${this.Actors}</textarea>
 
           <label for="editRuntime">Runtime:</label>
-          <textarea class="form-control-me" id="editRuntime" value=" "></textarea>
+          <textarea class="form-control-me" id="editRuntime" value=" ">${this.Runtime}</textarea>
 
           <label for="editLanguage">Language:</label>
-          <textarea class="form-control-me" id="editLanguage" value=" "></textarea>
+          <textarea class="form-control-me" id="editLanguage" value=" ">${this.Language}</textarea>
 
           <label for="editAwards">Awards:</label>
-          <textarea class="form-control-me" rows="3" id="editAwards" value=" "></textarea>
+          <textarea class="form-control-me" rows="3" id="editAwards" value=" ">${this.Awards}</textarea>
 
           <label for="editPlot">Plot:</label>
-          <textarea class="form-control-me"  id="editPlot" rows="3" value = " "></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>`;
+          <textarea class="form-control-me"  id="editPlot" rows="3" value = " ">${this.Plot}</textarea>`;
 
     let editModalTitle = document.querySelector(".modal-title");
     editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
   }
 };
-  // code for getting the trailer
+// code for getting the trailer
 const displayTrailer = trailer => {
   const trailerContainer = document.querySelector(".embed-responsive");
   const trailerSource = document.querySelector(".embed-responsive-item");
@@ -144,9 +137,7 @@ const displayTrailer = trailer => {
     trailerSource.setAttribute("src", trailer.embed);
   }
   console.log(trailerContainer);
-
 };
-
 
 getMovie();
 getTrailer();

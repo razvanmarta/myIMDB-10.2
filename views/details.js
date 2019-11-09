@@ -61,8 +61,6 @@ movieDetails = {
 
     //display data in Edit Modal
     editDetailsdBtn.addEventListener("click", () => {
-      let input = document.getElementById("#editTitle");
-      console.log(input);
       this.editBtnEvents();
       displayElement(editModal);
     });
@@ -123,6 +121,10 @@ movieDetails = {
 
     let editModalTitle = document.querySelector(".modal-title");
     editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
+  },
+
+  getEditDetails() {
+    console.log(this);
   }
 };
 // code for getting the trailer

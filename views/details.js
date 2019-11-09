@@ -78,7 +78,6 @@ movieDetails = {
       hideElement(editModal);
     })
 
-
   },
 
   editBtnEvents() {
@@ -134,7 +133,7 @@ movieDetails = {
     editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
   }
 };
-
+  // code for getting the trailer
 const displayTrailer = trailer => {
   const trailerContainer = document.querySelector(".embed-responsive");
   const trailerSource = document.querySelector(".embed-responsive-item");
@@ -145,7 +144,9 @@ const displayTrailer = trailer => {
     trailerSource.setAttribute("src", trailer.embed);
   }
   console.log(trailerContainer);
+
 };
+
 
 getMovie();
 getTrailer();

@@ -1,8 +1,7 @@
 movieDetails = {
   displayMovieDetails: function() {
-    console.log("From displayMovieDetails: ", this);
+    // console.log("From displayMovieDetails: ", this);
     const detailsContainer = document.getElementById("movie");
-
     detailsContainer.innerHTML = `
     <div class = "row m-1">
       <div class= "col-md-4 m-auto text-center">
@@ -95,8 +94,8 @@ movieDetails = {
           <label for = "editReleased">Released:</label>
           <textarea class="form-control-me" id="editReleased" value=" ">${this.Released}</textarea>
 
-         <label for = "editRated">Rated:</label>
-         <textarea class="form-control-me" id="editRated" value=" ">${this.Rated}</textarea>
+          <label for = "editRated">Rated:</label>
+          <textarea class="form-control-me" id="editRated" value=" ">${this.Rated}</textarea>
 
           <label for = "editimdbRating">imdbRating:</label>
           <textarea class="form-control-me" id="editimdbRating" value=" ">${this.imdbRating}</textarea>

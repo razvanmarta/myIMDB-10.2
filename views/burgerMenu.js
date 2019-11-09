@@ -25,9 +25,3 @@ home.addEventListener("click", toggleDropList);
 login.addEventListener("click", toggleDropList);
 
 // hide register
-registermodal = document.getElementById("modalContainer");
-register.addEventListener("click", () => displayElement(registermodal));
-
-displayElement = element => {
-  element.style.display = "block";
-};

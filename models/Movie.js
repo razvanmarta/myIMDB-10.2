@@ -1,39 +1,9 @@
 let next = null; //nextPage
 let prev = null; //previousPage
 
-class Movie {
-  constructor(movie) {
-    Object.assign(this, movie);
-  }
-
-  createMovie() {
-    console.log(this);
-  }
-}
-// Used to handle servercalls for movies
-const makeCallToServer = async apiURL => {
-  movieList.innerHTML = "";
-  const request = await fetch(apiURL);
-  const data = await request.json();
-
-  const results = data.results;
-  console.log(results);
-  const page = data.pagination.links;
-  const pageNumber = data.pagination.currentPage;
-  console.log(pageNumber);
-  pageNr.innerText = ` - ${pageNumber} - `;
-  next = page.next;
-  prev = page.prev;
-  results.forEach(result => {
-    let movie = new Movie(result);
-    createMovieItem(result);
-    movie.createMovie();
-  });
-};
-
-//Search functionality function
 const renderFilteredMovies = async param => {
   const filteredFilms = filteredMovies();
+  console.log(filteredFilms.length);
   if (!filteredFilms) {
     return;
   }
@@ -47,7 +17,7 @@ const renderFilteredMovies = async param => {
   next = page.next;
   prev = page.prev;
   results.forEach(result => createMovieItem(result));
-  searchfield.value = "";
+  // searchfield.value = "";
 };
 
 // make call to server for details page
@@ -58,8 +28,24 @@ const getMovie = async () => {
       `https://movies-api-siit.herokuapp.com/movies/${movieID}`
     );
     const movie = await response.json();
-    displayDetails(movie);
+    console.log(movie);
+    console.log("details", movieDetails);
+    Object.assign(movieDetails, movie);
+    movieDetails.displayMovieDetails();
   } catch (error) {
     console.log("Error getting movie :-): ", error);
+  }
+};
+// get trailer from custom API
+const getTrailer = async () => {
+  let movieID = sessionStorage.getItem("imdbID");
+  try {
+    const trailerResonse = await fetch(
+      `https://imdb-extras.herokuapp.com/${movieID}/trailer`
+    );
+    const trailer = await trailerResonse.json();
+    displayTrailer(trailer);
+  } catch (error) {
+    console.log("Error getting trailer", error);
   }
 };

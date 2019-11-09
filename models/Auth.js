@@ -15,15 +15,15 @@ function registerNewUser(url, user) {
     .then(response => {
       console.log("RESPONSE: ", response);
       if (response.status == 200) {
-        modalAuth.close();
-        registerUsername.value = "";
-        registerPassword.value = "";
-        registerPassword2.value = "";
-
-        alert("Registration done");
+        hideElement(modalAuth);
+        clearModalFields();
+        registratedAlert.classList.remove("d-none");
+        setTimeout(function() {
+          registratedAlert.classList.add("d-none");
+        }, 3000);
       } else if (response.status == 409) {
         registerAlert.innerHTML = "Username already exists!";
-        registerAlert.classList.remove("hidden");
+        registerAlert.classList.remove("d-none");
       }
       return response.json();
     })

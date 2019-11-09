@@ -45,6 +45,12 @@ body {
   margin: 0px 0px 0px 10%;
   text-align: center;
 }
+#helloUser {
+  display: none;
+}
+#logout-button {
+  display: none;
+}
 
 /* Navbar End */
 

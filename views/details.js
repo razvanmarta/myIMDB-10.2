@@ -140,6 +140,5 @@ const displayTrailer = trailer => {
     trailerSource.setAttribute("src", trailer.embed);
   }
 };
-
 getMovie();
-// getTrailer();
+getTrailer();

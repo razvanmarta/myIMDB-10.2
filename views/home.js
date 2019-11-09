@@ -87,7 +87,10 @@ const clearModalFields = () => {
 };
 
 //Open register-modal eventlistener
-registerBtn.addEventListener("click", () => displayElement(modalAuth));
+registerBtn.addEventListener("click", () => {
+  console.log("click");
+  displayElement(modalAuth);
+});
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {

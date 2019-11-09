@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="../assets/home.css" />
-  <link rel="stylesheet" href="../assets/details.css" />
-  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../assets/home.css" />
+    <link rel="stylesheet" href="../assets/details.css" />
+    <link rel="stylesheet" href="../assets/register.css" />
+    <link
+      rel="stylesheet"
+      href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+    <link rel="stylesheet" href="../assets/bootstrap.min.css" />
+    <title>myIMDB</title>
+  </head>
 
-  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css" />
-  <link rel="stylesheet" href="../assets/bootstrap.min.css" />
+  <body>
+    <div id="generalHideNavItem">
+      <div class="navigation">
+        <div class="navigation-items">
+          <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
+          <div
+            class="alert alert-info d-none"
+            role="alert"
+            id="registrated-alert"
+          >
+            Registration was successful !
+          </div>
+          <ul class="navigation-menu">
+            <li class="menu-item" id="home-button">
+              <i class="fas fa-home"></i> Home
+            </li>
+            <li class="menu-item" id="login-button">
+              <i class="fas fa-user"></i> Login
+            </li>
+            <li class="menu-item" id="register-button">
+              <i class="fas fa-user-plus"></i> Register
+            </li>
+          </ul>
+        </div>
+      </div>
 
-  <title>myIMDB</title>
-</head>
-
-<body>
-<div id="generalHideNavItem">
-  <div class="navigation">
-    <div class="navigation-items">
-      <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
-      <ul class="navigation-menu">
-        <li class="menu-item" id="home-button"><i class="fas fa-home"></i> Home</li>
-        <li class="menu-item" id="login-button"><i class="fas fa-user"></i> Login</li>
-        <li class="menu-item" id="register-button"><i class="fas fa-user-plus"></i> Register</li>
-      </ul>
+      <div class="container">
+        <div id="movie" class="card card-body bg-light"></div>
+      </div>
     </div>
   </div>
   
@@ -52,43 +75,67 @@
         </div>
       </div>
     </div>
-  </div>
 
     <!--Modal Register-->
     <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-card-4" id="register-container">    
+      <div class="w3-modal-content w3-card-4" id="register-container">
         <div id="dialog-container">
-        <i class="far fa-times-circle 2x" id='close-register-btn'></i>       
-        <h2 id="register-header">Register</h2>
-        <form id="register-form">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" id="exampleInputUsername"  placeholder="Enter username here">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password here">
-            <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters.</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Re-enter password</label>
-            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-enter password here">
-          </div>
-          <div class="alert alert-danger d-none" role="alert" id="register-alert">            
-          </div>
-          <div id="account-button-container">
-            <button id="create-account-button" class="btn btn-primary">Create account</button>
-          </div>
-          <div id="a-account">
-            <h4>Already have an account?<a href="#">Sign in</a><i class="fas fa-chevron-right fa-xs"></i></h4>          
-          </div>
-        </form> 
-        </div>    
+          <i class="far fa-times-circle 2x" id="close-register-btn"></i>
+          <h2 id="register-header">Register</h2>
+          <form id="register-form" class="register-class-form">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputUsername"
+                placeholder="Enter username here"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Enter password here"
+              />
+              <small id="passwordHelp" class="form-text text-muted"
+                >Password must be at least 8 characters.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Re-enter password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword2"
+                placeholder="Re-enter password here"
+              />
+            </div>
+            <div
+              class="alert alert-danger d-none"
+              role="alert"
+              id="register-alert"
+            ></div>
+            <div id="account-button-container">
+              <button id="create-account-button" class="btn btn-primary">
+                Create account
+              </button>
+            </div>
+            <div id="a-account">
+              <h4 id="a-account1">
+                Already have an account?<a href="#">Sign in</a
+                ><i class="fas fa-chevron-right fa-xs"></i>
+              </h4>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
 
-  <!-- html burgerMenu -->
-  <div id="burgerButton">
+    <!-- html burgerMenu -->
+    <div id="burgerButton">
       <div id="containsLi" class="hide">
         <div class="arrow"></div>
         <ul>
@@ -98,15 +145,13 @@
         </ul>
       </div>
     </div>
-<!-- end of burgerMenu -->
+    <!-- end of burgerMenu -->
 
-<script src="../views/home.js"></script>
-<script src="../views/burgerMenu.js"></script>
-<script src="../models/Auth.js"></script> 
-<script src="../views/register.js"></script> 
-<script src="../models/Movie.js"></script>  
-<script src="../views/details.js"></script>
-
-</body>
-
+    <script src="../views/home.js"></script>
+    <script src="../views/burgerMenu.js"></script>
+    <script src="../models/Auth.js"></script>
+    <script src="../views/register.js"></script>
+    <script src="../models/Movie.js"></script>
+    <script src="../views/details.js"></script>
+  </body>
 </html>

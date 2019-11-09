@@ -48,9 +48,20 @@ const getMovie = async () => {
     console.log("details", movieDetails);
     Object.assign(movieDetails, movie);
     movieDetails.displayMovieDetails();
-
   } catch (error) {
     console.log("Error getting movie :-): ", error);
   }
 };
-
+// get trailer from custom API
+const getTrailer = async () => {
+  let movieID = sessionStorage.getItem("imdbID");
+  try {
+    const trailerResonse = await fetch(
+      `https://imdb-extras.herokuapp.com/${movieID}/trailer`
+    );
+    const trailer = await trailerResonse.json();
+    displayTrailer(trailer);
+  } catch (error) {
+    console.log("Error getting trailer", error);
+  }
+};

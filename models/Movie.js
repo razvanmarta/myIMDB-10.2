@@ -1,6 +1,15 @@
 let next = null; //nextPage
 let prev = null; //previousPage
 
+class Movie {
+  constructor(movie) {
+    Object.assign(this, movie);
+  }
+
+  createMovie() {
+    console.log(this);
+  }
+}
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {
   movieList.innerHTML = "";
@@ -8,13 +17,18 @@ const makeCallToServer = async apiURL => {
   const data = await request.json();
 
   const results = data.results;
+  console.log(results);
   const page = data.pagination.links;
   const pageNumber = data.pagination.currentPage;
   console.log(pageNumber);
   pageNr.innerText = ` - ${pageNumber} - `;
   next = page.next;
   prev = page.prev;
-  results.forEach(result => createMovieItem(result));
+  results.forEach(result => {
+    let movie = new Movie(result);
+    createMovieItem(result);
+    movie.createMovie();
+  });
 };
 
 //Search functionality function

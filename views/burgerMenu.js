@@ -1,18 +1,33 @@
-// burgerMenu- add .show to click on it
+// burgerMenu- add .show
 const burgerButton = document.getElementById("burgerButton");
-burgerButton.addEventListener("click", () => {
-  const ulList = document.getElementById("containsLi");
-  if ((ulList.className = "hide")) {
-    ulList.classList.remove("hide");
-    ulList.classList.add("show");
-  }
-});
-// hide menu-item on click outside the list of items
+const dropDownList = document.getElementById("dropDownList");
 const outsideClick = document.getElementById("generalHideNavItem");
-outsideClick.addEventListener("click", () => {
-  const ulList = document.getElementById("containsLi");
-  if ((ulList.className = "show")) {
-    ulList.classList.remove("show");
-    ulList.classList.add("hide");
-  }
-});
+
+const home = document.getElementById("menu-home");
+const login = document.getElementById("menu-login");
+const register = document.getElementById("menu-register");
+
+function toggleDropList() {
+  dropDownList.classList.toggle("show");
+}
+//show or hide menu list
+burgerButton.addEventListener("click", toggleDropList);
+
+// hide menu-item on click outside the list of items
+outsideClick.addEventListener("click", toggleDropList);
+
+// hide home
+
+home.addEventListener("click", toggleDropList);
+
+// hide login
+
+login.addEventListener("click", toggleDropList);
+
+// hide register
+registermodal = document.getElementById("modalContainer");
+register.addEventListener("click", () => displayElement(registermodal));
+
+displayElement = element => {
+  element.style.display = "block";
+};

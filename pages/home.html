@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />    
     <link rel="stylesheet" href="../assets/home.css" />
-    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
     />
-    
+    <link rel="stylesheet" href="../assets/addMovie.css"/>
     <title>myIMDB</title>
   </head>
   <body>
@@ -21,7 +21,7 @@
       <div class="navigation-items">
         <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
         <ul class="navigation-menu">
-          <li class="menu-item" id="home-button"><i class="fas fa-home"></i> Home</li>
+          <li class="menu-item" id="home-button"><i class="fas fa-home" ></i> Home</li>
           <li class="menu-item" id="login-button"><i class="fas fa-user"></i> Login</li>
           <li class="menu-item" id="register-button"><i class="fas fa-user-plus"></i> Register</li>
         </ul>
@@ -59,11 +59,73 @@
     <!-- add movie button -->
        <button id="add-movie" class="addMovieBtn">Add Movie</button>
     <!-- add movie button -->
+
     <!-- Movie Add Modal -->
         <div id="modalContainer" class="modalAll">
           <div class="modal-content">
-            <span class="closeBtn">&times;</span>
-            <h3>Add a movie...</h3>
+            <div class="modal-header">
+              <span class="closeBtn">&times;</span>
+              <h2>Add a movie...</h2>
+            </div>  
+            <div class="modal-body">
+                <form id="addMovie-form">
+                    <div class="movie-info">
+                      <label for="enterTitle">Title :</label>
+                      <input type="text" class="film-info" id="enterTitle"  placeholder="Enter title here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                      <label for="enterYear">Year :</label>
+                      <input type="text" class="film-info" id="enterYear"  placeholder="Enter year here" required>
+                    </div>
+
+                    <div class="movie-info">
+                      <label for="enterTitle">Runtime :</label>
+                      <input type="text" class="film-info" id="enterRuntime"  placeholder="Enter runtime here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterGenre">Genre :</label>
+                        <input type="text" class="film-info" id="enterGenre"  placeholder="Enter genre here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterDirector">Director :</label>
+                        <input type="text" class="film-info" id="enterDirector"  placeholder="Enter director here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterWriter">Writer :</label>
+                        <input type="text" class="film-info" id="enterWriter"  placeholder="Enter writer here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterLanguage">Language :</label>
+                        <input type="text" class="film-info" id="enterLanguage"  placeholder="Enter language here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterCountry">Country :</label>
+                        <input type="text" class="film-info" id="enterCountry"  placeholder="Enter country here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterBoxOffice">BoxOffice :</label>
+                        <input type="text" class="film-info" id="enterBoxOffice"  placeholder="BoxOffice here" required/>
+                    </div>
+
+                    <div class="movie-info">
+                        <label for="enterWebsite">Website :</label>
+                        <input type="text" class="film-info" id="enterWebsite"  placeholder="Enter website here" required/>
+                    </div>
+
+                    </form>
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+                <button type="button" id="saveChanges" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger " >Discard changes</button>
+            </div>
           </div>
         </div>
     <!-- Movie Add Modal -->
@@ -76,7 +138,7 @@
       <h2 class="pageNumber">-1-</h2>
     </div>
 
-    <!--Modal Register-->
+    
     <dialog id="modal-auth">
       <div id="dialog-container">
       <span class="glyphicon glyphicon-remove-circle" id='close-register-btn'></span>  
@@ -135,26 +197,22 @@
           <a href="#" class="fas fa-youtube"></a>
       </sectionFour>
     </footer>
-
-</div>
+  </div>
 <!-- html burgerMenu -->
-<div id="burgerButton">
-  <div id="containsLi" class="hide">
-    <div class="arrow"></div>
-    <ul>
-      <li id="menu-item">Home</li>
-      <li id="menu-item">Login</li>
-      <li id="menu-item">Register</li>
+  <div id='wrap-burger-menu'>
+    <div id="burgerButton"></div>
+    <ul id="dropDownList" class="hide">
+      <div class="arrow"></div>
+      <li id="menu-home">Home</li>
+      <li id="menu-login">Login</li>
+      <li id="menu-register">Register</li>
     </ul>
   </div>
-</div>
-<!-- end of burgerMenu -->
 
-<script src="../models/Movie.js"></script>
-<script src="../views/home.js"></script> 
+<!-- end of burgerMenu -->
 <script src="../views/burgerMenu.js"></script>
-<script src="../models/Auth.js"></script>
-<script src="../views/register.js"></script>
-       
-</body>
+<script src="../models/Movie.js"></script>
+<script src="../views/home.js"></script>    
+<script src="../views/addMovie.js"></script>
+  </body>
 </html>

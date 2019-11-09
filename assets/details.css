@@ -1,5 +1,15 @@
 #detailsButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 30px auto 0px auto;
+}
+
+#detailsButtons * {
+  padding: 10px;
+}
+#movie {
+  margin-top: 20px;
 }
 
 .modal-content {
@@ -18,6 +28,22 @@
   top: 50%;
 }
 
+#editModal {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
 #editPlot {
   height: calc((2em + 1.5rem) + 2px);
+}
+
+#register-header {
+  color: gray;
+}
+#modalContainer {
+  border-style: ridge;
+  border: 2px solid #fff;
+}
+#Title {
+  margin-top: 10px;
+  text-align: center;
 }

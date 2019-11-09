@@ -1,3 +1,7 @@
+/*Registration dialog*/
+#id01 {
+  background-color: rgba(0, 0, 0, 0.9);
+}
 #register-container {
   margin-left: 30%;
   margin-right: 30%;

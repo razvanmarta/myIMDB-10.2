@@ -138,6 +138,5 @@ const displayTrailer = trailer => {
   }
   console.log(trailerContainer);
 };
-
 getMovie();
 getTrailer();

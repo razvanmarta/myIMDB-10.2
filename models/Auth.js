@@ -21,7 +21,6 @@ function registerNewUser(url, user) {
         setTimeout(function() {
           registratedAlert.classList.add("d-none");
         }, 3000);
-        showUserIsLoggedIn();
       } else if (response.status == 409) {
         registerAlert.innerHTML = "Username already exists!";
         registerAlert.classList.remove("d-none");
@@ -31,6 +30,10 @@ function registerNewUser(url, user) {
     .then(data => {
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
+      if (checkIfLoggedIn()) {
+        showUserIsLoggedIn();
+        displayUserName(newUser.username);
+      }
     });
 }
 

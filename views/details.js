@@ -39,7 +39,7 @@ movieDetails = {
             <h3 class="card-title">Trailer</h3>
             <hr/>
             <div class="embed-responsive">
-              <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item" src="" allowfullscreen scrolling="no"></iframe>
             </div>
       </div>
     </div>
@@ -93,7 +93,7 @@ movieDetails = {
           <label for = "editReleased">Released:</label>
           <input type="text" class="form-control" id="editReleased" value=" ">
 
-         <label for = "editRated">Rated:</label>
+          <label for = "editRated">Rated:</label>
           <input type="text" class="form-control" id="editRated" value=" ">
 
           <label for = "editimdbRating">imdbRating:</label>
@@ -139,7 +139,6 @@ const displayTrailer = trailer => {
     trailerContainer.classList.add("embed-responsive-16by9");
     trailerSource.setAttribute("src", trailer.embed);
   }
-  console.log(trailerContainer);
 };
 
 getMovie();

@@ -1,25 +1,10 @@
 let next = null; //nextPage
 let prev = null; //previousPage
 
-// Used to handle servercalls for movies
-const makeCallToServer = async apiURL => {
-  movieList.innerHTML = "";
-  const request = await fetch(apiURL);
-  const data = await request.json();
-
-  const results = data.results;
-  const page = data.pagination.links;
-  const pageNumber = data.pagination.currentPage;
-  console.log(pageNumber);
-  pageNr.innerText = ` - ${pageNumber} - `;
-  next = page.next;
-  prev = page.prev;
-  results.forEach(result => createMovieItem(result));
-};
-
 //Search functionality function
 const renderFilteredMovies = async param => {
   const filteredFilms = filteredMovies();
+  console.log(filteredFilms.length);
   if (!filteredFilms) {
     return;
   }
@@ -33,7 +18,7 @@ const renderFilteredMovies = async param => {
   next = page.next;
   prev = page.prev;
   results.forEach(result => createMovieItem(result));
-  searchfield.value = "";
+  // searchfield.value = "";
 };
 
 // make call to server for details page

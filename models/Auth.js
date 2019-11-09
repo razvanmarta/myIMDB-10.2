@@ -15,10 +15,8 @@ function registerNewUser(url, user) {
     .then(response => {
       console.log("RESPONSE: ", response);
       if (response.status == 200) {
-        modalAuth.style.display = "none";
-        registerUsername.value = "";
-        registerPassword.value = "";
-        registerPassword2.value = "";
+        hideElement(modalAuth);
+        clearModalFields();
         registratedAlert.classList.remove("d-none");
         // setTimeout(function() {
         //   registratedAlert.classList.add("d-none");

@@ -30,6 +30,10 @@ function registerNewUser(url, user) {
     .then(data => {
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
+      if (checkIfLoggedIn()) {
+        showUserIsLoggedIn();
+        displayUserName(newUser.username);
+      }
     });
 }
 

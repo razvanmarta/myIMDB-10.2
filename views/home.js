@@ -3,6 +3,7 @@
 
 const movieList = document.querySelector(".movieList");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
+const newUser = {};
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
@@ -134,4 +135,22 @@ const makeCallToServer = async apiURL => {
 //Initial Call to fetch the movies from the database
 if (window.location.href.includes("home.html")) {
   makeCallToServer(apiURL);
+}
+
+const checkIfLoggedIn = () => {
+  const token = sessionStorage.getItem("accessToken");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const displayUserName = user => {
+  helloUser.innerText = `Hello, ${user}`;
+};
+
+if (checkIfLoggedIn()) {
+  showUserIsLoggedIn();
+  displayUserName(newUser.username);
 }

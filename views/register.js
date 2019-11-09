@@ -35,6 +35,9 @@ addAccountButton.addEventListener("click", function(event) {
     //url: registerURL
   };
 
+  // Create the globaly accesable userObject
+  Object.assign(newUser, user);
+
   // const newUser = new User (user);
   registerNewUser(registerURL, user);
 });

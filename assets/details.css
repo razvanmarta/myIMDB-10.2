@@ -2,10 +2,6 @@
   margin: 30px auto 0px auto;
 }
 
-#detailsButtons {
-  margin: 30px auto 0px auto;
-}
-
 .modal-content {
   height: 500px;
   overflow: scroll;
@@ -21,6 +17,7 @@
 .modal {
   top: 50%;
 }
+
 #editPlot {
   height: calc((2em + 1.5rem) + 2px);
 }

@@ -21,6 +21,13 @@ const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
 let registratedAlert = document.getElementById("registrated-alert");
 
+//Login variables
+const modalLogin = document.getElementById("id02");
+const closeLogin = document.getElementById("close-login-btn");
+const logInUsername = document.getElementById("login-username");
+const logInPassword = document.getElementById("login-password");
+let loginAlert = document.getElementById("login-alert");
+
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
   const filmInfo = document.createElement("div");
@@ -85,6 +92,11 @@ const clearModalFields = () => {
   registerPassword2.value = "";
   registerAlert.classList.add("d-none");
   registerAlert.innerHTML = "";
+
+  logInUsername.value = "";
+  logInPassword.value = "";
+  loginAlert.classList.add("d-none");
+  loginAlert.innerHTML = "";
 };
 
 //Open register-modal eventlistener
@@ -95,8 +107,23 @@ registerBtn.addEventListener("click", () => {
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {
+  console.log("click close");
   clearModalFields();
   hideElement(modalAuth);
+});
+
+//Open login-modal eventlistener
+loginBtn.addEventListener("click", () => {
+  console.log("click");
+  displayElement(modalLogin);
+
+  // showUserIsLoggedIn();
+});
+
+//Close login-modal eventlistener
+closeLogin.addEventListener("click", () => {
+  clearModalFields();
+  hideElement(modalLogin);
 });
 
 const showUserIsLoggedIn = () => {
@@ -114,7 +141,7 @@ const showUserIsLoggedOut = () => {
 };
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
-loginBtn.addEventListener("click", () => showUserIsLoggedIn());
+// loginBtn.addEventListener("click", () => showUserIsLoggedIn());
 logOutBtn.addEventListener("click", () => showUserIsLoggedOut());
 
 // Used to handle servercalls for movies

@@ -20,9 +20,9 @@ function registerNewUser(url, user) {
         registerPassword.value = "";
         registerPassword2.value = "";
         registratedAlert.classList.remove("d-none");
-        setTimeout(function() {
-          registratedAlert.classList.add("d-none");
-        }, 3000);
+        // setTimeout(function() {
+        //   registratedAlert.classList.add("d-none");
+        // }, 3000);
       } else if (response.status == 409) {
         registerAlert.innerHTML = "Username already exists!";
         registerAlert.classList.remove("d-none");

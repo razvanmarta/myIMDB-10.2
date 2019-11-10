@@ -21,6 +21,7 @@ const registerPassword = document.getElementById("exampleInputPassword1");
 const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
 let registratedAlert = document.getElementById("registrated-alert");
+const linkToLogin = document.getElementById("link-login");
 
 //Login variables
 const modalLogin = document.getElementById("id02");
@@ -28,6 +29,7 @@ const closeLogin = document.getElementById("close-login-btn");
 const logInUsername = document.getElementById("login-username");
 const logInPassword = document.getElementById("login-password");
 let loginAlert = document.getElementById("login-alert");
+const linkToRegister = document.getElementById("link-register");
 
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
@@ -117,8 +119,6 @@ closeRegister.addEventListener("click", () => {
 loginBtn.addEventListener("click", () => {
   console.log("click");
   displayElement(modalLogin);
-
-  // showUserIsLoggedIn();
 });
 
 //Close login-modal eventlistener
@@ -140,10 +140,27 @@ const showUserIsLoggedOut = () => {
   hideElement(logOutBtn);
   hideElement(userContainer);
 };
+
+//Switch to login modal, from register modal function
+const switchRegisterToLogin = () => {
+  clearModalFields();
+  hideElement(modalAuth);
+  displayElement(modalLogin);
+};
+
+//Switch to register modal, from login modal function
+const switchLoginToRegister = () => {
+  clearModalFields();
+  hideElement(modalLogin);
+  displayElement(modalAuth);
+};
+
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
 // loginBtn.addEventListener("click", () => showUserIsLoggedIn());
 logOutBtn.addEventListener("click", () => showUserIsLoggedOut());
+linkToLogin.addEventListener("click", () => switchRegisterToLogin());
+linkToRegister.addEventListener("click", () => switchLoginToRegister());
 
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/home.css" />
 
     <link rel="stylesheet" href="../assets/register.css" />
+    <link rel="stylesheet" href="../assets/login.css" />
     <link
       rel="stylesheet"
       href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
@@ -21,8 +22,9 @@
       <div class="navigation">
         <div class="navigation-items">
           <h3 class="logo">myIMDB <i class="fas fa-film fa-lg"></i></h3>
-          <div class="menu-item" id="helloUser">
-            <i class="far fa-handshake fa-lg"></i> Hello, User
+          <div class="menu-item" id="userContainer">
+            <i class="far fa-handshake fa-lg m-2"></i
+            ><span id="helloUser"> Hello, User </span>
           </div>
           <div
             class="alert alert-info d-none"
@@ -87,66 +89,115 @@
         </div>
       </div>
 
-      <!--Modal Register-->
+       <!--Modal Register-->
 
-      <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-card-4" id="register-container">
-          <div id="dialog-container">
-            <i class="far fa-times-circle 2x" id="close-register-btn"></i>
-            <h2 id="register-header">Register</h2>
-            <form id="register-form" class="register-class-form">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputUsername"
-                  placeholder="Enter username here"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Enter password here"
-                />
-                <small id="passwordHelp" class="form-text text-muted"
-                  >Password must be at least 8 characters.</small
-                >
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Re-enter password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword2"
-                  placeholder="Re-enter password here"
-                />
-              </div>
-              <div
-                class="alert alert-danger d-none"
-                role="alert"
-                id="register-alert"
-              ></div>
-              <div id="account-button-container">
-                <button id="create-account-button" class="btn btn-primary">
-                  Create account
-                </button>
-              </div>
-              <div id="a-account">
-                <h4 id="a-account1">
-                  Already have an account?<a href="#">Sign in</a
-                  ><i class="fas fa-chevron-right fa-xs"></i>
-                </h4>
-              </div>
-            </form>
+       <div id="id01" class="w3-modal">
+          <div class="w3-modal-content w3-card-4" id="register-container">
+            <div id="dialog-container">
+              <i class="far fa-times-circle 2x" id="close-register-btn"></i>
+              <h2 id="register-header">Register</h2>
+              <form class="register-class-form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername"
+                    placeholder="Enter username here"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Enter password here"
+                  />
+                  <small id="passwordHelp" class="form-text text-muted"
+                    >Password must be at least 8 characters.</small
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Re-enter password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword2"
+                    placeholder="Re-enter password here"
+                  />
+                </div>
+                <div
+                  class="alert alert-danger d-none"
+                  role="alert"
+                  id="register-alert"
+                ></div>
+                <div id="account-button-container">
+                  <button id="create-account-button" class="btn btn-primary">
+                    Create account
+                  </button>
+                </div>
+                <div id="a-account">
+                  <h4 id="a-account1">
+                    Already have an account?<a href="#">Sign in</a
+                    ><i class="fas fa-chevron-right fa-xs"></i>
+                  </h4>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  
 
+      <!-- Modal Login-->
+      <div id="id02" class="w3-modal">
+          <div class="w3-modal-content w3-card-4" id="register-container">
+            <div id="dialog-container">
+              <i class="far fa-times-circle 2x" id="close-login-btn"></i>
+              <h2 id="login-header">Log In</h2>
+              <form  class="register-class-form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="login-username"
+                    placeholder="Enter username here"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="login-password"
+                    placeholder="Enter password here"
+                  />                  
+                </div>                
+                <div
+                  class="alert alert-danger d-none"
+                  role="alert"
+                  id="login-alert"
+                ></div>
+                <div id="account-button-container">
+                  <button id="login-event-button" class="btn btn-primary">
+                    Log In
+                  </button>
+                </div>
+                <div id="a-account">
+                  <h4 id="a-account1">
+                    Don't have an account?<a href="#">Register</a
+                    ><i class="fas fa-chevron-right fa-xs"></i>
+                  </h4>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
     <!-- html burgerMenu -->
 
     <div id="wrap-burger-menu">
@@ -167,5 +218,6 @@
     <script src="../views/pagination.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../views/register.js"></script>
+    <script src="../views/login.js"></script>
   </body>
 </html>

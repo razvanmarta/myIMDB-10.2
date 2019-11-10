@@ -36,17 +36,23 @@ body {
   border-radius: 5px;
   display: inline;
 }
+.logo-container {
+  margin: 5px 0px 0px 5%;
+  text-align: center;
+}
 .logo {
   color: #fff;
   text-decoration: none;
   font-family: "Indie Flower", cursive;
   font-size: 2em;
   font-weight: 900;
-  margin: 0px 0px 0px 5%;
-  text-align: center;
+  display: contents;
 }
 #userContainer {
   display: none;
+  color: #fff;
+  margin: 2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #logout-button {
   display: none;

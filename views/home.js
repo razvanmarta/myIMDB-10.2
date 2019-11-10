@@ -134,6 +134,11 @@ const showUserIsLoggedIn = () => {
 };
 
 const showUserIsLoggedOut = () => {
+  const token = sessionStorage.getItem("accessToken");
+  logOut(token);
+  clearModalFields();
+  sessionStorage.removeItem("accessToken");
+  sessionStorage.removeItem("userName");
   displayElement(loginBtn);
   displayElement(registerBtn);
   hideElement(logOutBtn);

@@ -1,3 +1,5 @@
+let value = "";
+const putUrl = `https://movies-api-siit.herokuapp.com/movies/:id`;
 movieDetails = {
   displayMovieDetails: function() {
     // console.log("From displayMovieDetails: ", this);
@@ -58,11 +60,10 @@ movieDetails = {
     let editCloseBtn = document.querySelector("#editClose");
     let editDetailsdBtn = document.querySelector("#detailsEditBtn");
     let editModal = document.querySelector("#editModal");
+    let editSaveBtn = document.querySelector("#editSaveChanges");
 
     //display data in Edit Modal
     editDetailsdBtn.addEventListener("click", () => {
-      let input = document.getElementById("#editTitle");
-      console.log(input);
       this.editBtnEvents();
       displayElement(editModal);
     });
@@ -75,6 +76,11 @@ movieDetails = {
     editCloseBtn.addEventListener("click", () => {
       hideElement(editModal);
     });
+
+    editSaveBtn.addEventListener("click", () => {
+      hideElement(editModal);
+      this.getEditDetails();
+    });
   },
 
   editBtnEvents() {
@@ -83,48 +89,82 @@ movieDetails = {
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle" value ="">${this.Title}</textarea>
+          <textarea class="form-control-me" id="editTitle" onkeyup = handleInput(this) name = "Title">${this.Title}</textarea>
           
           <label for="editGenre">Genre:</label>
-          <textarea class="form-control-me" id="editGenre" value=" ">${this.Genre}</textarea>
+          <textarea class="form-control-me" id="editGenre" onkeyup = handleInput(this) name = "Genre">${this.Genre}</textarea>
 
           <label for = "editType">Type:</label>
-          <textarea class="form-control-me" id="editType" value=" ">${this.Type}</textarea>
+          <textarea class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type">${this.Type}</textarea>
 
           <label for = "editReleased">Released:</label>
-          <textarea class="form-control-me" id="editReleased" value=" ">${this.Released}</textarea>
+          <textarea class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released">${this.Released}</textarea>
 
           <label for = "editRated">Rated:</label>
-          <textarea class="form-control-me" id="editRated" value=" ">${this.Rated}</textarea>
+          <textarea class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated">${this.Rated}</textarea>
 
           <label for = "editimdbRating">imdbRating:</label>
-          <textarea class="form-control-me" id="editimdbRating" value=" ">${this.imdbRating}</textarea>
+          <textarea class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating">${this.imdbRating}</textarea>
 
           <label for="editDirector">Director:</label>
-          <textarea class="form-control-me" id="editDirector" value=" ">${this.Director}</textarea>
+          <textarea class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director">${this.Director}</textarea>
 
           <label for="editWriter">Writer:</label>
-          <textarea class="form-control-me" id="editWriter" value=" ">${this.Writer}</textarea>
+          <textarea class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer">${this.Writer}</textarea>
 
           <label for="editAuthor">Actors:</label>
-          <textarea class="form-control-me" id="editActors" value=" ">${this.Actors}</textarea>
+          <textarea class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors">${this.Actors}</textarea>
 
           <label for="editRuntime">Runtime:</label>
-          <textarea class="form-control-me" id="editRuntime" value=" ">${this.Runtime}</textarea>
+          <textarea class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime">${this.Runtime}</textarea>
 
           <label for="editLanguage">Language:</label>
-          <textarea class="form-control-me" id="editLanguage" value=" ">${this.Language}</textarea>
+          <textarea class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language">${this.Language}</textarea>
 
           <label for="editAwards">Awards:</label>
-          <textarea class="form-control-me" rows="3" id="editAwards" value=" ">${this.Awards}</textarea>
+          <textarea class="form-control-me" rows="3" id="editAwards" onkeyup = handleInput(this) name = "Awards">${this.Awards}</textarea>
 
           <label for="editPlot">Plot:</label>
-          <textarea class="form-control-me"  id="editPlot" rows="3" value = " ">${this.Plot}</textarea>`;
+          <textarea class="form-control-me"  id="editPlot" rows="3" onkeyup = handleInput(this) name = "Plot">${this.Plot}</textarea>`;
 
     let editModalTitle = document.querySelector(".modal-title");
     editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
+  },
+
+  getEditDetails() {
+    let inputs = document.querySelectorAll("textarea");
+    for (let i = 0; i < inputs.length; i++) {
+      this[inputs[i].name] = inputs[i].value;
+    }
+    console.log("get", this);
+    return fetch(`https://movies-api-siit.herokuapp.com/movies/${this._id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": "access token"
+      },
+
+      method: "PUT",
+
+      body: JSON.stringify(this)
+    })
+      .then(response => {
+        if (response.status === 200) {
+          console.log("Response200: ", response);
+        }
+        // else if (response.status === 403) {
+        //   console.log(
+        //     "You need to be authenticated to be able to update a movie",
+        //     response
+        //   );
+        // }
+
+        return response.json();
+      })
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
   }
 };
+
 // code for getting the trailer
 const displayTrailer = trailer => {
   const trailerContainer = document.querySelector(".embed-responsive");
@@ -137,5 +177,15 @@ const displayTrailer = trailer => {
   }
   console.log(trailerContainer);
 };
+
+//get the value of inputs
+
+handleInput = event => {
+  value = event.value;
+
+  console.log(value);
+  return value;
+};
+
 getMovie();
 getTrailer();

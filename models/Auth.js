@@ -28,13 +28,16 @@ function registerNewUser(url, user) {
       return response.json();
     })
     .then(data => {
+      console.log(data);
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {
+        newUser = sessionStorage.getItem("userName");
         showUserIsLoggedIn();
-        displayUserName(newUser.username);
+        displayUserName(newUser);
       }
-    });
+    })
+    .catch(error => console.log(error));
 }
 
 // Login function
@@ -46,7 +49,24 @@ function logIn(url, user) {
     },
     body: JSON.stringify(user)
   })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then(response => {
+      console.log("RESPONSE: ", response);
+      if (response.status == 200) {
+        hideElement(modalLogin);
+      } else if (response.status == 401) {
+        loginAlert.innerHTML = "User not found/wrong password";
+        loginAlert.classList.remove("d-none");
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      const { accessToken } = data;
+      sessionStorage.setItem("accessToken", accessToken);
+      if (checkIfLoggedIn()) {
+        showUserIsLoggedIn();
+        displayUserName(user.username);
+      }
+    })
     .catch(error => console.log(error));
 }

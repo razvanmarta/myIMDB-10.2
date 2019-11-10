@@ -45,7 +45,7 @@ body {
   margin: 0px 0px 0px 5%;
   text-align: center;
 }
-#helloUser {
+#userContainer {
   display: none;
 }
 #logout-button {

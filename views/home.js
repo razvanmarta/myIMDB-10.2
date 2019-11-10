@@ -3,13 +3,14 @@
 
 const movieList = document.querySelector(".movieList");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
-const newUser = {};
+let newUser = sessionStorage.getItem("userName");
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
 const loginBtn = document.getElementById("login-button");
 const registerBtn = document.getElementById("register-button");
 const logOutBtn = document.getElementById("logout-button");
+const userContainer = document.getElementById("userContainer");
 const helloUser = document.getElementById("helloUser");
 
 // Register variables
@@ -20,6 +21,15 @@ const registerPassword = document.getElementById("exampleInputPassword1");
 const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
 let registratedAlert = document.getElementById("registrated-alert");
+const linkToLogin = document.getElementById("link-login");
+
+//Login variables
+const modalLogin = document.getElementById("id02");
+const closeLogin = document.getElementById("close-login-btn");
+const logInUsername = document.getElementById("login-username");
+const logInPassword = document.getElementById("login-password");
+let loginAlert = document.getElementById("login-alert");
+const linkToRegister = document.getElementById("link-register");
 
 // Function triggered on movie hover, shows the click for details overlay
 const showMovieInfo = container => {
@@ -85,6 +95,11 @@ const clearModalFields = () => {
   registerPassword2.value = "";
   registerAlert.classList.add("d-none");
   registerAlert.innerHTML = "";
+
+  logInUsername.value = "";
+  logInPassword.value = "";
+  loginAlert.classList.add("d-none");
+  loginAlert.innerHTML = "";
 };
 
 //Open register-modal eventlistener
@@ -95,27 +110,56 @@ registerBtn.addEventListener("click", () => {
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {
+  console.log("click close");
   clearModalFields();
   hideElement(modalAuth);
+});
+
+//Open login-modal eventlistener
+loginBtn.addEventListener("click", () => {
+  displayElement(modalLogin);
+});
+
+//Close login-modal eventlistener
+closeLogin.addEventListener("click", () => {
+  clearModalFields();
+  hideElement(modalLogin);
 });
 
 const showUserIsLoggedIn = () => {
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
-  displayElement(helloUser);
+  displayElement(userContainer);
 };
 
 const showUserIsLoggedOut = () => {
   displayElement(loginBtn);
   displayElement(registerBtn);
   hideElement(logOutBtn);
-  hideElement(helloUser);
+  hideElement(userContainer);
 };
+
+//Switch to login modal, from register modal function
+const switchRegisterToLogin = () => {
+  clearModalFields();
+  hideElement(modalAuth);
+  displayElement(modalLogin);
+};
+
+//Switch to register modal, from login modal function
+const switchLoginToRegister = () => {
+  clearModalFields();
+  hideElement(modalLogin);
+  displayElement(modalAuth);
+};
+
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
-loginBtn.addEventListener("click", () => showUserIsLoggedIn());
+// loginBtn.addEventListener("click", () => showUserIsLoggedIn());
 logOutBtn.addEventListener("click", () => showUserIsLoggedOut());
+linkToLogin.addEventListener("click", () => switchRegisterToLogin());
+linkToRegister.addEventListener("click", () => switchLoginToRegister());
 
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {
@@ -139,11 +183,24 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
-  if (token) {
-    return true;
-  } else {
+  console.log("Token VALUE: ", token);
+  console.log("Token TYPE: ", typeof token);
+  if (token === null) {
     return false;
   }
+  if (token === "undefined") {
+    return false;
+  }
+  if (token !== null && token !== "undefined") {
+    return true;
+  }
+
+  //Here only for explanation purposes
+  // if (token !== null || token != "undefined") {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
 };
 
 const displayUserName = user => {
@@ -152,5 +209,5 @@ const displayUserName = user => {
 
 if (checkIfLoggedIn()) {
   showUserIsLoggedIn();
-  displayUserName(newUser.username);
+  displayUserName(newUser);
 }

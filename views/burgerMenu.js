@@ -40,6 +40,7 @@ loginBurgerBtn.addEventListener("click", () => {
     dropDownList.classList.remove("showDropDownList");
     dropDownList.classList.add("hideDropDownList");
   }
+  displayElement(modalLogin);
 });
 
 registerBurgerBtn.addEventListener("click", () => {

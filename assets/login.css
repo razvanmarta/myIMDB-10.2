@@ -1,0 +1,36 @@
+#id02 {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+#close-login-btn {
+  float: right;
+  position: relative;
+  margin-top: 5px;
+  right: 1px;
+  font-size: 25px;
+  color: gray;
+}
+
+#close-login-btn:hover {
+  cursor: pointer;
+}
+
+#login-header {
+  padding-bottom: 20px;
+  color: #212529;
+  font-size: 2rem;
+}
+
+#login-username,
+#login-password {
+  border-color: #ced4da;
+}
+
+#login-alert {
+  color: #6a0000;
+  background-color: #f5cccc;
+}
+
+#login-event-button {
+  margin-top: 30px;
+  background-color: #337ab7;
+}

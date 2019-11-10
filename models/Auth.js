@@ -28,6 +28,7 @@ function registerNewUser(url, user) {
       return response.json();
     })
     .then(data => {
+      console.log(data);
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {
@@ -35,7 +36,8 @@ function registerNewUser(url, user) {
         showUserIsLoggedIn();
         displayUserName(newUser);
       }
-    });
+    })
+    .catch(error => console.log(error));
 }
 
 // Login function
@@ -58,6 +60,7 @@ function logIn(url, user) {
       return response.json();
     })
     .then(data => {
+      console.log(data);
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {

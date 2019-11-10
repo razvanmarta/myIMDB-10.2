@@ -1,8 +1,6 @@
 // burgerMenu- add .show
 const burgerButton = document.getElementById("burgerButton");
-console.log(burgerButton);
 const dropDownList = document.getElementById("dropDownList");
-console.log(dropDownList);
 const outsideClick = document.getElementById("generalHideNavItem");
 const homeBurgerBtn = document.getElementById("menuBurger-home");
 const loginBurgerBtn = document.getElementById("menuBurger-login");

@@ -117,7 +117,6 @@ closeRegister.addEventListener("click", () => {
 
 //Open login-modal eventlistener
 loginBtn.addEventListener("click", () => {
-  console.log("click");
   displayElement(modalLogin);
 });
 
@@ -184,11 +183,24 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
-  if (token) {
-    return true;
-  } else {
+  console.log("Token VALUE: ", token);
+  console.log("Token TYPE: ", typeof token);
+  if (token === null) {
     return false;
   }
+  if (token === "undefined") {
+    return false;
+  }
+  if (token !== null && token !== "undefined") {
+    return true;
+  }
+
+  //Here only for explanation purposes
+  // if (token !== null || token != "undefined") {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
 };
 
 const displayUserName = user => {

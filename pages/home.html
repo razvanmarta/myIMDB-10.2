@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="../assets/home.css" />
+    <link rel="stylesheet" href="../assets/addMovie.css" />
 
     <link rel="stylesheet" href="../assets/register.css" />
     <link
@@ -77,6 +78,9 @@
         </button>
       </div>
       <div class="movieList-container">
+        <!-- add movie button -->
+        <button id="add-movie" class="addFilmBtn">Add Movie</button>
+        <!-- add movie button -->
         <h3 class="movieList-Title">All Movies</h3>
         <div class="movie-counter"></div>
         <div class="movieList"></div>
@@ -86,6 +90,137 @@
           <a class="next-page"></a>
         </div>
       </div>
+
+      <!-- start MOVIE modal -->
+
+      <div id="modalFilmContainer" class="wrappermodalFilm">
+        <div class="modal-film-content">
+          <span class="closeFilmBtn">&times;</span>
+          <div class="modal-film-header">
+            <h3>Add a movie...</h3>
+          </div>
+          <div class="modal-film-body">
+            <form id="addFilm-form">
+              <div class="addFilmInfo">
+                <label for="enterFilmTitle">Title :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterFilmTitle"
+                  placeholder="Enter title here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterYear">Year :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterYear"
+                  placeholder="Enter year here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterTitle">Runtime :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterRuntime"
+                  placeholder="Enter runtime here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterGenre">Genre :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterGenre"
+                  placeholder="Enter genre here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterDirector">Director :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterDirector"
+                  placeholder="Enter director here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterWriter">Writer :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterWriter"
+                  placeholder="Enter writer here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterLanguage">Language :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterLanguage"
+                  placeholder="Enter language here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterCountry">Country :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterCountry"
+                  placeholder="Enter country here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterBoxOffice">BoxOffice :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterBoxOffice"
+                  placeholder="BoxOffice here"
+                  required
+                />
+              </div>
+              <div class="addFilmInfo">
+                <label for="enterWebsite">Website :</label>
+                <input
+                  type="text"
+                  class="filmInput"
+                  id="enterWebsite"
+                  placeholder="Enter website here"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-film-footer">
+            <h4>You are done !</h4>
+            <p>Please save your movie...</p>
+            <button type="button" id="saveFilmChanges" class="btn btn-primary">
+              Save changes
+            </button>
+            <button
+              type="button"
+              id="discardFilmChanges"
+              class="btn btn-danger "
+            >
+              Discard changes
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- end of- MOVIE modal -->
 
       <!--Modal Register-->
 
@@ -167,5 +302,6 @@
     <script src="../views/pagination.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../views/register.js"></script>
+    <script src="../views/addNewMovie.js"></script>
   </body>
 </html>

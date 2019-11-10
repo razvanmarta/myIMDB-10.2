@@ -1,0 +1,99 @@
+.addFilmBtn {
+  float: right;
+  margin-right: 15px;
+  height: 30px;
+  background: rgb(190, 22, 22);
+  color: white;
+  border: 0;
+  text-align: center;
+  border-radius: 5%;
+}
+
+.addFilmBtn:hover {
+  background: rgb(83, 3, 3);
+}
+
+.wrappermodalFilm {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal-film-content {
+  position: relative;
+  text-align: center;
+  background-color: lightgray;
+  margin: 5% auto;
+  width: 70%;
+  border-radius: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: delayModal;
+  animation-duration: 0.8s;
+}
+
+.modal-film-header {
+  text-align: left;
+  padding-top: 5%;
+  margin-left: 25px;
+}
+
+.closeFilmBtn {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  color: rgb(15, 12, 12);
+  font-size: 30px;
+  margin: 15px;
+}
+
+.closeFilmBtn:hover,
+.closeFilmBtn:focus {
+  color: rgb(226, 3, 3);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-film-body {
+  padding: 10px 20px;
+}
+
+#addFilm-form {
+  position: relative;
+  padding: 30px;
+  background: rgb(45, 51, 45);
+  border-radius: 5%;
+}
+
+.addFilmInfo {
+  position: relative;
+  color: white;
+  right: 20%;
+  margin-top: 5px;
+}
+
+.filmInput {
+  position: absolute;
+  background-color: lightskyblue;
+  left: 60%;
+  width: 40%;
+  margin-left: 15px;
+}
+
+.modal-film-footer {
+  padding: 10px;
+  text-align: center;
+}
+
+@keyframes delayModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

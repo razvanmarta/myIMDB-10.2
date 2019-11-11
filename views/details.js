@@ -136,32 +136,25 @@ movieDetails = {
     for (let i = 0; i < inputs.length; i++) {
       this[inputs[i].name] = inputs[i].value;
     }
+
     console.log("get", this);
+    //PUT method for updating the movie
+    const accessToken = sessionStorage.getItem("accessToken");
+
     return fetch(`https://movies-api-siit.herokuapp.com/movies/${this._id}`, {
       headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": "access token"
+        "x-auth-token": accessToken
       },
-
       method: "PUT",
-
       body: JSON.stringify(this)
     })
-      .then(response => {
-        if (response.status === 200) {
-          console.log("Response200: ", response);
-        }
-        // else if (response.status === 403) {
-        //   console.log(
-        //     "You need to be authenticated to be able to update a movie",
-        //     response
-        //   );
-        // }
-
-        return response.json();
+      .then(res => {
+        return res.json();
       })
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.error(`Error: ${error}`));
   }
 };
 
@@ -182,8 +175,6 @@ const displayTrailer = trailer => {
 
 handleInput = event => {
   value = event.value;
-
-  console.log(value);
   return value;
 };
 

@@ -131,7 +131,7 @@ movieDetails = {
     editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
   },
 
-  getEditDetails() {
+  async getEditDetails() {
     let inputs = document.querySelectorAll("textarea");
     for (let i = 0; i < inputs.length; i++) {
       this[inputs[i].name] = inputs[i].value;

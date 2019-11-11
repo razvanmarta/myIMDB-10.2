@@ -1,3 +1,5 @@
+//Login button event
+
 const logInEventButton = document.getElementById("login-event-button");
 logInEventButton.addEventListener("click", function(event) {
   event.preventDefault();

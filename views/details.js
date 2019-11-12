@@ -69,6 +69,11 @@ movieDetails = {
       displayElement(editModal);
     });
 
+    //Delete button 
+    const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
+    console.log(deleteMovieBtn);
+    deleteMovieBtn.addEventListener("click", openDeleteModal);
+
     // close and open the Edit Modal
     editModalCloseBtn.addEventListener("click", () => {
       hideElement(editModal);

@@ -1,17 +1,29 @@
 /*Registration dialog*/
 #id01 {
   background-color: rgba(0, 0, 0, 0.9);
+  animation-name: delayModal;
+  animation-duration: 0.8s;
 }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 #register-container {
   margin-left: 30%;
   margin-right: 30%;
-  width: auto;
+  width: auto !important;
   height: auto;
   border-style: solid;
   border-color: black;
   border-radius: 25px;
   padding: 1.5em;
-  min-width: 250px;
+  max-width: 40%;
 }
 
 #close-register-btn {

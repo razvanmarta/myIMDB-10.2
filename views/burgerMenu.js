@@ -31,6 +31,7 @@ homeBurgerBtn.addEventListener("click", () => {
     dropDownList.classList.remove("showDropDownList");
     dropDownList.classList.add("hideDropDownList");
   }
+  window.location = "home.html";
 });
 
 // // hide login

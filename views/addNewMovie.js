@@ -31,13 +31,15 @@ function openModal() {
   modal.style.display = "block";
 }
 
-function closeModal() {
-  modal.style.display = "none";
-}
-
 function outsideModal(event) {
   if (event.target === modal) {
-    modal.style.display = "none";
+    fadeOutModal(modal);
+  }
+  if (event.target === modalAuth) {
+    fadeOutModal(modalAuth);
+  }
+  if (event.target === modalLogin) {
+    fadeOutModal(modalLogin);
   }
 }
 
@@ -47,7 +49,9 @@ function emptyFilmImpute() {
 
 modalBtn.addEventListener("click", openModal);
 
-closeBtn.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", () => {
+  fadeOutModal(modal);
+});
 
 window.addEventListener("click", outsideModal);
 

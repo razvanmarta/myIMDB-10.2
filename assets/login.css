@@ -1,6 +1,18 @@
 #id02 {
   background-color: rgba(0, 0, 0, 0.9);
+  animation-name: delayModal;
+  animation-duration: 0.8s;
 }
+
+@keyframes delayModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #close-login-btn {
   float: right;
   position: relative;

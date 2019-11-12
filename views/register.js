@@ -6,7 +6,6 @@ addAccountButton.addEventListener("click", function(event) {
 
   if (!registerAlert.classList.contains("d-none")) {
     registerAlert.classList.add("d-none");
-    registerAlert.innerHTML = "";
   }
 
   if (registerUsername.value === "") {

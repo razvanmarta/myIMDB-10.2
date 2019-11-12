@@ -66,14 +66,12 @@ const updateMovie = movieDetails => {
     .then(res => {
       if (res.ok) {
         alert("You updated the movie!");
-        movieDetails.displayMovieDetails();
         return res.json();
-      }
-      if (res.status === 400) {
-        alert("There is nothing to update");
       }
     })
     .then(data => {
+      movieDetails.displayMovieDetails(data);
+      movieDetails.editBtnEvents(data);
       console.log("returnData", data);
     })
     .catch(error => console.error(`Error: ${error}`));

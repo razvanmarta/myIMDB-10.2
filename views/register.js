@@ -11,7 +11,6 @@ addAccountButton.addEventListener("click", function(event) {
   if (registerUsername.value === "") {
     registerAlert.classList.remove("d-none");
     registerAlert.innerHTML = "Username cannot be empty";
-    registerUsername.value = "";
     return;
   }
 

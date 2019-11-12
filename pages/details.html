@@ -198,6 +198,19 @@
       </div>
     </div>
 
+    <!--Delete pop-up-->
+    <div id="deleteMovieModal" class="w3-modal">
+      <div class="w3-modal-content w3-card-4" id="register-container">
+        <div id="dialog-container">
+          <i class="far fa-times-circle 2x" id="close-login-btn"></i>
+          <h2 id="login-header">Are you sure you want to delete this movie?</h2>
+          <button type="button" class="btn btn-danger" id="yes-delete">Yes</button>
+          <button type="button" class="btn btn-success" id="no-delete">No</button>
+        </div>
+      </div>
+    </div>
+
+
     <!-- html burgerMenu -->
 
     <div id="wrap-burger-menu">
@@ -211,6 +224,7 @@
     </div>
     <!-- end of burgerMenu -->
 
+
     <script src="../views/home.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../views/burgerMenu.js"></script>
@@ -219,5 +233,6 @@
     <script src="../views/login.js"></script>
     <script src="../views/details.js"></script>
     <script src="../views/logout.js"></script>
+    <script src="../views/deleteMovie.js"></script>
   </body>
 </html>

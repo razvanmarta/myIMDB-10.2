@@ -49,3 +49,53 @@ const getTrailer = async () => {
     console.log("Error getting trailer", error);
   }
 };
+
+//update edit details
+const updateMovie = movieDetails => {
+  const accessToken = sessionStorage.getItem("accessToken");
+  delete movieDetails._id;
+  const id = sessionStorage.getItem("movieID");
+  fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {
+    headers: {
+      "x-auth-token": accessToken,
+      "Content-Type": "application/json"
+    },
+    method: "PUT",
+    body: JSON.stringify(movieDetails)
+  })
+    .then(res => {
+      if (res.ok) {
+        alert("You updated the movie!");
+        return res.json();
+      }
+    })
+    .then(data => {
+      movieDetails.displayMovieDetails(data);
+      movieDetails.editBtnEvents(data);
+      console.log("returnData", data);
+    })
+    .catch(error => console.error(`Error: ${error}`));
+};
+
+//delete movie
+const deleteMovieFromDb = () => {
+  const id = sessionStorage.getItem("movieID");
+  const accessToken = sessionStorage.getItem("accessToken");
+  fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {
+    headers: {
+      "x-auth-token": accessToken,
+    },
+    method: "DELETE"
+  })
+  .then(response => {
+    console.log(response);
+    return response.text();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+}
+

@@ -84,8 +84,12 @@ function saveFilm() {
     Website: filmWebsite.value
   };
 
-  myFilm = new AddNewFilm(obj);
+  const myFilm = new AddNewFilm(obj);
   console.log(myFilm);
+
+  // add a new movie to database
+
+  aNewMovie(urlS, myFilm);
 
   emptyFilmImpute();
 }

@@ -78,3 +78,35 @@ const updateMovie = movieDetails => {
     })
     .catch(error => console.error(`Error: ${error}`));
 };
+
+// add a new movie
+
+const urlS = "https://movies-api-siit.herokuapp.com/movies";
+function aNewMovie(urlS, myFilm) {
+  console.log(myFilm);
+  const tokenAccess = sessionStorage.getItem("accessToken");
+  console.log(tokenAccess);
+  fetch(urlS, {
+    headers: {
+      "x-auth-token": tokenAccess,
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify(myFilm)
+  })
+    .then(res => {
+      if (res.ok) {
+        alert("You added the movie!");
+      }
+      if (res.status === 403) {
+        alert("You need to be authenticated to be able to create a movie");
+      }
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}

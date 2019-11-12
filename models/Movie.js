@@ -66,8 +66,8 @@ const updateMovie = movieDetails => {
     .then(res => {
       if (res.ok) {
         alert("You updated the movie!");
-        return res.json();
       }
+      return res.json();
     })
     .then(data => {
       movieDetails.displayMovieDetails(data);

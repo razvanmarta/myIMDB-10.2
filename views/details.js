@@ -69,6 +69,11 @@ movieDetails = {
       displayElement(editModal);
     });
 
+    //Delete button 
+    const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
+    console.log(deleteMovieBtn);
+    deleteMovieBtn.addEventListener("click", openDeleteModal);
+
     // close and open the Edit Modal
     editModalCloseBtn.addEventListener("click", () => {
       hideElement(editModal);
@@ -129,8 +134,8 @@ movieDetails = {
           <label for="editPlot">Plot:</label>
           <textarea class="form-control-me"  id="editPlot" rows="3" onkeyup = handleInput(this) name = "Plot">${this.Plot}</textarea>`;
 
-    let editModalTitle = document.querySelector(".modal-title");
-    editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
+    // let editModalTitle = document.querySelector(".modal-title");
+    // editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
   }
 };
 

@@ -54,7 +54,6 @@ function logIn(url, user) {
       if (response.status == 200) {
         hideElement(modalLogin);
       } else if (response.status == 401) {
-        loginAlert.innerHTML = "User not found/wrong password";
         loginAlert.classList.remove("d-none");
       }
       return response.json();
@@ -62,6 +61,7 @@ function logIn(url, user) {
     .then(data => {
       console.log(data);
       const { accessToken } = data;
+      loginAlert.innerHTML = data.message;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {
         showUserIsLoggedIn();

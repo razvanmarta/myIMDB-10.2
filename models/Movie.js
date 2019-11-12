@@ -66,14 +66,12 @@ const updateMovie = movieDetails => {
     .then(res => {
       if (res.ok) {
         alert("You updated the movie!");
-        movieDetails.displayMovieDetails();
-        return res.json();
       }
-      if (res.status === 400) {
-        alert("There is nothing to update");
-      }
+      return res.json();
     })
     .then(data => {
+      movieDetails.displayMovieDetails(data);
+      movieDetails.editBtnEvents(data);
       console.log("returnData", data);
     })
     .catch(error => console.error(`Error: ${error}`));
@@ -110,3 +108,24 @@ function aNewMovie(urlS, myFilm) {
       console.log(error);
     });
 }
+//delete movie
+const deleteMovieFromDb = () => {
+  const id = sessionStorage.getItem("movieID");
+  const accessToken = sessionStorage.getItem("accessToken");
+  fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {
+    headers: {
+      "x-auth-token": accessToken
+    },
+    method: "DELETE"
+  })
+    .then(response => {
+      console.log(response);
+      return response.text();
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};

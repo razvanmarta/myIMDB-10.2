@@ -85,11 +85,8 @@ let displayElement = element => {
   element.style.display = "block";
 };
 
-<<<<<<< HEAD
 // Reusable function that hides the element on our page
-=======
-//Close register-modal function
->>>>>>> 0e20d0b05981e40a9917319f626c1237b1780a3c
+
 let hideElement = element => {
   element.style.display = "none";
 };

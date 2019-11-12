@@ -1,9 +1,11 @@
 let value = "";
-const putUrl = `https://movies-api-siit.herokuapp.com/movies/:id`;
+let editSaveBtn = document.querySelector("#editSaveChanges");
+
 movieDetails = {
   displayMovieDetails: function() {
     // console.log("From displayMovieDetails: ", this);
     const detailsContainer = document.getElementById("movie");
+
     detailsContainer.innerHTML = `
     <div class = "row m-1">
       <div class= "col-md-4 m-auto text-center">
@@ -60,13 +62,17 @@ movieDetails = {
     let editCloseBtn = document.querySelector("#editClose");
     let editDetailsdBtn = document.querySelector("#detailsEditBtn");
     let editModal = document.querySelector("#editModal");
-    let editSaveBtn = document.querySelector("#editSaveChanges");
 
     //display data in Edit Modal
     editDetailsdBtn.addEventListener("click", () => {
       this.editBtnEvents();
       displayElement(editModal);
     });
+
+    //Delete button 
+    const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
+    console.log(deleteMovieBtn);
+    deleteMovieBtn.addEventListener("click", openDeleteModal);
 
     // close and open the Edit Modal
     editModalCloseBtn.addEventListener("click", () => {
@@ -79,20 +85,21 @@ movieDetails = {
 
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
-      this.getEditDetails();
+      // getEditDetails(movieDetails);
     });
   },
 
   editBtnEvents() {
     let editModalBody = document.querySelector(".modal-body");
+    // console.log("editMovie", this);
 
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle" onkeyup = handleInput(this) name = "Title">${this.Title}</textarea>
+          <textarea class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title">${this.Title}</textarea>
           
           <label for="editGenre">Genre:</label>
-          <textarea class="form-control-me" id="editGenre" onkeyup = handleInput(this) name = "Genre">${this.Genre}</textarea>
+          <textarea class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre">${this.Genre}</textarea>
 
           <label for = "editType">Type:</label>
           <textarea class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type">${this.Type}</textarea>
@@ -127,10 +134,12 @@ movieDetails = {
           <label for="editPlot">Plot:</label>
           <textarea class="form-control-me"  id="editPlot" rows="3" onkeyup = handleInput(this) name = "Plot">${this.Plot}</textarea>`;
 
-    let editModalTitle = document.querySelector(".modal-title");
-    editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
-  },
+    // let editModalTitle = document.querySelector(".modal-title");
+    // editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
+  }
+};
 
+<<<<<<< HEAD
   async getEditDetails() {
     let inputs = document.querySelectorAll("textarea");
     for (let i = 0; i < inputs.length; i++) {
@@ -158,7 +167,29 @@ movieDetails = {
         movieDetails.displayMovieDetails();
       })
       .catch(error => console.error(`Error: ${error}`));
+=======
+//get the inputs value in the movieDetails propreties
+const getEditDetails = movieDetails => {
+  let inputs = document.querySelectorAll("textarea");
+  for (let i = 0; i < inputs.length; i++) {
+    movieDetails[inputs[i].name] = inputs[i].value;
+>>>>>>> 0e20d0b05981e40a9917319f626c1237b1780a3c
   }
+  // the Http request for the new Data
+  updateMovie(movieDetails);
+};
+
+editSaveBtn.addEventListener("click", () => {
+  hideElement(editModal);
+  getEditDetails(movieDetails);
+  //rereder the movie details on the page with the http response
+});
+
+//get the value of inputs
+
+handleInput = event => {
+  value = event.value;
+  return value;
 };
 
 // code for getting the trailer
@@ -171,14 +202,7 @@ const displayTrailer = trailer => {
     trailerContainer.classList.add("embed-responsive-16by9");
     trailerSource.setAttribute("src", trailer.embed);
   }
-  console.log(trailerContainer);
-};
-
-//get the value of inputs
-
-handleInput = event => {
-  value = event.value;
-  return value;
+  // console.log(trailerContainer);
 };
 
 getMovie();

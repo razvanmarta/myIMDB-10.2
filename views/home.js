@@ -22,6 +22,7 @@ const registerPassword2 = document.getElementById("exampleInputPassword2");
 let registerAlert = document.getElementById("register-alert");
 let registratedAlert = document.getElementById("registrated-alert");
 const linkToLogin = document.getElementById("link-login");
+const fadeout = document.getElementsByClassName("fade-out");
 
 //Login variables
 const modalLogin = document.getElementById("id02");
@@ -84,11 +85,12 @@ let displayElement = element => {
   element.style.display = "block";
 };
 
-//Close register-modal function + empty fields and hide alert if it's the case
+//Close register-modal function
 let hideElement = element => {
   element.style.display = "none";
 };
 
+//Empty fields and hide register an login alert
 const clearModalFields = () => {
   registerUsername.value = "";
   registerPassword.value = "";
@@ -102,6 +104,17 @@ const clearModalFields = () => {
   loginAlert.innerHTML = "";
 };
 
+//Fade out modal function
+
+const fadeOutModal = element => {
+  console.log("click");
+  element.style.animation = "fadeOut 0.8s";
+  setTimeout(function() {
+    element.style.animation = "";
+    element.style.display = "none";
+  }, 800);
+};
+
 //Open register-modal eventlistener
 registerBtn.addEventListener("click", () => {
   console.log("click");
@@ -112,7 +125,8 @@ registerBtn.addEventListener("click", () => {
 closeRegister.addEventListener("click", () => {
   console.log("click close");
   clearModalFields();
-  hideElement(modalAuth);
+  // hideElement(modalAuth);
+  fadeOutModal(modalAuth);
 });
 
 //Open login-modal eventlistener
@@ -123,7 +137,8 @@ loginBtn.addEventListener("click", () => {
 //Close login-modal eventlistener
 closeLogin.addEventListener("click", () => {
   clearModalFields();
-  hideElement(modalLogin);
+  // hideElement(modalLogin);
+  fadeOutModal(modalLogin);
 });
 
 const showUserIsLoggedIn = () => {

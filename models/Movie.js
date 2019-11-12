@@ -49,3 +49,32 @@ const getTrailer = async () => {
     console.log("Error getting trailer", error);
   }
 };
+
+//update edit details
+const updateMovie = movieDetails => {
+  const accessToken = sessionStorage.getItem("accessToken");
+  delete movieDetails._id;
+  const id = sessionStorage.getItem("movieID");
+  fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {
+    headers: {
+      "x-auth-token": accessToken,
+      "Content-Type": "application/json"
+    },
+    method: "PUT",
+    body: JSON.stringify(movieDetails)
+  })
+    .then(res => {
+      if (res.ok) {
+        alert("You updated the movie!");
+        movieDetails.displayMovieDetails();
+        return res.json();
+      }
+      if (res.status === 400) {
+        alert("There is nothing to update");
+      }
+    })
+    .then(data => {
+      console.log("returnData", data);
+    })
+    .catch(error => console.error(`Error: ${error}`));
+};

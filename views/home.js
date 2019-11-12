@@ -86,6 +86,7 @@ let displayElement = element => {
 };
 
 // Reusable function that hides the element on our page
+
 let hideElement = element => {
   element.style.display = "none";
 };

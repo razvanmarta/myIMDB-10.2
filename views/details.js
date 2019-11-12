@@ -136,13 +136,15 @@ movieDetails = {
     for (let i = 0; i < inputs.length; i++) {
       this[inputs[i].name] = inputs[i].value;
     }
-
+    delete this._id;
     console.log("get", this);
     //PUT method for updating the movie
+    const id = sessionStorage.getItem("movieID");
     const accessToken = sessionStorage.getItem("accessToken");
 
-    return fetch(`https://movies-api-siit.herokuapp.com/movies/${this._id}`, {
+    return fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {
       headers: {
+        "Content-Type": "application/json",
         "x-auth-token": accessToken
       },
       method: "PUT",
@@ -153,6 +155,7 @@ movieDetails = {
       })
       .then(data => {
         console.log(data);
+        movieDetails.displayMovieDetails();
       })
       .catch(error => console.error(`Error: ${error}`));
   }

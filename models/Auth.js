@@ -13,7 +13,6 @@ function registerNewUser(url, user) {
     body: JSON.stringify(user)
   })
     .then(response => {
-      console.log("RESPONSE: ", response);
       if (response.status == 200) {
         hideElement(modalAuth);
         clearModalFields();
@@ -28,7 +27,6 @@ function registerNewUser(url, user) {
       return response.json();
     })
     .then(data => {
-      console.log(data);
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {
@@ -50,7 +48,6 @@ function logIn(url, user) {
     body: JSON.stringify(user)
   })
     .then(response => {
-      console.log("RESPONSE: ", response);
       if (response.status == 200) {
         hideElement(modalLogin);
       } else if (response.status == 401) {
@@ -60,7 +57,6 @@ function logIn(url, user) {
       return response.json();
     })
     .then(data => {
-      console.log(data);
       const { accessToken } = data;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {

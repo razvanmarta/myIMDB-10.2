@@ -31,7 +31,7 @@ const logInPassword = document.getElementById("login-password");
 let loginAlert = document.getElementById("login-alert");
 const linkToRegister = document.getElementById("link-register");
 
-// Function triggered on movie hover, shows the click for details overlay
+// Function triggered on movie hover, creates the click for details overlay
 const showMovieInfo = container => {
   const filmInfo = document.createElement("div");
   filmInfo.classList.add("film-info");
@@ -79,12 +79,12 @@ const createMovieItem = movie => {
   itemContainer.addEventListener("click", () => showDetailsPage(movie));
 };
 
-// Open register-modal function
+// Reusable function that shows the element on our page
 let displayElement = element => {
   element.style.display = "block";
 };
 
-//Close register-modal function + empty fields and hide alert if it's the case
+// Reusable function that hides the element on our page
 let hideElement = element => {
   element.style.display = "none";
 };
@@ -133,6 +133,7 @@ const showUserIsLoggedIn = () => {
   displayElement(userContainer);
 };
 
+//Brings back Login and Register buttons to page and logs the user out
 const showUserIsLoggedOut = () => {
   const token = sessionStorage.getItem("accessToken");
   logOut(token);
@@ -161,25 +162,9 @@ const switchLoginToRegister = () => {
 
 //Event Listeners
 homeBtn.addEventListener("click", () => (window.location = "home.html"));
-// loginBtn.addEventListener("click", () => showUserIsLoggedIn());
 logOutBtn.addEventListener("click", () => showUserIsLoggedOut());
 linkToLogin.addEventListener("click", () => switchRegisterToLogin());
 linkToRegister.addEventListener("click", () => switchLoginToRegister());
-
-// Used to handle servercalls for movies
-const makeCallToServer = async apiURL => {
-  movieList.innerHTML = "";
-  const request = await fetch(apiURL);
-  const data = await request.json();
-
-  const results = data.results;
-  const page = data.pagination.links;
-  const pageNumber = data.pagination.currentPage;
-  pageNr.innerText = ` - ${pageNumber} - `;
-  next = page.next;
-  prev = page.prev;
-  results.forEach(result => createMovieItem(result));
-};
 
 //Initial Call to fetch the movies from the database
 if (window.location.href.includes("home.html")) {
@@ -188,8 +173,6 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
-  console.log("Token VALUE: ", token);
-  console.log("Token TYPE: ", typeof token);
   if (token === null) {
     return false;
   }
@@ -199,13 +182,6 @@ const checkIfLoggedIn = () => {
   if (token !== null && token !== "undefined") {
     return true;
   }
-
-  //Here only for explanation purposes
-  // if (token !== null || token != "undefined") {
-  //   return false;
-  // } else {
-  //   return true;
-  // }
 };
 
 const displayUserName = user => {

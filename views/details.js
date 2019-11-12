@@ -69,7 +69,7 @@ movieDetails = {
       displayElement(editModal);
     });
 
-    //Delete button 
+    //Delete button
     const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
     console.log(deleteMovieBtn);
     deleteMovieBtn.addEventListener("click", openDeleteModal);
@@ -139,41 +139,11 @@ movieDetails = {
   }
 };
 
-<<<<<<< HEAD
-  async getEditDetails() {
-    let inputs = document.querySelectorAll("textarea");
-    for (let i = 0; i < inputs.length; i++) {
-      this[inputs[i].name] = inputs[i].value;
-    }
-    delete this._id;
-    console.log("get", this);
-    //PUT method for updating the movie
-    const id = sessionStorage.getItem("movieID");
-    const accessToken = sessionStorage.getItem("accessToken");
-
-    return fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-auth-token": accessToken
-      },
-      method: "PUT",
-      body: JSON.stringify(this)
-    })
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        console.log(data);
-        movieDetails.displayMovieDetails();
-      })
-      .catch(error => console.error(`Error: ${error}`));
-=======
 //get the inputs value in the movieDetails propreties
 const getEditDetails = movieDetails => {
   let inputs = document.querySelectorAll("textarea");
   for (let i = 0; i < inputs.length; i++) {
     movieDetails[inputs[i].name] = inputs[i].value;
->>>>>>> 0e20d0b05981e40a9917319f626c1237b1780a3c
   }
   // the Http request for the new Data
   updateMovie(movieDetails);

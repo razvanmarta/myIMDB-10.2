@@ -1,5 +1,6 @@
 let value = "";
 let editSaveBtn = document.querySelector("#editSaveChanges");
+let editSuccesAlert = document.querySelector("#editSuccesAlert");
 
 movieDetails = {
   displayMovieDetails: function() {
@@ -69,7 +70,7 @@ movieDetails = {
       displayElement(editModal);
     });
 
-    //Delete button 
+    //Delete button
     const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
     console.log(deleteMovieBtn);
     deleteMovieBtn.addEventListener("click", openDeleteModal);
@@ -85,7 +86,7 @@ movieDetails = {
 
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
-      // getEditDetails(movieDetails);
+      displayElement(editSuccesAlert);
     });
   },
 
@@ -96,7 +97,7 @@ movieDetails = {
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title">${this.Title}</textarea>
+          <textarea class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" >${this.Title}</textarea>
           
           <label for="editGenre">Genre:</label>
           <textarea class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre">${this.Genre}</textarea>
@@ -133,9 +134,6 @@ movieDetails = {
 
           <label for="editPlot">Plot:</label>
           <textarea class="form-control-me"  id="editPlot" rows="3" onkeyup = handleInput(this) name = "Plot">${this.Plot}</textarea>`;
-
-    // let editModalTitle = document.querySelector(".modal-title");
-    // editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
   }
 };
 

@@ -338,6 +338,7 @@ select {
 }
 
 /* End of searchfield container */
-::-webkit-scrollbar {
+
+.movieList::-webkit-scrollbar {
   display: none;
 }

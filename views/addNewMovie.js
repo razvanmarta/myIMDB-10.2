@@ -3,28 +3,37 @@ const closeBtn = document.getElementsByClassName("closeFilmBtn")[0];
 const modal = document.getElementById("modalFilmContainer");
 const saveChange = document.getElementById("saveFilmChanges");
 const discardChange = document.getElementById("discardFilmChanges");
+
 const filmTitle = document.getElementById("enterFilmTitle");
-const filmYear = document.getElementById("enterYear");
-const filmRuntime = document.getElementById("enterRuntime");
 const filmGenre = document.getElementById("enterGenre");
+const filmType = document.getElementById("enterType");
+const filmReleased = document.getElementById("enterReleased");
+const filmRated = document.getElementById("enterRated");
+const filmImdbRating = document.getElementById("enterImdbRating");
 const filmDirector = document.getElementById("enterDirector");
 const filmWriter = document.getElementById("enterWriter");
+const filmActors = document.getElementById("enterActors");
+const filmRuntime = document.getElementById("enterRuntime");
 const filmLanguage = document.getElementById("enterLanguage");
-const filmCountry = document.getElementById("enterCountry");
-const filmBoxOffice = document.getElementById("enterBoxOffice");
-const filmWebsite = document.getElementById("enterWebsite");
+const filmAwards = document.getElementById("enterAwards");
+const filmPlot = document.getElementById("enterPlot");
+
+const addedNewMovieAlert = document.getElementById("addedNewMovie-alert");
 
 const filmInfo = [
   filmTitle,
-  filmYear,
-  filmRuntime,
   filmGenre,
+  filmType,
+  filmReleased,
+  filmRated,
+  filmImdbRating,
   filmDirector,
   filmWriter,
+  filmActors,
+  filmRuntime,
   filmLanguage,
-  filmCountry,
-  filmBoxOffice,
-  filmWebsite
+  filmAwards,
+  filmPlot
 ];
 
 function openModal() {
@@ -57,43 +66,78 @@ window.addEventListener("click", outsideModal);
 
 discardChange.addEventListener("click", emptyFilmImpute);
 
-saveChange.addEventListener("click", saveFilm);
+// saveChange.addEventListener("click", saveFilm);
+saveChange.addEventListener("click", () => {
+  const obj = AddNewFilm.getValueFromInputs();
+  console.log(obj);
+  const newMovie = new AddNewFilm(obj);
+  console.log(newMovie);
+  newMovie.saveFilm(obj);
+});
 
 class AddNewFilm {
   constructor(film) {
     (this.Title = film.Title),
-      (this.Year = film.Year),
-      (this.Runtime = film.Runtime),
       (this.Genre = film.Genre),
+      (this.Type = film.Type),
+      (this.Released = film.Released),
+      (this.Rated = film.Rated),
+      (this.imdbRating = film.imdbRating),
       (this.Director = film.Director),
       (this.Writer = film.Writer),
+      (this.Actors = film.Actors);
+    (this.Runtime = film.Runtime),
       (this.Language = film.Language),
-      (this.Country = film.Country),
-      (this.BoxOffice = film.BoxOffice),
-      (this.Website = film.Website);
+      (this.Awards = film.Awards),
+      (this.Plot = film.Plot);
+  }
+  static getValueFromInputs() {
+    const obj = {
+      Title: filmTitle.value,
+      Genre: filmGenre.value,
+      Type: filmType.value,
+      Released: filmReleased.value,
+      Rated: filmRated.value,
+      imdbRating: filmImdbRating.value,
+      Director: filmDirector.value,
+      Writer: filmWriter.value,
+      Actors: filmActors.value,
+      Runtime: filmRuntime.value,
+      Language: filmLanguage.value,
+      Awards: filmAwards.value,
+      Plot: filmPlot.value
+    };
+    return obj;
+  }
+  saveFilm(obj) {
+    aNewMovie(obj);
+    emptyFilmImpute();
+    fadeOutModal(modal);
   }
 }
 
-function saveFilm() {
-  const obj = {
-    Title: filmTitle.value,
-    Year: filmYear.value,
-    Runtime: filmRuntime.value,
-    Genre: filmGenre.value,
-    Director: filmDirector.value,
-    Writer: filmWriter.value,
-    Language: filmLanguage.value,
-    Country: filmCountry.value,
-    BoxOffice: filmBoxOffice.value,
-    Website: filmWebsite.value
-  };
+// function saveFilm() {
+//   const obj = {
+//     Title: filmTitle.value,
+//     Genre: filmGenre.value,
+//     Type: filmType.value,
+//     Released: filmReleased.value,
+//     Rated: filmRated.value,
+//     imdbRating: filmImdbRating.value,
+//     Director: filmDirector.value,
+//     Writer: filmWriter.value,
+//     Actors: filmActors.value,
+//     Runtime: filmRuntime.value,
+//     Language: filmLanguage.value,
+//     Awards: filmAwards.value,
+//     Plot: filmPlot.value
+//   };
 
-  const myFilm = new AddNewFilm(obj);
-  console.log(myFilm);
+//   // const myFilm = new AddNewFilm(obj);
 
-  // add a new movie to database
+//   // add a new movie to database
 
-  aNewMovie(urlS, myFilm);
+//   aNewMovie(urlS, obj);
 
-  emptyFilmImpute();
-}
+//   emptyFilmImpute();
+// }

@@ -52,6 +52,7 @@ const getMovie = async () => {
       `https://movies-api-siit.herokuapp.com/movies/${movieID}`
     );
     const movie = await response.json();
+    console.log(movie);
     Object.assign(movieDetails, movie);
     movieDetails.displayMovieDetails();
   } catch (error) {
@@ -101,13 +102,11 @@ const updateMovie = movieDetails => {
 };
 
 // add a new movie
-
-const urlS = "https://movies-api-siit.herokuapp.com/movies";
-function aNewMovie(urlS, myFilm) {
-  console.log(myFilm);
+function aNewMovie(myFilm) {
+  // console.log(myFilm);
   const tokenAccess = sessionStorage.getItem("accessToken");
-  console.log(tokenAccess);
-  fetch(urlS, {
+  // console.log(tokenAccess);
+  fetch(apiURL, {
     headers: {
       "x-auth-token": tokenAccess,
       "Content-Type": "application/json"
@@ -117,7 +116,10 @@ function aNewMovie(urlS, myFilm) {
   })
     .then(res => {
       if (res.ok) {
-        alert("You added the movie!");
+        addedNewMovieAlert.classList.remove("displayNone");
+        setTimeout(function() {
+          addedNewMovieAlert.classList.add("displayNone");
+        }, 7000);
       }
       if (res.status === 403) {
         alert("You need to be authenticated to be able to create a movie");

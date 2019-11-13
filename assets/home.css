@@ -173,7 +173,7 @@ body {
   margin: 30px auto;
   width: 95%;
   min-height: 325px;
-  max-height: 600px;
+  height: 600px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -227,7 +227,7 @@ body {
   text-align: center;
 }
 .filmInfo-Title {
-  font-family: cursive;
+  /* font-family: cursive; */
 }
 .poster {
   width: 190px;
@@ -237,7 +237,7 @@ body {
 .placeholder {
   max-width: 190px;
   height: 200px;
-  background-image: url("placeholder.jpg");
+  background-image: url("./photo/placeholder.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -250,21 +250,13 @@ body {
   align-items: center;
   margin-bottom: 15px;
 }
-.next-page {
+.next-page,
+.previous-page {
   margin-left: 10px;
-  margin-bottom: 5px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid rgb(27, 27, 27);
-  cursor: pointer;
+  font-size: 20px !important;
 }
 .previous-page {
   margin-right: 10px;
-  margin-bottom: 5px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid rgb(27, 27, 27);
-  cursor: pointer;
 }
 .pageNumber {
   text-align: center;

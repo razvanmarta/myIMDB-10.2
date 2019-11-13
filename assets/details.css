@@ -62,7 +62,6 @@ label {
 }
 
 .modal-body {
-  position: relative;
   -webkit-box-flex: 1;
   flex: 1 1 auto;
   padding: 1rem;
@@ -97,7 +96,7 @@ label {
   border-top: 1px solid #282828;
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
-  background-color: #282828;
+  background-color: #1b1b1b;
 }
 
 .modal-header-edit {
@@ -113,6 +112,7 @@ label {
   border-bottom: 1px solid #282828;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
+  background-color: #1b1b1b;
 }
 
 .modal-title {
@@ -144,4 +144,9 @@ label {
 
 #editClose {
   width: 130px;
+}
+#editPlot {
+  height: 100px;
+  padding: 1.5rem;
+  vertical-align: text-top;
 }

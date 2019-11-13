@@ -1,6 +1,5 @@
 let value = "";
 let editSaveBtn = document.querySelector("#editSaveChanges");
-let editSuccesAlert = document.querySelector("#editSuccesAlert");
 
 movieDetails = {
   displayMovieDetails: function() {
@@ -86,60 +85,59 @@ movieDetails = {
 
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
-      displayElement(editSuccesAlert);
     });
   },
 
   editBtnEvents() {
     let editModalBody = document.querySelector(".modal-body");
-    // console.log("editMovie", this);
+    console.log("editMovie", this);
 
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" >${this.Title}</textarea>
+          <input class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" value ="${this.Title}"></input>
           
           <label for="editGenre">Genre:</label>
-          <textarea class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre">${this.Genre}</textarea>
+          <input class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}"></input>
 
           <label for = "editType">Type:</label>
-          <textarea class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type">${this.Type}</textarea>
+          <input class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type" value = "${this.Type}"></input>
 
           <label for = "editReleased">Released:</label>
-          <textarea class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released">${this.Released}</textarea>
+          <input class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released" value = "${this.Released}"></input>
 
           <label for = "editRated">Rated:</label>
-          <textarea class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated">${this.Rated}</textarea>
+          <input class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}"></input>
 
           <label for = "editimdbRating">imdbRating:</label>
-          <textarea class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating">${this.imdbRating}</textarea>
+          <input class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}"></input>
 
           <label for="editDirector">Director:</label>
-          <textarea class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director">${this.Director}</textarea>
+          <input class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director" value = "${this.Director}"></input>
 
           <label for="editWriter">Writer:</label>
-          <textarea class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer">${this.Writer}</textarea>
+          <input class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}"></input>
 
           <label for="editAuthor">Actors:</label>
-          <textarea class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors">${this.Actors}</textarea>
+          <input class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}"></input>
 
           <label for="editRuntime">Runtime:</label>
-          <textarea class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime">${this.Runtime}</textarea>
+          <input class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}"></input>
 
           <label for="editLanguage">Language:</label>
-          <textarea class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language">${this.Language}</textarea>
+          <input class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language" value = "${this.Language}"></input>
 
           <label for="editAwards">Awards:</label>
-          <textarea class="form-control-me" rows="3" id="editAwards" onkeyup = handleInput(this) name = "Awards">${this.Awards}</textarea>
+          <input class="form-control-me" id="editAwards" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}"></input>
 
           <label for="editPlot">Plot:</label>
-          <textarea class="form-control-me"  id="editPlot" rows="3" onkeyup = handleInput(this) name = "Plot">${this.Plot}</textarea>`;
+          <input class="form-control-me"  id="editPlot" onkeyup = handleInput(this) name = "Plot" value = "${this.Plot}"</input>`;
   }
 };
 
 //get the inputs value in the movieDetails propreties
 const getEditDetails = movieDetails => {
-  let inputs = document.querySelectorAll("textarea");
+  let inputs = document.querySelectorAll(".form-control-me");
   for (let i = 0; i < inputs.length; i++) {
     movieDetails[inputs[i].name] = inputs[i].value;
   }
@@ -157,6 +155,7 @@ editSaveBtn.addEventListener("click", () => {
 
 handleInput = event => {
   value = event.value;
+  console.log(value);
   return value;
 };
 

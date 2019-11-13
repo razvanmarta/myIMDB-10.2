@@ -3,7 +3,7 @@ let editSaveBtn = document.querySelector("#editSaveChanges");
 
 movieDetails = {
   displayMovieDetails: function() {
-    // console.log("From displayMovieDetails: ", this);
+    console.log("From displayMovieDetails: ", this);
     const detailsContainer = document.getElementById("movie");
 
     detailsContainer.innerHTML = `

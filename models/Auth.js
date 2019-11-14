@@ -16,11 +16,15 @@ function registerNewUser(url, user) {
       if (response.status == 200) {
         hideElement(modalAuth);
         clearModalFields();
+        // TODO - nu vreau asemenea cod aici - vreau apel de functie
+        // TODO - modelul ar trebui sa fie foarte clean - no DOM manipulation here
         registratedAlert.classList.remove("d-none");
         setTimeout(function() {
+          // TODO - no DOM manipulations
           registratedAlert.classList.add("d-none");
         }, 3000);
       } else if (response.status == 409) {
+        // TODO - no DOM manipulations
         registerAlert.innerHTML = "Username already exists!";
         registerAlert.classList.remove("d-none");
       }
@@ -51,12 +55,14 @@ function logIn(url, user) {
       if (response.status == 200) {
         hideElement(modalLogin);
       } else if (response.status == 401) {
+        // TODO - no DOM manipulations
         loginAlert.classList.remove("d-none");
       }
       return response.json();
     })
     .then(data => {
       const { accessToken } = data;
+      // TODO - no DOM manipulations
       loginAlert.innerHTML = data.message;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {

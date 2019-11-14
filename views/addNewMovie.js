@@ -1,3 +1,7 @@
+// TODO - try to group variables into an object
+// // asta e pentru a evita "poluarea" scopului global ( obiectului window) cu prea multe variabile
+// // punandu-le ca proprietati pe obiecte, ele devin oarecum "ascunse"
+
 const modalBtn = document.getElementById("add-movie");
 const closeBtn = document.getElementsByClassName("closeFilmBtn")[0];
 const modal = document.getElementById("modalFilmContainer");
@@ -77,6 +81,7 @@ saveChange.addEventListener("click", () => {
 
 class AddNewFilm {
   constructor(film) {
+    // TODO - atentie la sintaxa, vezi unde pui virgula si unde pui punct si virgula
     (this.Title = film.Title),
       (this.Genre = film.Genre),
       (this.Type = film.Type),

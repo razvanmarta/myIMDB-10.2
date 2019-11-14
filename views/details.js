@@ -119,6 +119,7 @@ movieDetails = {
     let editModalBody = document.querySelector(".modal-body");
     console.log("editMovie", this);
 
+    // TODO - inputs are self-closing tags <input ... />
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>

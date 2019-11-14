@@ -1,3 +1,5 @@
+// TODO - functia de logout trebuie sa fie in Auth.js
+
 const logOut = token => {
   console.log(token);
   fetch(logoutURL, {

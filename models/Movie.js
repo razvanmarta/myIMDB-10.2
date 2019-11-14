@@ -4,7 +4,6 @@ let prev = null; //previousPage
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {
   try {
-    movieList.innerHTML = "";
     const request = await fetch(apiURL);
     console.log(request);
     const data = await request.json();
@@ -16,6 +15,7 @@ const makeCallToServer = async apiURL => {
     next = page.next;
     prev = page.prev;
     disablePaginationButton();
+    movieList.innerHTML = "";
     results.forEach(result => createMovieItem(result));
   } catch (error) {
     console.log(error);
@@ -28,7 +28,6 @@ const renderFilteredMovies = async param => {
   if (!filteredFilms) {
     return;
   }
-  movieList.innerHTML = "";
   const request = await fetch(
     `https://movies-api-siit.herokuapp.com/movies?${param}=${filteredFilms}`
   );
@@ -40,6 +39,7 @@ const renderFilteredMovies = async param => {
   next = page.next;
   prev = page.prev;
   disablePaginationButton();
+  movieList.innerHTML = "";
   results.forEach(result => createMovieItem(result));
   // searchfield.value = "";
 };

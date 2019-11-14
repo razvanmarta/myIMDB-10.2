@@ -15,14 +15,14 @@
 }
 
 #register-container {
-  margin-left: 30%;
-  margin-right: 30%;
+  margin: 0 auto;
   width: auto !important;
   height: auto;
   border-style: solid;
   border-color: black;
   border-radius: 25px;
   padding: 1.5em;
+  min-width: 300px;
   max-width: 40%;
 }
 

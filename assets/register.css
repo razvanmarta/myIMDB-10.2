@@ -15,7 +15,8 @@
 }
 
 #register-container {
-  margin: 0 auto;
+  margin: auto;
+  max-width: 300px !important;
   width: auto !important;
   height: auto;
   border-style: solid;

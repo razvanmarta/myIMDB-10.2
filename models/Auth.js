@@ -69,7 +69,7 @@ function logIn(url, user) {
         showUserIsLoggedIn();
         displayUserName(user.username);
       }
-      if (window.location.pathname === "/myIMDB-10.2/pages/details.html") {
+      if (window.location.pathname.includes("details.html")) {
         movieDetails.displayMovieDetails();
       }
     })

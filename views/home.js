@@ -151,7 +151,6 @@ const clearModalFields = () => {
 //Fade out modal function
 
 const fadeOutModal = element => {
-  console.log("click");
   element.style.animation = "fadeOut 0.8s";
   setTimeout(function() {
     element.style.animation = "";
@@ -161,7 +160,6 @@ const fadeOutModal = element => {
 
 //Open register-modal eventlistener
 registerBtn.addEventListener("click", () => {
-  console.log("click");
   displayElement(modalAuth);
 });
 
@@ -169,7 +167,6 @@ registerBtn.addEventListener("click", () => {
 closeRegister.addEventListener("click", () => {
   console.log("click close");
   clearModalFields();
-  // hideElement(modalAuth);
   fadeOutModal(modalAuth);
 });
 
@@ -181,7 +178,6 @@ loginBtn.addEventListener("click", () => {
 //Close login-modal eventlistener
 closeLogin.addEventListener("click", () => {
   clearModalFields();
-  // hideElement(modalLogin);
   fadeOutModal(modalLogin);
 });
 
@@ -199,8 +195,13 @@ const showUserIsLoggedIn = () => {
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
+
+  hideElement(registerBurgerBtn);
+  hideElement(loginBurgerBtn);
+  displayElement(logoutBurgerBtn);
+
   displayElement(userContainer);
-  if (window.location.pathname === "/myIMDB-10.2/pages/home.html") {
+  if (window.location.href.includes("home.html")) {
     enableButtons(addModalBtn);
   }
 };
@@ -215,8 +216,13 @@ const showUserIsLoggedOut = () => {
   displayElement(loginBtn);
   displayElement(registerBtn);
   hideElement(logOutBtn);
+
+  hideElement(logoutBurgerBtn);
+  displayElement(registerBurgerBtn);
+  displayElement(loginBurgerBtn);
+
   hideElement(userContainer);
-  if (window.location.pathname === "/myIMDB-10.2/pages/home.html") {
+  if (window.location.href.includes("home.html")) {
     disableButtons(addModalBtn);
   }
 };

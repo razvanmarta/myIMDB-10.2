@@ -93,7 +93,6 @@ movieDetails = {
 
     //Delete button
     const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
-    console.log(deleteMovieBtn);
     deleteMovieBtn.addEventListener("click", openDeleteModal);
 
     // close and open the Edit Modal
@@ -198,3 +197,15 @@ const displayTrailer = trailer => {
 
 getMovie();
 getTrailer();
+
+//close modals
+function outsideModal(event) {
+  if (event.target === modalAuth) {
+    fadeOutModal(modalAuth);
+  }
+  if (event.target === modalLogin) {
+    fadeOutModal(modalLogin);
+  }
+}
+
+window.addEventListener("click", outsideModal);

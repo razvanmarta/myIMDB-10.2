@@ -5,7 +5,6 @@ const movieList = document.querySelector(".movieList");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 let newUser = sessionStorage.getItem("userName");
 
-
 // TODO - nu are sens sa fie ID-uri pe fiecare din ele
 // id-urile pot fi puse pe containere
 // de exemplu un id pe nav-bar si celelalte luate dupa text sau dupa clasa sau etc
@@ -28,7 +27,6 @@ let newUser = sessionStorage.getItem("userName");
 * */
 //const topNavbar = document.getElementById("top-navigation");
 
-
 // TODO - mi-ar placea sa vad variabilele astea globale - macar grupate in obiecte de forma:
 /*
 
@@ -49,7 +47,6 @@ const login = {
 // punandu-le ca priprietati pe obiecte, ele devin oarecum "ascunse"
 *
 * */
-
 
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
@@ -198,6 +195,7 @@ const enableButtons = button => {
 };
 
 const showUserIsLoggedIn = () => {
+  console.log(window.location);
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
@@ -252,7 +250,7 @@ const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
 
   // TODO - cele trei if-uri pot fi simplificate
-    // return token !== null && token !== "undefined"
+  // return token !== null && token !== "undefined"
 
   if (token === null) {
     return false;

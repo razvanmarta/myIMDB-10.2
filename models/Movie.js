@@ -3,7 +3,6 @@
 // - in order to encapsulate private variables and private functions that do not need to be exposed to the global scope
 //
 
-
 let next = null; //nextPage
 let prev = null; //previousPage
 

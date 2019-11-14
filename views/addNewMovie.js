@@ -43,6 +43,8 @@ function outsideModal(event) {
   }
 }
 
+window.addEventListener("click", outsideModal);
+
 function emptyFilmImpute() {
   filmInfo.map(item => (item.value = ""));
 }
@@ -52,8 +54,6 @@ modalBtn.addEventListener("click", openModal);
 closeBtn.addEventListener("click", () => {
   fadeOutModal(modal);
 });
-
-window.addEventListener("click", outsideModal);
 
 discardChange.addEventListener("click", emptyFilmImpute);
 

@@ -108,7 +108,7 @@ const clearModalFields = () => {
 //Fade out modal function
 
 const fadeOutModal = element => {
-  console.log("click");
+  console.log("click fadeoutmodal");
   element.style.animation = "fadeOut 0.8s";
   setTimeout(function() {
     element.style.animation = "";
@@ -126,7 +126,6 @@ registerBtn.addEventListener("click", () => {
 closeRegister.addEventListener("click", () => {
   console.log("click close");
   clearModalFields();
-  // hideElement(modalAuth);
   fadeOutModal(modalAuth);
 });
 
@@ -138,7 +137,6 @@ loginBtn.addEventListener("click", () => {
 //Close login-modal eventlistener
 closeLogin.addEventListener("click", () => {
   clearModalFields();
-  // hideElement(modalLogin);
   fadeOutModal(modalLogin);
 });
 
@@ -146,6 +144,11 @@ const showUserIsLoggedIn = () => {
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
+
+  hideElement(registerBurgerBtn);
+  hideElement(loginBurgerBtn);
+  displayElement(logoutBurgerBtn);
+
   displayElement(userContainer);
 };
 
@@ -159,6 +162,11 @@ const showUserIsLoggedOut = () => {
   displayElement(loginBtn);
   displayElement(registerBtn);
   hideElement(logOutBtn);
+
+  hideElement(logoutBurgerBtn);
+  displayElement(registerBurgerBtn);
+  displayElement(loginBurgerBtn);
+
   hideElement(userContainer);
 };
 

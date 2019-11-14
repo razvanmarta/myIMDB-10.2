@@ -177,3 +177,15 @@ const displayTrailer = trailer => {
 
 getMovie();
 getTrailer();
+
+//close modals
+function outsideModal(event) {
+  if (event.target === modalAuth) {
+    fadeOutModal(modalAuth);
+  }
+  if (event.target === modalLogin) {
+    fadeOutModal(modalLogin);
+  }
+}
+
+window.addEventListener("click", outsideModal);

@@ -59,7 +59,9 @@ function logIn(url, user) {
       const { accessToken } = data;
       loginAlert.innerHTML = data.message;
       sessionStorage.setItem("accessToken", accessToken);
+      console.log("check");
       if (checkIfLoggedIn()) {
+        console.log("check");
         showUserIsLoggedIn();
         displayUserName(user.username);
       }

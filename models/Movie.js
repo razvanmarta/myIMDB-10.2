@@ -1,3 +1,9 @@
+// TODO - these functions might stay in an object (not a class) in order to avoid global scope pollution
+// !!!!! Challenge - even more - you could have a self invoked function that could return that object
+// - in order to encapsulate private variables and private functions that do not need to be exposed to the global scope
+//
+
+
 let next = null; //nextPage
 let prev = null; //previousPage
 
@@ -11,10 +17,12 @@ const makeCallToServer = async apiURL => {
     const results = data.results;
     const page = data.pagination.links;
     const pageNumber = data.pagination.currentPage;
+    // TODO - no DOM manipulations here
     pageNr.innerText = ` - ${pageNumber} - `;
     next = page.next;
     prev = page.prev;
     disablePaginationButton();
+    // TODO - no DOM manipulations here
     movieList.innerHTML = "";
     results.forEach(result => createMovieItem(result));
   } catch (error) {
@@ -35,6 +43,7 @@ const renderFilteredMovies = async param => {
   const results = await data.results;
   const page = await data.pagination.links;
   const pageNumber = data.pagination.currentPage;
+  // TODO - no DOM manipulations here
   pageNr.innerText = ` - ${pageNumber} - `;
   next = page.next;
   prev = page.prev;

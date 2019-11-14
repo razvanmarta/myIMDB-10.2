@@ -235,6 +235,10 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
+
+  // TODO - cele trei if-uri pot fi simplificate
+    // return token !== null && token !== "undefined"
+
   if (token === null) {
     return false;
   }

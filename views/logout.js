@@ -1,5 +1,6 @@
+// TODO - functia de logout trebuie sa fie in Auth.js
+
 const logOut = token => {
-  console.log(token);
   fetch(logoutURL, {
     method: "GET",
     headers: {
@@ -7,7 +8,9 @@ const logOut = token => {
     }
   })
     .then(response => {
-      console.log(response);
+      if (window.location.href.includes("details.html")) {
+        movieDetails.displayMovieDetails();
+      }
       return response.json();
     })
     .then(message => console.log(message));

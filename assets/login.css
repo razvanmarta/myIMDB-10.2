@@ -13,7 +13,8 @@
   }
 }
 
-#close-login-btn {
+#close-login-btn,
+#close-delete-btn {
   float: right;
   position: relative;
   margin-top: 5px;
@@ -22,7 +23,8 @@
   color: gray;
 }
 
-#close-login-btn:hover {
+#close-login-btn:hover,
+#close-delete-btn:hover {
   cursor: pointer;
 }
 

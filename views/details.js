@@ -3,7 +3,6 @@ let editSaveBtn = document.querySelector("#editSaveChanges");
 
 movieDetails = {
   displayMovieDetails: function() {
-    // console.log("From displayMovieDetails: ", this);
     const detailsContainer = document.getElementById("movie");
 
     detailsContainer.innerHTML = `
@@ -12,24 +11,47 @@ movieDetails = {
         <img src = "${this.Poster}" class = "img-thumbnail">
         <div id = "detailsButtons">
           <button class = "btn btn-primary m-1" id = "detailsViewBtn">View IMDB</button>
-          <button class = "btn btn-success m-1 show" id = "detailsEditBtn" data-toggle="modal" data-target="#myModal">Edit Movie</button>
-          <button class = "btn btn-danger m-1" id = "detailsDeleteBtn">Delete Movie</button>
+          <button class = "btn btn-success m-1 show" id = "detailsEditBtn" data-toggle="modal" data-target="#myModal"
+            disabled=${true}>Edit Movie</button>
+          <button class = "btn btn-danger m-1" id = "detailsDeleteBtn" disabled=${true}>Delete Movie</button>
         </div>
       </div>
       <div class="col-md-8">
         <h2 id="Title">${this.Title}</h2>
         <ul class="list-group">
-          <li class = "list-group-item" id = "Genre"><strong>Genre:</strong> ${this.Genre}</li>
-          <li class = "list-group-item" id = "Type"><strong>Type:</strong> ${this.Type}</li>
-          <li class = "list-group-item" id = "Released"><strong>Released:</strong> ${this.Released}</li>
-          <li class = "list-group-item" id = "Rated"><strong>Rated:</strong> ${this.Rated}</li>
-          <li class = "list-group-item" id = "imdbRating"><strong>IMDB Rating:</strong> ${this.imdbRating}</li>
-          <li class = "list-group-item" id = "Director"><strong>Director:</strong> ${this.Director}</li>
-          <li class = "list-group-item" id = "Writer"><strong>Writer:</strong> ${this.Writer}</li>
-          <li class = "list-group-item" id = "Actors"><strong>Actors:</strong> ${this.Actors}</li>
-          <li class = "list-group-item" id = "Runtime"><strong>Runtime:</strong> ${this.Runtime}</li>
-          <li class = "list-group-item" id = "Language"><strong>Language:</strong> ${this.Language}</li>
-          <li class = "list-group-item" id = "Awards"><strong>Awards:</strong> ${this.Awards}</li>
+          <li class = "list-group-item" id = "Genre"><strong>Genre:</strong> ${
+            this.Genre
+          }</li>
+          <li class = "list-group-item" id = "Type"><strong>Type:</strong> ${
+            this.Type
+          }</li>
+          <li class = "list-group-item" id = "Released"><strong>Released:</strong> ${
+            this.Released
+          }</li>
+          <li class = "list-group-item" id = "Rated"><strong>Rated:</strong> ${
+            this.Rated
+          }</li>
+          <li class = "list-group-item" id = "imdbRating"><strong>IMDB Rating:</strong> ${
+            this.imdbRating
+          }</li>
+          <li class = "list-group-item" id = "Director"><strong>Director:</strong> ${
+            this.Director
+          }</li>
+          <li class = "list-group-item" id = "Writer"><strong>Writer:</strong> ${
+            this.Writer
+          }</li>
+          <li class = "list-group-item" id = "Actors"><strong>Actors:</strong> ${
+            this.Actors
+          }</li>
+          <li class = "list-group-item" id = "Runtime"><strong>Runtime:</strong> ${
+            this.Runtime
+          }</li>
+          <li class = "list-group-item" id = "Language"><strong>Language:</strong> ${
+            this.Language
+          }</li>
+          <li class = "list-group-item" id = "Awards"><strong>Awards:</strong> ${
+            this.Awards
+          }</li>
         </ul>
       </div>
     </div>
@@ -60,18 +82,17 @@ movieDetails = {
     //event listener for the editDetailsBtn
     let editModalCloseBtn = document.querySelector("#editModalClose");
     let editCloseBtn = document.querySelector("#editClose");
-    let editDetailsdBtn = document.querySelector("#detailsEditBtn");
+    let editDetailsBtn = document.querySelector("#detailsEditBtn");
     let editModal = document.querySelector("#editModal");
 
     //display data in Edit Modal
-    editDetailsdBtn.addEventListener("click", () => {
+    editDetailsBtn.addEventListener("click", () => {
       this.editBtnEvents();
       displayElement(editModal);
     });
 
     //Delete button
     const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
-    console.log(deleteMovieBtn);
     deleteMovieBtn.addEventListener("click", openDeleteModal);
 
     // close and open the Edit Modal
@@ -85,63 +106,65 @@ movieDetails = {
 
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
-      // getEditDetails(movieDetails);
     });
+
+    if (checkIfLoggedIn()) {
+      enableButtons(editDetailsBtn);
+      enableButtons(deleteMovieBtn);
+    }
   },
 
   editBtnEvents() {
     let editModalBody = document.querySelector(".modal-body");
-    // console.log("editMovie", this);
+    console.log("editMovie", this);
 
+    // TODO - inputs are self-closing tags <input ... />
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <textarea class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title">${this.Title}</textarea>
+          <input class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" value ="${this.Title}"></input>
           
           <label for="editGenre">Genre:</label>
-          <textarea class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre">${this.Genre}</textarea>
+          <input class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}"></input>
 
           <label for = "editType">Type:</label>
-          <textarea class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type">${this.Type}</textarea>
+          <input class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type" value = "${this.Type}"></input>
 
           <label for = "editReleased">Released:</label>
-          <textarea class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released">${this.Released}</textarea>
+          <input class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released" value = "${this.Released}"></input>
 
           <label for = "editRated">Rated:</label>
-          <textarea class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated">${this.Rated}</textarea>
+          <input class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}"></input>
 
           <label for = "editimdbRating">imdbRating:</label>
-          <textarea class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating">${this.imdbRating}</textarea>
+          <input class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}"></input>
 
           <label for="editDirector">Director:</label>
-          <textarea class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director">${this.Director}</textarea>
+          <input class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director" value = "${this.Director}"></input>
 
           <label for="editWriter">Writer:</label>
-          <textarea class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer">${this.Writer}</textarea>
+          <input class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}"></input>
 
           <label for="editAuthor">Actors:</label>
-          <textarea class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors">${this.Actors}</textarea>
+          <input class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}"></input>
 
           <label for="editRuntime">Runtime:</label>
-          <textarea class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime">${this.Runtime}</textarea>
+          <input class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}"></input>
 
           <label for="editLanguage">Language:</label>
-          <textarea class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language">${this.Language}</textarea>
+          <input class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language" value = "${this.Language}"></input>
 
           <label for="editAwards">Awards:</label>
-          <textarea class="form-control-me" rows="3" id="editAwards" onkeyup = handleInput(this) name = "Awards">${this.Awards}</textarea>
+          <input class="form-control-me" id="editAwards" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}"></input>
 
           <label for="editPlot">Plot:</label>
-          <textarea class="form-control-me"  id="editPlot" rows="3" onkeyup = handleInput(this) name = "Plot">${this.Plot}</textarea>`;
-
-    // let editModalTitle = document.querySelector(".modal-title");
-    // editModalTitle.innerText = `Edit Movie: ` + `${this.Title}`;
+          <input class="form-control-me"  id="editPlot" onkeyup = handleInput(this) name = "Plot" value = "${this.Plot}"</input>`;
   }
 };
 
 //get the inputs value in the movieDetails propreties
 const getEditDetails = movieDetails => {
-  let inputs = document.querySelectorAll("textarea");
+  let inputs = document.querySelectorAll(".form-control-me");
   for (let i = 0; i < inputs.length; i++) {
     movieDetails[inputs[i].name] = inputs[i].value;
   }
@@ -159,6 +182,7 @@ editSaveBtn.addEventListener("click", () => {
 
 handleInput = event => {
   value = event.value;
+  console.log(value);
   return value;
 };
 
@@ -172,7 +196,6 @@ const displayTrailer = trailer => {
     trailerContainer.classList.add("embed-responsive-16by9");
     trailerSource.setAttribute("src", trailer.embed);
   }
-  // console.log(trailerContainer);
 };
 
 getMovie();

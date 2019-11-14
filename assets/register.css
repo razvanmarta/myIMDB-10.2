@@ -23,6 +23,7 @@
   border-color: black;
   border-radius: 25px;
   padding: 1.5em;
+  min-width: 300px;
   max-width: 40%;
 }
 

@@ -5,6 +5,49 @@ const movieList = document.querySelector(".movieList");
 const apiURL = "https://movies-api-siit.herokuapp.com/movies";
 let newUser = sessionStorage.getItem("userName");
 
+// TODO - nu are sens sa fie ID-uri pe fiecare din ele
+// id-urile pot fi puse pe containere
+// de exemplu un id pe nav-bar si celelalte luate dupa text sau dupa clasa sau etc
+/*
+* <ul id="top-navigation" class="navigation-menu">
+            <li class="menu-item home">
+              <i class="fas fa-home fa-lg"></i> Home
+            </li>
+            <li class="menu-item login">
+              <i class="fas fa-user fa-lg"></i> Login
+            </li>
+            <li class="menu-item register">
+              <i class="fas fa-user-plus fa-lg"></i> Register
+            </li>
+            <li class="menu-item logout">
+              <i class="fas fa-sign-out-alt fa-lg"></i> Logout
+            </li>
+          </ul>
+*
+* */
+//const topNavbar = document.getElementById("top-navigation");
+
+// TODO - mi-ar placea sa vad variabilele astea globale - macar grupate in obiecte de forma:
+/*
+
+const navbar = {
+    homeBtn: topNavbar.querySelector(".home")
+    ....
+};
+
+// const loginModal = document.getElementById("id02")
+
+const login = {
+    closeLogin: loginModal.getElementById("id02"),
+    ....
+};
+
+
+// asta e pentru a evita "poluarea" scopului global ( obiectului window) cu prea multe variabile
+// punandu-le ca priprietati pe obiecte, ele devin oarecum "ascunse"
+*
+* */
+
 // Navbar variables
 const homeBtn = document.getElementById("home-button");
 const loginBtn = document.getElementById("login-button");
@@ -108,7 +151,6 @@ const clearModalFields = () => {
 //Fade out modal function
 
 const fadeOutModal = element => {
-  console.log("click fadeoutmodal");
   element.style.animation = "fadeOut 0.8s";
   setTimeout(function() {
     element.style.animation = "";
@@ -118,7 +160,6 @@ const fadeOutModal = element => {
 
 //Open register-modal eventlistener
 registerBtn.addEventListener("click", () => {
-  console.log("click");
   displayElement(modalAuth);
 });
 
@@ -140,6 +181,15 @@ closeLogin.addEventListener("click", () => {
   fadeOutModal(modalLogin);
 });
 
+//disable add movie buttons and general disable function
+const addModalBtn = document.getElementById("add-movie");
+const disableButtons = button => {
+  button.setAttribute("disabled", true);
+};
+const enableButtons = button => {
+  button.removeAttribute("disabled");
+};
+
 const showUserIsLoggedIn = () => {
   hideElement(loginBtn);
   hideElement(registerBtn);
@@ -150,6 +200,9 @@ const showUserIsLoggedIn = () => {
   displayElement(logoutBurgerBtn);
 
   displayElement(userContainer);
+  if (window.location.href.includes("home.html")) {
+    enableButtons(addModalBtn);
+  }
 };
 
 //Brings back Login and Register buttons to page and logs the user out
@@ -168,6 +221,9 @@ const showUserIsLoggedOut = () => {
   displayElement(loginBurgerBtn);
 
   hideElement(userContainer);
+  if (window.location.href.includes("home.html")) {
+    disableButtons(addModalBtn);
+  }
 };
 
 //Switch to login modal, from register modal function
@@ -197,6 +253,10 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
+
+  // TODO - cele trei if-uri pot fi simplificate
+  // return token !== null && token !== "undefined"
+
   if (token === null) {
     return false;
   }

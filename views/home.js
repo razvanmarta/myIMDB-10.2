@@ -142,11 +142,23 @@ closeLogin.addEventListener("click", () => {
   fadeOutModal(modalLogin);
 });
 
+//disable add movie buttons and general disable function
+const addModalBtn = document.getElementById("add-movie");
+const disableButtons = button => {
+  button.setAttribute("disabled", true);
+};
+const enableButtons = button => {
+  button.removeAttribute("disabled");
+};
+
 const showUserIsLoggedIn = () => {
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
   displayElement(userContainer);
+  if (window.location.pathname === "/myIMDB-10.2/pages/home.html") {
+    enableButtons(addModalBtn);
+  }
 };
 
 //Brings back Login and Register buttons to page and logs the user out
@@ -160,6 +172,9 @@ const showUserIsLoggedOut = () => {
   displayElement(registerBtn);
   hideElement(logOutBtn);
   hideElement(userContainer);
+  if (window.location.pathname === "/myIMDB-10.2/pages/home.html") {
+    disableButtons(addModalBtn);
+  }
 };
 
 //Switch to login modal, from register modal function

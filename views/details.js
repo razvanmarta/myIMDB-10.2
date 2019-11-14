@@ -3,7 +3,6 @@ let editSaveBtn = document.querySelector("#editSaveChanges");
 
 movieDetails = {
   displayMovieDetails: function() {
-    console.log("From displayMovieDetails: ", this);
     const detailsContainer = document.getElementById("movie");
 
     detailsContainer.innerHTML = `
@@ -12,24 +11,47 @@ movieDetails = {
         <img src = "${this.Poster}" class = "img-thumbnail">
         <div id = "detailsButtons">
           <button class = "btn btn-primary m-1" id = "detailsViewBtn">View IMDB</button>
-          <button class = "btn btn-success m-1 show" id = "detailsEditBtn" data-toggle="modal" data-target="#myModal">Edit Movie</button>
-          <button class = "btn btn-danger m-1" id = "detailsDeleteBtn">Delete Movie</button>
+          <button class = "btn btn-success m-1 show" id = "detailsEditBtn" data-toggle="modal" data-target="#myModal"
+            disabled=${true}>Edit Movie</button>
+          <button class = "btn btn-danger m-1" id = "detailsDeleteBtn" disabled=${true}>Delete Movie</button>
         </div>
       </div>
       <div class="col-md-8">
         <h2 id="Title">${this.Title}</h2>
         <ul class="list-group">
-          <li class = "list-group-item" id = "Genre"><strong>Genre:</strong> ${this.Genre}</li>
-          <li class = "list-group-item" id = "Type"><strong>Type:</strong> ${this.Type}</li>
-          <li class = "list-group-item" id = "Released"><strong>Released:</strong> ${this.Released}</li>
-          <li class = "list-group-item" id = "Rated"><strong>Rated:</strong> ${this.Rated}</li>
-          <li class = "list-group-item" id = "imdbRating"><strong>IMDB Rating:</strong> ${this.imdbRating}</li>
-          <li class = "list-group-item" id = "Director"><strong>Director:</strong> ${this.Director}</li>
-          <li class = "list-group-item" id = "Writer"><strong>Writer:</strong> ${this.Writer}</li>
-          <li class = "list-group-item" id = "Actors"><strong>Actors:</strong> ${this.Actors}</li>
-          <li class = "list-group-item" id = "Runtime"><strong>Runtime:</strong> ${this.Runtime}</li>
-          <li class = "list-group-item" id = "Language"><strong>Language:</strong> ${this.Language}</li>
-          <li class = "list-group-item" id = "Awards"><strong>Awards:</strong> ${this.Awards}</li>
+          <li class = "list-group-item" id = "Genre"><strong>Genre:</strong> ${
+            this.Genre
+          }</li>
+          <li class = "list-group-item" id = "Type"><strong>Type:</strong> ${
+            this.Type
+          }</li>
+          <li class = "list-group-item" id = "Released"><strong>Released:</strong> ${
+            this.Released
+          }</li>
+          <li class = "list-group-item" id = "Rated"><strong>Rated:</strong> ${
+            this.Rated
+          }</li>
+          <li class = "list-group-item" id = "imdbRating"><strong>IMDB Rating:</strong> ${
+            this.imdbRating
+          }</li>
+          <li class = "list-group-item" id = "Director"><strong>Director:</strong> ${
+            this.Director
+          }</li>
+          <li class = "list-group-item" id = "Writer"><strong>Writer:</strong> ${
+            this.Writer
+          }</li>
+          <li class = "list-group-item" id = "Actors"><strong>Actors:</strong> ${
+            this.Actors
+          }</li>
+          <li class = "list-group-item" id = "Runtime"><strong>Runtime:</strong> ${
+            this.Runtime
+          }</li>
+          <li class = "list-group-item" id = "Language"><strong>Language:</strong> ${
+            this.Language
+          }</li>
+          <li class = "list-group-item" id = "Awards"><strong>Awards:</strong> ${
+            this.Awards
+          }</li>
         </ul>
       </div>
     </div>
@@ -60,11 +82,11 @@ movieDetails = {
     //event listener for the editDetailsBtn
     let editModalCloseBtn = document.querySelector("#editModalClose");
     let editCloseBtn = document.querySelector("#editClose");
-    let editDetailsdBtn = document.querySelector("#detailsEditBtn");
+    let editDetailsBtn = document.querySelector("#detailsEditBtn");
     let editModal = document.querySelector("#editModal");
 
     //display data in Edit Modal
-    editDetailsdBtn.addEventListener("click", () => {
+    editDetailsBtn.addEventListener("click", () => {
       this.editBtnEvents();
       displayElement(editModal);
     });
@@ -86,6 +108,11 @@ movieDetails = {
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
     });
+
+    if (checkIfLoggedIn()) {
+      enableButtons(editDetailsBtn);
+      enableButtons(deleteMovieBtn);
+    }
   },
 
   editBtnEvents() {
@@ -169,7 +196,6 @@ const displayTrailer = trailer => {
     trailerContainer.classList.add("embed-responsive-16by9");
     trailerSource.setAttribute("src", trailer.embed);
   }
-  // console.log(trailerContainer);
 };
 
 getMovie();

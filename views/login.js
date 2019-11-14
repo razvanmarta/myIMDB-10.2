@@ -1,6 +1,6 @@
 //Login button event
-
 const logInEventButton = document.getElementById("login-event-button");
+
 logInEventButton.addEventListener("click", function(event) {
   event.preventDefault();
 
@@ -28,6 +28,5 @@ logInEventButton.addEventListener("click", function(event) {
   };
   // Create the globaly accesable userObject
   sessionStorage.setItem("userName", logInUser.username);
-
   logIn(loginURL, logInUser);
 });

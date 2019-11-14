@@ -7,6 +7,9 @@ const logOut = token => {
     }
   })
     .then(response => {
+      if (window.location.pathname === "/myIMDB-10.2/pages/details.html") {
+        movieDetails.displayMovieDetails();
+      }
       console.log(response);
       return response.json();
     })

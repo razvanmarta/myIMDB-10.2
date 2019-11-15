@@ -203,6 +203,9 @@ const showUserIsLoggedIn = () => {
   displayElement(userContainer);
   if (window.location.href.includes("home.html")) {
     enableButtons(addModalBtn);
+  } else {
+    getMovie();
+    getTrailer();
   }
 };
 
@@ -224,6 +227,9 @@ const showUserIsLoggedOut = () => {
   hideElement(userContainer);
   if (window.location.href.includes("home.html")) {
     disableButtons(addModalBtn);
+  } else {
+    getMovie();
+    getTrailer();
   }
 };
 

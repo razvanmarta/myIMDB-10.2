@@ -190,6 +190,7 @@ const enableButtons = button => {
 };
 
 const showUserIsLoggedIn = () => {
+  console.log(window.location);
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
@@ -201,13 +202,17 @@ const showUserIsLoggedIn = () => {
   displayElement(userContainer);
   if (window.location.href.includes("home.html")) {
     enableButtons(addModalBtn);
+  } else {
+    getMovie();
+    getTrailer();
   }
 };
 
 //Brings back Login and Register buttons to page and logs the user out
 const showUserIsLoggedOut = () => {
   const token = sessionStorage.getItem("accessToken");
-  logOut(token);
+  // logOut(token);
+  User.logOutUser(token);
   clearModalFields();
   sessionStorage.removeItem("accessToken");
   sessionStorage.removeItem("userName");
@@ -222,6 +227,8 @@ const showUserIsLoggedOut = () => {
   hideElement(userContainer);
   if (window.location.href.includes("home.html")) {
     disableButtons(addModalBtn);
+  } else {
+    getTrailer();
   }
 };
 
@@ -252,19 +259,7 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
-
-  // TODO - cele trei if-uri pot fi simplificate
-  // return token !== null && token !== "undefined"
-
-  if (token === null) {
-    return false;
-  }
-  if (token === "undefined") {
-    return false;
-  }
-  if (token !== null && token !== "undefined") {
-    return true;
-  }
+  return token !== null && token !== "undefined";
 };
 
 const displayUserName = user => {

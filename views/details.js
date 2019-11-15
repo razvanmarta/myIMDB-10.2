@@ -116,49 +116,46 @@ movieDetails = {
 
   editBtnEvents() {
     let editModalBody = document.querySelector(".modal-body");
-    console.log("editMovie", this);
-
-    // TODO - inputs are self-closing tags <input ... />
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <input class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" value ="${this.Title}"></input>
+          <input class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" value ="${this.Title}">
           
           <label for="editGenre">Genre:</label>
-          <input class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}"></input>
+          <input class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}">
 
           <label for = "editType">Type:</label>
-          <input class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type" value = "${this.Type}"></input>
+          <input class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type" value = "${this.Type}">
 
           <label for = "editReleased">Released:</label>
-          <input class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released" value = "${this.Released}"></input>
+          <input class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released" value = "${this.Released}">
 
           <label for = "editRated">Rated:</label>
-          <input class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}"></input>
+          <input class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}">
 
           <label for = "editimdbRating">imdbRating:</label>
-          <input class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}"></input>
+          <input class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}">
 
           <label for="editDirector">Director:</label>
-          <input class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director" value = "${this.Director}"></input>
+          <input class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director" value = "${this.Director}">
 
           <label for="editWriter">Writer:</label>
-          <input class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}"></input>
+          <input class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}">
 
           <label for="editAuthor">Actors:</label>
-          <input class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}"></input>
+          <input class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}">
 
           <label for="editRuntime">Runtime:</label>
-          <input class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}"></input>
+          <input class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}">
 
           <label for="editLanguage">Language:</label>
-          <input class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language" value = "${this.Language}"></input>
+          <input class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language" value = "${this.Language}">
 
           <label for="editAwards">Awards:</label>
-          <input class="form-control-me" id="editAwards" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}"></input>
+          <input class="form-control-me" id="editAwards" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}">
 
           <label for="editPlot">Plot:</label>
-          <input class="form-control-me"  id="editPlot" onkeyup = handleInput(this) name = "Plot" value = "${this.Plot}"</input>`;
+          <input class="form-control-me"  id="editPlot" onkeyup = handleInput(this) name = "Plot" value = "${this.Plot}">`;
   }
 };
 
@@ -182,7 +179,6 @@ editSaveBtn.addEventListener("click", () => {
 
 handleInput = event => {
   value = event.value;
-  console.log(value);
   return value;
 };
 

@@ -1,18 +1,25 @@
+// TODO - these functions might stay in an object (not a class) in order to avoid global scope pollution
+// !!!!! Challenge - even more - you could have a self invoked function that could return that object
+// - in order to encapsulate private variables and private functions that do not need to be exposed to the global scope
+//
+
 let next = null; //nextPage
 let prev = null; //previousPage
 
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {
   try {
-    const response = await fetch(apiURL);
-    const data = await response.json();
+    const request = await fetch(apiURL);
+    const data = await request.json();
     const results = data.results;
     const page = data.pagination.links;
     const pageNumber = data.pagination.currentPage;
+    // TODO - no DOM manipulations here
     pageNr.innerText = ` - ${pageNumber} - `;
     next = page.next;
     prev = page.prev;
     disablePaginationButton();
+    // TODO - no DOM manipulations here
     movieList.innerHTML = "";
     results.forEach(result => createMovieItem(result));
   } catch (error) {
@@ -32,6 +39,7 @@ const renderFilteredMovies = async param => {
   const results = await data.results;
   const page = await data.pagination.links;
   const pageNumber = data.pagination.currentPage;
+  // TODO - no DOM manipulations here
   pageNr.innerText = ` - ${pageNumber} - `;
   next = page.next;
   prev = page.prev;
@@ -46,14 +54,19 @@ const getMovie = async () => {
   let movieID = sessionStorage.getItem("movieID");
   try {
     const response = await fetch(
-      `https://movies-api-siit.herokuapp.com/movies/${movieID}`
+      `https://movies-api-siit.herokuapp.com/movies/${movieID}`,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
     );
     const movie = await response.json();
     Object.assign(movieDetails, movie);
     movieDetails.displayMovieDetails();
   } catch (error) {
-    detailsPageError();
-    console.log("Error getting movie :-): ", error);
+    detailsPageError().then(redirectToHome);
+    console.log("Error getting movie", error);
   }
 };
 // get trailer from custom API
@@ -93,6 +106,7 @@ const updateMovie = movieDetails => {
     .then(data => {
       movieDetails.displayMovieDetails(data);
       movieDetails.editBtnEvents(data);
+      getTrailer();
       console.log("returnData", data);
     })
     .catch(error => console.error(`Error: ${error}`));

@@ -1,3 +1,7 @@
+// TODO - try to group variables into an object
+// // asta e pentru a evita "poluarea" scopului global ( obiectului window) cu prea multe variabile
+// // punandu-le ca proprietati pe obiecte, ele devin oarecum "ascunse"
+
 // burgerMenu- add .show
 const burgerButton = document.getElementById("burgerButton");
 const dropDownList = document.getElementById("dropDownList");
@@ -5,6 +9,7 @@ const outsideClick = document.getElementById("generalHideNavItem");
 const homeBurgerBtn = document.getElementById("menuBurger-home");
 const loginBurgerBtn = document.getElementById("menuBurger-login");
 const registerBurgerBtn = document.getElementById("menuBurger-register");
+const logoutBurgerBtn = document.getElementById("menuBurger-logout");
 
 function toggleDropList() {
   if ((dropDownList.className = "hideDropDownList")) {
@@ -15,6 +20,15 @@ function toggleDropList() {
 
 //show or hide menu list
 burgerButton.addEventListener("click", toggleDropList);
+
+//logout burger menu
+logoutBurgerBtn.addEventListener("click", () => {
+  if ((dropDownList.className = "showDropDownList")) {
+    dropDownList.classList.remove("showDropDownList");
+    dropDownList.classList.add("hideDropDownList");
+  }
+  showUserIsLoggedOut();
+});
 
 // hide menu-item on click outside the list of items
 outsideClick.addEventListener("click", () => {

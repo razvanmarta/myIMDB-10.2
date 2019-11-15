@@ -46,6 +46,8 @@ class User {
         throw data.message;
       }
       const { accessToken } = data;
+      // TODO - no DOM manipulations
+      loginAlert.innerHTML = data.message;
       sessionStorage.setItem("accessToken", accessToken);
       if (checkIfLoggedIn()) {
         clearModalFields();
@@ -72,6 +74,9 @@ class User {
       }
     })
       .then(response => {
+        if (window.location.href.includes("details.html")) {
+          movieDetails.displayMovieDetails();
+        }
         console.log(response);
         return response.json();
       })

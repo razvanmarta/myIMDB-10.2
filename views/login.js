@@ -1,6 +1,8 @@
 //Login button event
 
+// TODO - nu e necesar sa creezi varibila logInEventButton, poti direct sa faci document.getElementById("login-event-button").addEventListener( ....
 const logInEventButton = document.getElementById("login-event-button");
+
 logInEventButton.addEventListener("click", function(event) {
   event.preventDefault();
 

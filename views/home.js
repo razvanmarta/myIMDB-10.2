@@ -165,7 +165,6 @@ registerBtn.addEventListener("click", () => {
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {
-  console.log("click close");
   clearModalFields();
   fadeOutModal(modalAuth);
 });

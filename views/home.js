@@ -108,7 +108,6 @@ const clearModalFields = () => {
 //Fade out modal function
 
 const fadeOutModal = element => {
-  console.log("click");
   element.style.animation = "fadeOut 0.8s";
   setTimeout(function() {
     element.style.animation = "";
@@ -118,13 +117,11 @@ const fadeOutModal = element => {
 
 //Open register-modal eventlistener
 registerBtn.addEventListener("click", () => {
-  console.log("click");
   displayElement(modalAuth);
 });
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {
-  console.log("click close");
   clearModalFields();
   // hideElement(modalAuth);
   fadeOutModal(modalAuth);
@@ -152,7 +149,8 @@ const showUserIsLoggedIn = () => {
 //Brings back Login and Register buttons to page and logs the user out
 const showUserIsLoggedOut = () => {
   const token = sessionStorage.getItem("accessToken");
-  logOut(token);
+  // logOut(token);
+  User.logOutUser(token);
   clearModalFields();
   sessionStorage.removeItem("accessToken");
   sessionStorage.removeItem("userName");
@@ -189,15 +187,7 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
-  if (token === null) {
-    return false;
-  }
-  if (token === "undefined") {
-    return false;
-  }
-  if (token !== null && token !== "undefined") {
-    return true;
-  }
+  return token !== null && token !== "undefined";
 };
 
 const displayUserName = user => {

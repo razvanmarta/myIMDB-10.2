@@ -4,10 +4,8 @@ let prev = null; //previousPage
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {
   try {
-    const request = await fetch(apiURL);
-    console.log(request);
-    const data = await request.json();
-    console.log(data);
+    const response = await fetch(apiURL);
+    const data = await response.json();
     const results = data.results;
     const page = data.pagination.links;
     const pageNumber = data.pagination.currentPage;
@@ -24,14 +22,13 @@ const makeCallToServer = async apiURL => {
 
 const renderFilteredMovies = async param => {
   const filteredFilms = filteredMovies();
-  console.log(filteredFilms.length);
   if (!filteredFilms) {
     return;
   }
-  const request = await fetch(
+  const response = await fetch(
     `https://movies-api-siit.herokuapp.com/movies?${param}=${filteredFilms}`
   );
-  const data = await request.json();
+  const data = await response.json();
   const results = await data.results;
   const page = await data.pagination.links;
   const pageNumber = data.pagination.currentPage;
@@ -52,7 +49,6 @@ const getMovie = async () => {
       `https://movies-api-siit.herokuapp.com/movies/${movieID}`
     );
     const movie = await response.json();
-    console.log(movie);
     Object.assign(movieDetails, movie);
     movieDetails.displayMovieDetails();
   } catch (error) {
@@ -104,9 +100,7 @@ const updateMovie = movieDetails => {
 
 // add a new movie
 function aNewMovie(myFilm) {
-  // console.log(myFilm);
   const tokenAccess = sessionStorage.getItem("accessToken");
-  // console.log(tokenAccess);
   fetch(apiURL, {
     headers: {
       "x-auth-token": tokenAccess,

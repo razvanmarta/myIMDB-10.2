@@ -3,7 +3,6 @@ let editSaveBtn = document.querySelector("#editSaveChanges");
 
 movieDetails = {
   displayMovieDetails: function() {
-    console.log("From displayMovieDetails: ", this);
     const detailsContainer = document.getElementById("movie");
 
     detailsContainer.innerHTML = `
@@ -71,7 +70,6 @@ movieDetails = {
 
     //Delete button
     const deleteMovieBtn = document.getElementById("detailsDeleteBtn");
-    console.log(deleteMovieBtn);
     deleteMovieBtn.addEventListener("click", openDeleteModal);
 
     // close and open the Edit Modal
@@ -90,7 +88,6 @@ movieDetails = {
 
   editBtnEvents() {
     let editModalBody = document.querySelector(".modal-body");
-    console.log("editMovie", this);
 
     editModalBody.innerHTML = `
 
@@ -155,7 +152,6 @@ editSaveBtn.addEventListener("click", () => {
 
 handleInput = event => {
   value = event.value;
-  console.log(value);
   return value;
 };
 

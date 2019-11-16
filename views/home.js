@@ -165,7 +165,6 @@ registerBtn.addEventListener("click", () => {
 
 //Close register-modal eventlistener
 closeRegister.addEventListener("click", () => {
-  console.log("click close");
   clearModalFields();
   fadeOutModal(modalAuth);
 });
@@ -204,13 +203,17 @@ const showUserIsLoggedIn = () => {
   if (window.location.href.includes("home.html")) {
     enableButtons(addModalBtn);
     addModalBtn.removeAttribute("tooltip");
+  } else {
+    getMovie();
+    getTrailer();
   }
 };
 
 //Brings back Login and Register buttons to page and logs the user out
 const showUserIsLoggedOut = () => {
   const token = sessionStorage.getItem("accessToken");
-  logOut(token);
+  // logOut(token);
+  User.logOutUser(token);
   clearModalFields();
   sessionStorage.removeItem("accessToken");
   sessionStorage.removeItem("userName");
@@ -226,6 +229,8 @@ const showUserIsLoggedOut = () => {
   if (window.location.href.includes("home.html")) {
     disableButtons(addModalBtn);
     addModalBtn.setAttribute("tooltip", "tooltip");
+  } else {
+    getTrailer();
   }
 };
 
@@ -256,19 +261,7 @@ if (window.location.href.includes("home.html")) {
 
 const checkIfLoggedIn = () => {
   const token = sessionStorage.getItem("accessToken");
-
-  // TODO - cele trei if-uri pot fi simplificate
-  // return token !== null && token !== "undefined"
-
-  if (token === null) {
-    return false;
-  }
-  if (token === "undefined") {
-    return false;
-  }
-  if (token !== null && token !== "undefined") {
-    return true;
-  }
+  return token !== null && token !== "undefined";
 };
 
 const displayUserName = user => {

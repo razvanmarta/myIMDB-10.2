@@ -213,3 +213,12 @@ function outsideModal(event) {
 }
 
 window.addEventListener("click", outsideModal);
+
+updatedMovieAlert = document.getElementById("updatedMovie-alert");
+
+const addBanner = () => {
+  displayElement(updatedMovieAlert);
+  setTimeout(function() {
+    hideElement(updatedMovieAlert);
+  }, 3000);
+};

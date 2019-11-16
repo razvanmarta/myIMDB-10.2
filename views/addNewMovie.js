@@ -1,44 +1,25 @@
-// TODO - try to group variables into an object
-// // asta e pentru a evita "poluarea" scopului global ( obiectului window) cu prea multe variabile
-// // punandu-le ca proprietati pe obiecte, ele devin oarecum "ascunse"
-
 const modalBtn = document.getElementById("add-movie");
 const closeBtn = document.getElementsByClassName("closeFilmBtn")[0];
 const modal = document.getElementById("modalFilmContainer");
 const saveChange = document.getElementById("saveFilmChanges");
 const discardChange = document.getElementById("discardFilmChanges");
-
-const filmTitle = document.getElementById("enterFilmTitle");
-const filmGenre = document.getElementById("enterGenre");
-const filmType = document.getElementById("enterType");
-const filmReleased = document.getElementById("enterReleased");
-const filmRated = document.getElementById("enterRated");
-const filmImdbRating = document.getElementById("enterImdbRating");
-const filmDirector = document.getElementById("enterDirector");
-const filmWriter = document.getElementById("enterWriter");
-const filmActors = document.getElementById("enterActors");
-const filmRuntime = document.getElementById("enterRuntime");
-const filmLanguage = document.getElementById("enterLanguage");
-const filmAwards = document.getElementById("enterAwards");
-const filmPlot = document.getElementById("enterPlot");
-
 const addedNewMovieAlert = document.getElementById("addedNewMovie-alert");
 
-const filmInfo = [
-  filmTitle,
-  filmGenre,
-  filmType,
-  filmReleased,
-  filmRated,
-  filmImdbRating,
-  filmDirector,
-  filmWriter,
-  filmActors,
-  filmRuntime,
-  filmLanguage,
-  filmAwards,
-  filmPlot
-];
+const theMovie = {
+  Title: document.getElementById("enterFilmTitle"),
+  Genre: document.getElementById("enterGenre"),
+  Type: document.getElementById("enterType"),
+  Released: document.getElementById("enterReleased"),
+  Rated: document.getElementById("enterRated"),
+  imdbRating: document.getElementById("enterImdbRating"),
+  Director: document.getElementById("enterDirector"),
+  Writer: document.getElementById("enterWriter"),
+  Actors: document.getElementById("enterActors"),
+  Runtime: document.getElementById("enterRuntime"),
+  Language: document.getElementById("enterLanguage"),
+  Awards: document.getElementById("enterAwards"),
+  Plot: document.getElementById("enterPlot")
+};
 
 function openModal() {
   modal.style.display = "block";
@@ -59,8 +40,22 @@ function outsideModal(event) {
 window.addEventListener("click", outsideModal);
 
 function emptyFilmImpute() {
-  filmInfo.map(item => (item.value = ""));
+  theMovie.Title.value = "";
+  theMovie.Genre.value = "";
+  theMovie.Type.value = "";
+  theMovie.Released.value = "";
+  theMovie.Rated.value = "";
+  theMovie.imdbRating.value = "";
+  theMovie.Director.value = "";
+  theMovie.Writer.value = "";
+  theMovie.Actors.value = "";
+  theMovie.Runtime.value = "";
+  theMovie.Language.value = "";
+  theMovie.Awards.value = "";
+  theMovie.Plot.value = "";
 }
+
+discardChange.addEventListener("click", emptyFilmImpute);
 
 modalBtn.addEventListener("click", openModal);
 
@@ -68,20 +63,16 @@ closeBtn.addEventListener("click", () => {
   fadeOutModal(modal);
 });
 
-discardChange.addEventListener("click", emptyFilmImpute);
+const saveFilm = () => {
+  const movieObj = AddNewFilm.getDataFromInputs();
+  const newMovie = new AddNewFilm(movieObj);
+  newMovie.saveFilm(movieObj);
+};
 
-// saveChange.addEventListener("click", saveFilm);
-saveChange.addEventListener("click", () => {
-  const obj = AddNewFilm.getValueFromInputs();
-  console.log(obj);
-  const newMovie = new AddNewFilm(obj);
-  console.log(newMovie);
-  newMovie.saveFilm(obj);
-});
+saveChange.addEventListener("click", saveFilm);
 
 class AddNewFilm {
   constructor(film) {
-    // TODO - atentie la sintaxa, vezi unde pui virgula si unde pui punct si virgula
     (this.Title = film.Title),
       (this.Genre = film.Genre),
       (this.Type = film.Type),
@@ -96,53 +87,35 @@ class AddNewFilm {
       (this.Awards = film.Awards),
       (this.Plot = film.Plot);
   }
-  static getValueFromInputs() {
-    const obj = {
-      Title: filmTitle.value,
-      Genre: filmGenre.value,
-      Type: filmType.value,
-      Released: filmReleased.value,
-      Rated: filmRated.value,
-      imdbRating: filmImdbRating.value,
-      Director: filmDirector.value,
-      Writer: filmWriter.value,
-      Actors: filmActors.value,
-      Runtime: filmRuntime.value,
-      Language: filmLanguage.value,
-      Awards: filmAwards.value,
-      Plot: filmPlot.value
+
+  static getDataFromInputs() {
+    const filmInputs = {
+      Title: theMovie.Title.value,
+      Genre: theMovie.Genre.value,
+      Type: theMovie.Type.value,
+      Released: theMovie.Released.value,
+      Rated: theMovie.Rated.value,
+      imdbRating: theMovie.imdbRating.value,
+      Director: theMovie.Director.value,
+      Writer: theMovie.Writer.value,
+      Actors: theMovie.Actors.value,
+      Runtime: theMovie.Runtime.value,
+      Language: theMovie.Language.value,
+      Awards: theMovie.Awards.value,
+      Plot: theMovie.Plot.value
     };
-    return obj;
+    return filmInputs;
   }
-  saveFilm(obj) {
-    aNewMovie(obj);
+  saveFilm(filmInputs) {
+    aNewMovie(filmInputs);
     emptyFilmImpute();
     fadeOutModal(modal);
   }
 }
 
-// function saveFilm() {
-//   const obj = {
-//     Title: filmTitle.value,
-//     Genre: filmGenre.value,
-//     Type: filmType.value,
-//     Released: filmReleased.value,
-//     Rated: filmRated.value,
-//     imdbRating: filmImdbRating.value,
-//     Director: filmDirector.value,
-//     Writer: filmWriter.value,
-//     Actors: filmActors.value,
-//     Runtime: filmRuntime.value,
-//     Language: filmLanguage.value,
-//     Awards: filmAwards.value,
-//     Plot: filmPlot.value
-//   };
-
-//   // const myFilm = new AddNewFilm(obj);
-
-//   // add a new movie to database
-
-//   aNewMovie(urlS, obj);
-
-//   emptyFilmImpute();
-// }
+const addBanner = () => {
+  addedNewMovieAlert.classList.remove("displayNone");
+  setTimeout(function() {
+    addedNewMovieAlert.classList.add("displayNone");
+  }, 3000);
+};

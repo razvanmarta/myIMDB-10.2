@@ -71,6 +71,9 @@ label {
   flex-direction: column;
   overflow-y: scroll;
   height: 500px;
+  -webkit-box-shadow: 0px 4px 7px -3px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 4px 7px -3px rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 7px -3px rgba(255, 255, 255, 1);
 }
 
 #editModal {
@@ -113,6 +116,9 @@ label {
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
   background-color: #1b1b1b;
+  -webkit-box-shadow: 0px 4px 7px -3px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 4px 7px -3px rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 7px -3px rgba(255, 255, 255, 1);
 }
 
 .modal-title {
@@ -149,4 +155,23 @@ label {
   height: 100px;
   padding: 1.5rem;
   vertical-align: text-top;
+}
+
+#updatedMovie-alert {
+  display: none;
+  position: absolute;
+  top: 5.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: lightskyblue;
+  border-radius: 25px;
+  color: #0f5561;
+  background-color: #d1ecf1;
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
 }

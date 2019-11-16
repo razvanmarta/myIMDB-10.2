@@ -91,7 +91,10 @@
       </div>
       <div class="movieList-container">
         <!-- add movie button -->
-        <button id="add-movie" class="addFilmBtn" disabled = "true">Add Movie</button>
+      
+        <button tooltip tooltip-top 
+        tooltip-content = "Login/Register to access this feature"
+        id="add-movie" class="addFilmBtn" disabled = "true">Add Movie</button>
         <!-- add movie button -->
         <h3 class="movieList-Title">All Movies</h3>
         <div class="movie-counter"></div>
@@ -408,6 +411,7 @@
     </div>
 
     <!-- end of burgerMenu -->
+
     <script src="../models/Movie.js"></script>
     <script src="../views/burgerMenu.js"></script>
     <script src="../views/home.js"></script>

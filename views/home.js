@@ -190,8 +190,8 @@ const enableButtons = button => {
   button.removeAttribute("disabled");
 };
 
+// Show LoggedIn
 const showUserIsLoggedIn = () => {
-  console.log(window.location);
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
@@ -203,6 +203,7 @@ const showUserIsLoggedIn = () => {
   displayElement(userContainer);
   if (window.location.href.includes("home.html")) {
     enableButtons(addModalBtn);
+    addModalBtn.removeAttribute("tooltip");
   }
 };
 
@@ -224,6 +225,7 @@ const showUserIsLoggedOut = () => {
   hideElement(userContainer);
   if (window.location.href.includes("home.html")) {
     disableButtons(addModalBtn);
+    addModalBtn.setAttribute("tooltip", "tooltip");
   }
 };
 

@@ -9,6 +9,10 @@ body {
   width: 100%;
   min-height: 70px;
   background-color: rgb(24, 24, 24);
+  position: sticky;
+  top: 0;
+  opacity: 0.9;
+  z-index: 100;
 }
 .navigation-items {
   display: flex;
@@ -28,11 +32,15 @@ body {
   padding: 10px;
   list-style-type: none;
   font-size: 1em;
+  font-weight: 800;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.menu-item:active {
+  color: rgba(2, 216, 13, 0.8);
 }
 .menu-item:hover {
   cursor: pointer;
-  background-color: rgba(2, 216, 13, 0.8);
+  color: rgba(2, 216, 13, 0.8);
   border-radius: 5px;
   display: inline;
 }
@@ -43,7 +51,7 @@ body {
 .logo {
   color: #fff;
   text-decoration: none;
-  font-family: "Indie Flower", cursive;
+  font-family: sans-serif;
   font-size: 2em;
   font-weight: 900;
   display: contents;
@@ -52,7 +60,10 @@ body {
   display: none;
   color: #fff;
   margin: 2px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#helloUser {
+  font-family: "Arial Narrow Bold", sans-serif;
+  font-weight: 800;
 }
 #logout-button {
   display: none;
@@ -64,7 +75,7 @@ body {
 .movieList-container {
   margin: 20px auto;
   padding-top: 20px;
-  width: 75%;
+  width: 95%;
   background-color: rgba(51, 51, 51, 0.877);
   position: relative;
   border-radius: 5px;
@@ -81,9 +92,9 @@ body {
 }
 .movieList {
   margin: 30px auto;
-  width: 95%;
+  width: 99%;
   min-height: 325px;
-  height: 600px;
+  /* height: 600px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -96,8 +107,8 @@ body {
 }
 .movie-item {
   cursor: pointer;
-  width: 200px;
-  max-height: 280px;
+  width: 300px;
+  /* max-height: 400px; */
   margin: 15px;
   position: relative;
   border: 2px solid black;
@@ -115,36 +126,45 @@ body {
   transform: scale(1.1);
 }
 .movieItem-Title {
-  font-family: sans-serif;
-  font-weight: bold;
-  padding: 2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 5px;
   margin-top: 5px;
+}
+.movieItem-details {
+  color: gray;
+  font-family: fantasy;
+  font-size: 12px;
+  margin: 0px 2px 2px 5px;
+  padding-bottom: 15px;
 }
 .film-info {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  width: 300px;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
+  border-radius: 5px;
 }
 .film-info * {
   text-align: center;
 }
 
 .poster {
-  width: 190px;
-  height: 200px;
+  width: 290px;
+  height: 330px;
   border: 1px solid gray;
 }
 .placeholder {
-  max-width: 190px;
-  height: 200px;
+  max-width: 290px;
+  height: 300px;
   background-image: url("./photo/placeholder.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -161,7 +181,7 @@ body {
 .next-page,
 .previous-page {
   margin-left: 10px;
-  font-size: 20px !important;
+  font-size: 15px !important;
 }
 .previous-page {
   margin-right: 10px;
@@ -169,6 +189,7 @@ body {
 .pageNumber {
   text-align: center;
   color: #fff;
+  font-size: 15px;
   font-family: monospace;
 }
 /* Movie Container items end */
@@ -296,14 +317,15 @@ select {
   width: 40px;
   background-image: url("../assets/photo/hamburger-menu.jpg");
   background-size: cover;
+  z-index: 101;
 }
 #dropDownList {
   position: absolute;
   right: 0px;
   top: 0px;
   width: 50%;
-  height: 100%;
   background-color: none;
+  z-index: 102;
 }
 
 ul {

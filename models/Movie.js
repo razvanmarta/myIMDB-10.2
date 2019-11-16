@@ -12,15 +12,15 @@ const makeCallToServer = async apiURL => {
     const request = await fetch(apiURL);
     const data = await request.json();
     const results = data.results;
+    console.log(results);
     const page = data.pagination.links;
     const pageNumber = data.pagination.currentPage;
-    // TODO - no DOM manipulations here
-    pageNr.innerText = ` - ${pageNumber} - `;
+    const nrOfPages = data.pagination.numberOfPages;
+    updatePageNumber(pageNumber, nrOfPages);
     next = page.next;
     prev = page.prev;
     disablePaginationButton();
-    // TODO - no DOM manipulations here
-    movieList.innerHTML = "";
+    repaintContainer(movieList);
     results.forEach(result => createMovieItem(result));
   } catch (error) {
     console.log(error);
@@ -39,14 +39,13 @@ const renderFilteredMovies = async param => {
   const results = await data.results;
   const page = await data.pagination.links;
   const pageNumber = data.pagination.currentPage;
-  // TODO - no DOM manipulations here
-  pageNr.innerText = ` - ${pageNumber} - `;
+  const nrOfPages = data.pagination.numberOfPages;
+  updatePageNumber(pageNumber, nrOfPages);
   next = page.next;
   prev = page.prev;
   disablePaginationButton();
-  movieList.innerHTML = "";
+  repaintContainer(movieList);
   results.forEach(result => createMovieItem(result));
-  // searchfield.value = "";
 };
 
 // make call to server for details page

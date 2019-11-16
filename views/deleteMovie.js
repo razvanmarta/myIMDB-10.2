@@ -23,6 +23,8 @@ confirmDeleteBtn.addEventListener("click", () => {
   deleteMovieFromDb();
   hideElement(deleteModal);
   // showSuccessfulDeletePopUp();
+  registratedAlert.classList.remove("d-none");
+  registratedAlert.innerText = "Movie was deleted!";
   setTimeout(() => {
     window.location = "home.html";
   }, 3000);

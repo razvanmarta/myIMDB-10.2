@@ -96,17 +96,16 @@ const updateMovie = movieDetails => {
     method: "PUT",
     body: JSON.stringify(movieDetails)
   })
-    .then(res => {
-      if (res.ok) {
-        alert("You updated the movie!");
+    .then(response => {
+      if (response.ok) {
+        addBanner();
       }
-      return res.json();
+      return response.json();
     })
     .then(data => {
       movieDetails.displayMovieDetails(data);
       movieDetails.editBtnEvents(data);
       getTrailer();
-      console.log("returnData", data);
     })
     .catch(error => console.error(`Error: ${error}`));
 };

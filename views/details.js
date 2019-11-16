@@ -10,10 +10,13 @@ movieDetails = {
       <div class= "col-md-4 m-auto text-center">
         <img src = "${this.Poster}" class = "img-thumbnail">
         <div id = "detailsButtons">
-          <button class = "btn btn-primary m-1" id = "detailsViewBtn">View IMDB</button>
+        <button class = "btn btn-primary m-1" id = "detailsViewBtn">View IMDB</button>
           <button class = "btn btn-success m-1 show" id = "detailsEditBtn" data-toggle="modal" data-target="#myModal"
-            disabled=${true}>Edit Movie</button>
-          <button class = "btn btn-danger m-1" id = "detailsDeleteBtn" disabled=${true}>Delete Movie</button>
+          disabled=${true} tooltip tooltip-top 
+          tooltip-content = "Login/Register to access this feature">Edit Movie</button>
+
+           <button class = "btn btn-danger m-1" id = "detailsDeleteBtn" disabled=${true} tooltip tooltip-top 
+           tooltip-content = "Login/Register to access this feature">Delete Movie</button>
         </div>
       </div>
       <div class="col-md-8">
@@ -111,6 +114,8 @@ movieDetails = {
     if (checkIfLoggedIn()) {
       enableButtons(editDetailsBtn);
       enableButtons(deleteMovieBtn);
+      editDetailsBtn.removeAttribute("tooltip");
+      deleteMovieBtn.removeAttribute("tooltip");
     }
   },
 
@@ -122,37 +127,37 @@ movieDetails = {
           <input class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" value ="${this.Title}">
           
           <label for="editGenre">Genre:</label>
-          <input class="form-control-me" id="editGenre"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}">
+          <input class="form-control-me"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}">
 
           <label for = "editType">Type:</label>
-          <input class="form-control-me" id="editType" onkeyup = handleInput(this) name = "Type" value = "${this.Type}">
+          <input class="form-control-me"  onkeyup = handleInput(this) name = "Type" value = "${this.Type}">
 
           <label for = "editReleased">Released:</label>
-          <input class="form-control-me" id="editReleased" onkeyup = handleInput(this) name = "Released" value = "${this.Released}">
+          <input class="form-control-me"  onkeyup = handleInput(this) name = "Released" value = "${this.Released}">
 
           <label for = "editRated">Rated:</label>
-          <input class="form-control-me" id="editRated" onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}">
+          <input class="form-control-me"  onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}">
 
           <label for = "editimdbRating">imdbRating:</label>
-          <input class="form-control-me" id="editimdbRating" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}">
 
           <label for="editDirector">Director:</label>
-          <input class="form-control-me" id="editDirector" onkeyup = handleInput(this) name = "Director" value = "${this.Director}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "Director" value = "${this.Director}">
 
           <label for="editWriter">Writer:</label>
-          <input class="form-control-me" id="editWriter" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}">
 
           <label for="editAuthor">Actors:</label>
-          <input class="form-control-me" id="editActors" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}">
 
           <label for="editRuntime">Runtime:</label>
-          <input class="form-control-me" id="editRuntime" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}">
 
           <label for="editLanguage">Language:</label>
-          <input class="form-control-me" id="editLanguage" onkeyup = handleInput(this) name = "Language" value = "${this.Language}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "Language" value = "${this.Language}">
 
           <label for="editAwards">Awards:</label>
-          <input class="form-control-me" id="editAwards" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}">
+          <input class="form-control-me" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}">
 
           <label for="editPlot">Plot:</label>
           <input class="form-control-me"  id="editPlot" onkeyup = handleInput(this) name = "Plot" value = "${this.Plot}">`;
@@ -172,7 +177,7 @@ const getEditDetails = movieDetails => {
 editSaveBtn.addEventListener("click", () => {
   hideElement(editModal);
   getEditDetails(movieDetails);
-  //rereder the movie details on the page with the http response
+  //rereder movie details
 });
 
 //get the value of inputs
@@ -208,3 +213,12 @@ function outsideModal(event) {
 }
 
 window.addEventListener("click", outsideModal);
+
+updatedMovieAlert = document.getElementById("updatedMovie-alert");
+
+const addBanner = () => {
+  displayElement(updatedMovieAlert);
+  setTimeout(function() {
+    hideElement(updatedMovieAlert);
+  }, 3000);
+};

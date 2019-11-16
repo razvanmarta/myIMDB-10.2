@@ -1,52 +1,38 @@
-.addFilmBtn {
+#add-movie {
   float: right;
   margin-right: 15px;
-  height: 30px;
-  background: rgb(190, 22, 22);
-  color: white;
-  border: 0;
-  text-align: center;
-  border-radius: 5%;
-}
-
-.addFilmBtn:hover {
-  background: rgb(83, 3, 3);
 }
 
 .wrappermodalFilm {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  left: 0;
-  top: 0;
+  left: 20%;
+  top: 10%;
   height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.modal-film-content {
-  position: relative;
-  text-align: center;
-  background-color: lightgray;
-  margin: 5% auto;
-  width: 70%;
+  width: 60%;
   border-radius: 5%;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  background-color: rgba(45, 45, 45, 1);
+  box-shadow: 0 5px 8px 0 rgba(221, 38, 38, 0.2),
+    0 7px 20px 0 rgba(207, 37, 37, 0.17);
   animation-name: delayModal;
   animation-duration: 0.8s;
+  text-align: center;
 }
 
 .modal-film-header {
-  text-align: left;
-  padding-top: 5%;
-  margin-left: 25px;
+  position: relative;
+  height: 60px;
+  background: rgb(22, 21, 21);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .closeFilmBtn {
   position: absolute;
-  right: 10px;
-  top: -10px;
-  color: rgb(15, 12, 12);
+  right: 2%;
+  top: -30%;
+  color: rgb(224, 230, 231);
   font-size: 30px;
   margin: 15px;
 }
@@ -58,35 +44,56 @@
   cursor: pointer;
 }
 
-.modal-film-body {
-  padding: 10px 20px;
+.modal-film-header h4 {
+  position: absolute;
+  color: #99b7c9;
+  top: 30%;
+  left: 3%;
 }
 
-#addFilm-form {
+.modal-film-footer {
+  position: absolute;
+  height: 20%;
+  width: 100%;
+  top: 80%;
+  background: rgb(22, 21, 21);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding-bottom: 15px;
+}
+
+.modal-film-footer h3 {
+  color: #99b7c9;
+}
+
+.modal-film-body {
   position: relative;
-  padding: 30px;
-  background: rgb(45, 51, 45);
-  border-radius: 5%;
+  padding: 60px;
+  height: 70%;
+  width: 100%;
+  text-align: left;
+  overflow: scroll;
+}
+#addFilm-form {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  width: 100%;
 }
 
 .addFilmInfo {
   position: relative;
-  color: white;
-  right: 20%;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #61a6b3;
 }
 
 .filmInput {
-  position: absolute;
-  background-color: lightskyblue;
-  left: 60%;
-  width: 40%;
-  margin-left: 15px;
-}
-
-.modal-film-footer {
-  padding: 10px;
+  position: relative;
   text-align: center;
+  width: 100%;
+  background-color: #ffffff;
 }
 
 @keyframes delayModal {

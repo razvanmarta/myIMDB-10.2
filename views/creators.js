@@ -17,7 +17,6 @@ for (let i = 0; i < boxes.length; i++) {
   item.children[1].classList.add("hideCreatorsBox");
 
   item.children[0].addEventListener("click", () => {
-    debugger;
     if (item.children[1].classList.contains("showCreatorsBox")) {
       item.children[1].classList.remove("showCreatorsBox");
       item.children[1].classList.add("hideCreatorsBox");

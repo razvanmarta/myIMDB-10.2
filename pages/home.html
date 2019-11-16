@@ -55,11 +55,11 @@
           </ul>
         </div>
   <!-- add an alert -->
-         <div
-         class="alert alert-danger displayNone"
-         role="alert"
-         id="addedNewMovie-alert"
-       >Movie added successfully !</div>
+        <div
+        class="alert alert-danger displayNone"
+        role="alert"
+        id="addedNewMovie-alert"
+        >Movie added successfully !</div>
  <!-- add an alert -->
       </div>
       <div class="searchfield-container">
@@ -92,26 +92,30 @@
         </button>
       </div>
       <div class="movieList-container">
+
         <!-- add movie button -->
-        <button id="add-movie" class="addFilmBtn" disabled = "true">Add Movie</button>
+      
+        <button tooltip tooltip-top 
+        tooltip-content = "Login/Register to access this feature"
+        id="add-movie" class="btn btn-outline-dark" disabled = "true"><strong>Add movie</strong></button>
         <!-- add movie button -->
+
         <h3 class="movieList-Title">All Movies</h3>
         <div class="movie-counter"></div>
         <div class="movieList"></div>
         <div class="page-counter">
-          <button class="previous-page btn btn-outline-dark"><strong><</strong></button>
-          <h4 class="pageNumber">-1-</h4>
-          <button class="next-page btn btn-outline-dark"><strong>></strong></button>
+            <button class="previous-page btn btn-outline-dark"><i class="fas fa-arrow-circle-left"></i></button>
+          <div class="pageNumber">-1-</div>
+          <button class="next-page btn btn-outline-dark"><i class="fas fa-arrow-circle-right"></i></button>
         </div>
       </div>
       
       <!-- start MOVIE modal -->
 
       <div id="modalFilmContainer" class="wrappermodalFilm">
-        <div class="modal-film-content">
-          <span class="closeFilmBtn">&times;</span>
           <div class="modal-film-header">
-            <h3>Add a movie...</h3>
+            <span class="closeFilmBtn">&times;</span>
+            <h4>Add a movie...</h4>
           </div>
           <div class="modal-film-body">
             <form id="addFilm-form">
@@ -248,7 +252,7 @@
             </form>
           </div>
           <div class="modal-film-footer">
-            <h4>You are done !</h4>
+            <h3>You are done !</h3>
             <p>Please save your movie...</p>
             <button type="button" id="saveFilmChanges" class="btn btn-primary">
               Save changes
@@ -261,8 +265,13 @@
               Discard changes
             </button>
           </div>
-        </div>
-      </div>
+        <div
+        class="alert alert-danger displayNone"
+        role="alert"
+        id="addedNewMovie-alert"
+      ></div>
+       </div>
+      
 
       <!-- end of- MOVIE modal -->
 
@@ -410,6 +419,7 @@
     </div>
 
     <!-- end of burgerMenu -->
+    <script src="../helpers/helpers.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../views/burgerMenu.js"></script>
     <script src="../views/home.js"></script>
@@ -420,6 +430,5 @@
     <script src="../views/addNewMovie.js"></script>
     <script src="../views/login.js"></script>
     <script src="../views/logout.js"></script>
-
   </body>
 </html>

@@ -107,11 +107,15 @@ const createMovieItem = movie => {
     ? (itemContainer.innerHTML = `
       <div>
         <p class="movieItem-Title ">${movie.Title}</p>
+        <p class="movieItem-details">${movie.Year}, ${movie.Genre}</p>
+        <p class="movieItem-details">IMDB Rating: ${movie.imdbRating}</p>
         <img class="poster"src='${movie.Poster}'/>
       </div>`)
     : (itemContainer.innerHTML = `
     <div>
       <p class="movieItem-Title">${movie.Title}</p>
+      <p class="movieItem-details">${movie.Year}, ${movie.Genre}</p>
+      <p class="movieItem-details">IMDB Rating: ${movie.imdbRating}</p>
       <div class="placeholder"></div>
     </div>`);
   movieList.appendChild(itemContainer);
@@ -122,41 +126,6 @@ const createMovieItem = movie => {
     removeMovieInfo(itemContainer)
   );
   itemContainer.addEventListener("click", () => showDetailsPage(movie));
-};
-
-// Reusable function that shows the element on our page
-let displayElement = element => {
-  element.style.display = "block";
-};
-
-// Reusable function that hides the element on our page
-
-let hideElement = element => {
-  element.style.display = "none";
-};
-
-//Empty fields and hide register an login alert
-const clearModalFields = () => {
-  registerUsername.value = "";
-  registerPassword.value = "";
-  registerPassword2.value = "";
-  registerAlert.classList.add("d-none");
-  registerAlert.innerHTML = "";
-
-  logInUsername.value = "";
-  logInPassword.value = "";
-  loginAlert.classList.add("d-none");
-  loginAlert.innerHTML = "";
-};
-
-//Fade out modal function
-
-const fadeOutModal = element => {
-  element.style.animation = "fadeOut 0.8s";
-  setTimeout(function() {
-    element.style.animation = "";
-    element.style.display = "none";
-  }, 800);
 };
 
 //Open register-modal eventlistener
@@ -181,17 +150,10 @@ closeLogin.addEventListener("click", () => {
   fadeOutModal(modalLogin);
 });
 
-//disable add movie buttons and general disable function
 const addModalBtn = document.getElementById("add-movie");
-const disableButtons = button => {
-  button.setAttribute("disabled", true);
-};
-const enableButtons = button => {
-  button.removeAttribute("disabled");
-};
 
+// Show LoggedIn
 const showUserIsLoggedIn = () => {
-  console.log(window.location);
   hideElement(loginBtn);
   hideElement(registerBtn);
   displayElement(logOutBtn);
@@ -203,6 +165,7 @@ const showUserIsLoggedIn = () => {
   displayElement(userContainer);
   if (window.location.href.includes("home.html")) {
     enableButtons(addModalBtn);
+    addModalBtn.removeAttribute("tooltip");
   } else {
     getMovie();
     getTrailer();
@@ -228,6 +191,7 @@ const showUserIsLoggedOut = () => {
   hideElement(userContainer);
   if (window.location.href.includes("home.html")) {
     disableButtons(addModalBtn);
+    addModalBtn.setAttribute("tooltip", "tooltip");
   } else {
     getTrailer();
   }
@@ -261,15 +225,6 @@ creatorsBtn.addEventListener(
 if (window.location.href.includes("home.html")) {
   makeCallToServer(apiURL);
 }
-
-const checkIfLoggedIn = () => {
-  const token = sessionStorage.getItem("accessToken");
-  return token !== null && token !== "undefined";
-};
-
-const displayUserName = user => {
-  helloUser.innerText = `Hello, ${user}`;
-};
 
 if (checkIfLoggedIn()) {
   showUserIsLoggedIn();

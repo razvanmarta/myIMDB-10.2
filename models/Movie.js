@@ -12,15 +12,15 @@ const makeCallToServer = async apiURL => {
     const request = await fetch(apiURL);
     const data = await request.json();
     const results = data.results;
+    console.log(results);
     const page = data.pagination.links;
     const pageNumber = data.pagination.currentPage;
-    // TODO - no DOM manipulations here
-    pageNr.innerText = ` - ${pageNumber} - `;
+    const nrOfPages = data.pagination.numberOfPages;
+    updatePageNumber(pageNumber, nrOfPages);
     next = page.next;
     prev = page.prev;
     disablePaginationButton();
-    // TODO - no DOM manipulations here
-    movieList.innerHTML = "";
+    repaintContainer(movieList);
     results.forEach(result => createMovieItem(result));
   } catch (error) {
     console.log(error);
@@ -39,14 +39,13 @@ const renderFilteredMovies = async param => {
   const results = await data.results;
   const page = await data.pagination.links;
   const pageNumber = data.pagination.currentPage;
-  // TODO - no DOM manipulations here
-  pageNr.innerText = ` - ${pageNumber} - `;
+  const nrOfPages = data.pagination.numberOfPages;
+  updatePageNumber(pageNumber, nrOfPages);
   next = page.next;
   prev = page.prev;
   disablePaginationButton();
-  movieList.innerHTML = "";
+  repaintContainer(movieList);
   results.forEach(result => createMovieItem(result));
-  // searchfield.value = "";
 };
 
 // make call to server for details page
@@ -97,24 +96,26 @@ const updateMovie = movieDetails => {
     method: "PUT",
     body: JSON.stringify(movieDetails)
   })
-    .then(res => {
-      if (res.ok) {
-        alert("You updated the movie!");
+    .then(response => {
+      if (response.ok) {
+        addBanner();
       }
-      return res.json();
+      return response.json();
     })
     .then(data => {
       movieDetails.displayMovieDetails(data);
       movieDetails.editBtnEvents(data);
       getTrailer();
-      console.log("returnData", data);
     })
     .catch(error => console.error(`Error: ${error}`));
 };
 
 // add a new movie
+
 function aNewMovie(myFilm) {
+  // console.log(myFilm);
   const tokenAccess = sessionStorage.getItem("accessToken");
+  // console.log(tokenAccess);
   fetch(apiURL, {
     headers: {
       "x-auth-token": tokenAccess,
@@ -125,10 +126,8 @@ function aNewMovie(myFilm) {
   })
     .then(res => {
       if (res.ok) {
-        addedNewMovieAlert.classList.remove("displayNone");
-        setTimeout(function() {
-          addedNewMovieAlert.classList.add("displayNone");
-        }, 7000);
+        addBanner();
+      } else if (response.status == 409) {
       }
       if (res.status === 403) {
         alert("You need to be authenticated to be able to create a movie");

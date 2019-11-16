@@ -93,7 +93,7 @@ ul {
 #menuBurger-login,
 #menuBurger-register,
 #menuBurger-home,
-#menuBurger-howitwasmade,
+#menuBurger-creators,
 #menuBurger-logout {
   background-color: black;
   text-align: center;
@@ -116,7 +116,7 @@ ul {
 #menuBurger-login:hover,
 #menuBurger-register:hover,
 #menuBurger-logout:hover,
-#menuBurger-howitwasmade:hover,
+#menuBurger-creators:hover,
 #burgerButton {
   color: #e8b44c;
   cursor: pointer;

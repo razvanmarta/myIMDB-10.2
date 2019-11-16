@@ -10,6 +10,7 @@ const homeBurgerBtn = document.getElementById("menuBurger-home");
 const loginBurgerBtn = document.getElementById("menuBurger-login");
 const registerBurgerBtn = document.getElementById("menuBurger-register");
 const logoutBurgerBtn = document.getElementById("menuBurger-logout");
+const creatorsBurgerBtn = document.getElementById("menuBurger-creators");
 
 function toggleDropList() {
   if ((dropDownList.className = "hideDropDownList")) {
@@ -64,4 +65,12 @@ registerBurgerBtn.addEventListener("click", () => {
     dropDownList.classList.add("hideDropDownList");
   }
   displayElement(modalAuth);
+});
+
+creatorsBurgerBtn.addEventListener("click", () => {
+  if ((dropDownList.className = "showDropDownList")) {
+    dropDownList.classList.remove("showDropDownList");
+    dropDownList.classList.add("hideDropDownList");
+  }
+  window.location = "creators.html";
 });

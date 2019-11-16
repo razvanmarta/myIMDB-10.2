@@ -5,8 +5,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-body {
-  /* background: #25303b; */
+body {  
   background: #000000;
   background: -webkit-linear-gradient(to right, #434343, #000000);
   background: linear-gradient(to right, #434343, #000000);
@@ -106,6 +105,14 @@ section#timeline article div.inner p {
   overflow: auto;
 }
 
+section#timeline article:nth-child(2n + 1) div.inner div {
+  float: right;
+}
+
+/* section#timeline article div.inner div {
+  height: 510px;
+} */
+
 section#timeline article:nth-child(2n + 2) div.inner {
   float: right;
 }
@@ -141,4 +148,16 @@ section#timeline article:nth-child(5) div.inner h2 {
 }
 section#timeline article:nth-child(5) div.inner h2:after {
   background: #9b59b6;
+}
+
+.showCreatorsBox {
+  width: 100% !important;
+  transition: width 1s;
+  -webkit-transition: width 1s;
+}
+.hideCreatorsBox {
+  width: 0px !important;
+  transition: width 1s;
+  -webkit-transition: width 1s;
+  overflow: hidden;
 }

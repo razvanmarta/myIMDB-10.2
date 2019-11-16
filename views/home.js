@@ -55,6 +55,7 @@ const registerBtn = document.getElementById("register-button");
 const logOutBtn = document.getElementById("logout-button");
 const userContainer = document.getElementById("userContainer");
 const helloUser = document.getElementById("helloUser");
+const creatorsBtn = document.getElementById("creators");
 
 // Register variables
 const modalAuth = document.getElementById("id01");
@@ -251,6 +252,10 @@ homeBtn.addEventListener("click", () => (window.location = "home.html"));
 logOutBtn.addEventListener("click", () => showUserIsLoggedOut());
 linkToLogin.addEventListener("click", () => switchRegisterToLogin());
 linkToRegister.addEventListener("click", () => switchLoginToRegister());
+creatorsBtn.addEventListener(
+  "click",
+  () => (window.location = "creators.html")
+);
 
 //Initial Call to fetch the movies from the database
 if (window.location.href.includes("home.html")) {

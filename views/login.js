@@ -26,9 +26,12 @@ logInEventButton.addEventListener("click", function(event) {
 
   let logInUser = {
     username: logInUsername.value,
-    password: logInPassword.value
+    password: logInPassword.value,
+    endpoint: loginURL
   };
   // Create the globaly accesable userObject
   sessionStorage.setItem("userName", logInUser.username);
-  logIn(loginURL, logInUser);
+  const newUser = new User(logInUser);
+  newUser.loginUser();
+  // logIn(loginURL, logInUser);
 });

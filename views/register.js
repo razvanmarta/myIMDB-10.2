@@ -29,13 +29,13 @@ addAccountButton.addEventListener("click", function(event) {
 
   let user = {
     username: registerUsername.value,
-    password: registerPassword.value
-    //url: registerURL
+    password: registerPassword.value,
+    endpoint: registerURL
   };
 
   // Create the globaly accesable userObject
   sessionStorage.setItem("userName", user.username);
 
-  // const newUser = new User (user);
-  registerNewUser(registerURL, user);
+  const newUser = new User(user);
+  newUser.registerNewUser();
 });

@@ -179,7 +179,6 @@ editSaveBtn.addEventListener("click", () => {
 
 handleInput = event => {
   value = event.value;
-  console.log(value);
   return value;
 };
 

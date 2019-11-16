@@ -1,8 +1,3 @@
-// TODO - try to group variables into an object
-// // asta e pentru a evita "poluarea" scopului global ( obiectului window) cu prea multe variabile
-// // punandu-le ca proprietati pe obiecte, ele devin oarecum "ascunse"
-
-// burgerMenu- add .show
 const burgerButton = document.getElementById("burgerButton");
 const dropDownList = document.getElementById("dropDownList");
 const outsideClick = document.getElementById("generalHideNavItem");

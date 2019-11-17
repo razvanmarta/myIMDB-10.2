@@ -148,15 +148,15 @@
       
       <!-- start MOVIE modal -->
 
-      <div id="modalFilmContainer" class="wrappermodalFilm">
-          <div class="modal-film-header">
-            <span class="closeFilmBtn">&times;</span>
-            <h4>Add a movie...</h4>
-          </div>
-          <div class="modal-film-body">
-            <form id="addFilm-form">
-              <div class="addFilmInfo">
-                <label for="enterFilmTitle">Title :</label>
+      <div id="modalFilmContainer" tabindex="-1" class="wrappermodalFilm">
+        <div class="modal-fm" role="document">
+          <div class="modal-content-fm">
+            <div class="modal-film-header">
+              <h4>Add a movie...</h4>
+              <span class="closeFilmBtn" aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-film-body">
+              <label for="enterFilmTitle">Title :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -164,9 +164,7 @@
                   placeholder="Enter title here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterGenre">Genre :</label>
+              <label for="enterGenre">Genre :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -174,9 +172,7 @@
                   placeholder="Enter genre here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterType">Type :</label>
+              <label for="enterType">Type :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -184,9 +180,7 @@
                   placeholder="Enter type here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterReleased">Released :</label>
+              <label for="enterReleased">Released :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -194,9 +188,7 @@
                   placeholder="Enter year here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterRated">Rated :</label>
+              <label for="enterRated">Rated :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -204,9 +196,7 @@
                   placeholder="1 to 5 stars"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterImdbRating">IMDB Rating :</label>
+              <label for="enterImdbRating">IMDB Rating :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -214,9 +204,7 @@
                   placeholder="IMDB rating"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterDirector">Director :</label>
+              <label for="enterDirector">Director :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -224,9 +212,7 @@
                   placeholder="Enter director here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterWriter">Writer :</label>
+              <label for="enterWriter">Writer :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -234,9 +220,7 @@
                   placeholder="Enter writer here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterActors">Actors :</label>
+              <label for="enterActors">Actors :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -244,9 +228,7 @@
                   placeholder="Enter actors here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterRuntime">Runtime :</label>
+              <label for="enterRuntime">Runtime :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -254,9 +236,7 @@
                   placeholder="Enter runtime here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterLanguage">Language :</label>
+              <label for="enterLanguage">Language :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -264,9 +244,7 @@
                   placeholder="Enter website here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterAwards">Awards :</label>
+              <label for="enterAwards">Awards :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -274,9 +252,7 @@
                   placeholder="Enter awards here"
                   required
                 />
-              </div>
-              <div class="addFilmInfo">
-                <label for="enterPlot">Plot :</label>
+              <label for="enterPlot">Plot :</label>
                 <input
                   type="text"
                   class="filmInput"
@@ -284,29 +260,29 @@
                   placeholder="Enter plot here"
                   required
                 />
-              </div>
-            </form>
+            </div>
+            <div class="modal-film-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="saveFilmChanges">
+                Save changes
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger "
+                id="discardFilmChanges">
+                Discard changes
+              </button>
+            </div>
+            <div
+              class="alert alert-danger displayNone"
+              role="alert"
+              id="addedNewMovie-alert"
+            ></div>
           </div>
-          <div class="modal-film-footer">
-            <h3>You are done !</h3>
-            <p>Please save your movie...</p>
-            <button type="button" id="saveFilmChanges" class="btn btn-primary">
-              Save changes
-            </button>
-            <button
-              type="button"
-              id="discardFilmChanges"
-              class="btn btn-danger "
-            >
-              Discard changes
-            </button>
-          </div>
-        <div
-        class="alert alert-danger displayNone"
-        role="alert"
-        id="addedNewMovie-alert"
-      ></div>
-       </div>
+        </div>
+      </div>
       
 
       <!-- end of- MOVIE modal -->

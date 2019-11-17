@@ -1,4 +1,10 @@
 const creatorsPopup = document.getElementById("creators-picture-modal");
+const boxes = document.getElementsByClassName("inner");
+const stageInfoLeft = document.getElementsByClassName("stage-info-left");
+const stageInfoRight = document.getElementById("stage-info-right");
+
+// Outside click function
+
 function outsideModalCreators(event) {
   if (event.target === modalAuth) {
     fadeOutModal(modalAuth);
@@ -12,8 +18,7 @@ function outsideModalCreators(event) {
 }
 window.addEventListener("click", outsideModalCreators);
 
-const boxes = document.getElementsByClassName("inner");
-
+//Open and close stage boxes and text
 for (let i = 0; i < boxes.length; i++) {
   let item = boxes[i];
 
@@ -21,12 +26,15 @@ for (let i = 0; i < boxes.length; i++) {
   item.children[1].classList.add("hideCreatorsBox");
 
   item.children[0].addEventListener("click", () => {
+    debugger;
     if (item.children[1].classList.contains("showCreatorsBox")) {
       item.children[1].classList.remove("showCreatorsBox");
       item.children[1].classList.add("hideCreatorsBox");
+      item.parentElement.children[0].style.display = "none";
     } else {
       item.children[1].classList.add("showCreatorsBox");
       item.children[1].classList.remove("hideCreatorsBox");
+      item.parentElement.children[0].style.display = "block";
     }
   });
 }

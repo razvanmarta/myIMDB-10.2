@@ -28,14 +28,7 @@ const makeCallToServer = async apiURL => {
 };
 
 const renderFilteredMovies = async param => {
-  console.log(param);
-  const filteredFilms = filteredMovies();
-  if (!filteredFilms) {
-    return;
-  }
-  const response = await fetch(
-    `https://movies-api-siit.herokuapp.com/movies?${param}=${filteredFilms}`
-  );
+  const response = await fetch(param);
   const data = await response.json();
   const results = await data.results;
   const page = await data.pagination.links;
@@ -98,8 +91,9 @@ const updateMovie = movieDetails => {
     body: JSON.stringify(movieDetails)
   })
     .then(response => {
+      console.log(response);
       if (response.ok) {
-        addBanner();
+        successEdit();
       }
       return response.json();
     })
@@ -108,7 +102,7 @@ const updateMovie = movieDetails => {
       movieDetails.editBtnEvents(data);
       getTrailer();
     })
-    .catch(error => console.error(`Error: ${error}`));
+    .catch(error => console.log(`Error: ${error}`));
 };
 
 // add a new movie

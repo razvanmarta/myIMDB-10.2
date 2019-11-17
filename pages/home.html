@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="../assets/home.css" />
     <link rel="stylesheet" href="../assets/addMovie.css" />
-
+    <link rel="stylesheet" href="../assets/details.css" />
     <link rel="stylesheet" href="../assets/register.css" />
     <link rel="stylesheet" href="../assets/login.css" />
     <link
@@ -65,35 +65,62 @@
         >Movie added successfully !</div>
  <!-- add an alert -->
       </div>
-      <!-- <div class="searchfield-container">
-        <input
-          type="search"
-          name="searchmovies"
-          id="searchfield"
-          placeholder="Search..."
-        />
-        <div class="dropdown-wrapper">
-          <select name="" id="search-options">
-            <option value="">Search by</option>
-            <option value="Title">Title</option>
-            <option value="Year">Year</option>
-            <option value="Runtime">Runtime</option>
-            <option value="Genre">Genre</option>
-            <option value="Language">Language</option>
-            <option value="Country">Country</option>
-            <option value="Poster">Poster</option>
-            <option value="imdbRating">IMDbRating</option>
-            <option value="imdbVotes">IMDbVotes</option>
-            <option value="imdbID">IMDbID</option>
-            <option value="Type">Type</option>
-          </select>
-        </div>
-        <button id="search">
-          <div>
-            <i class="fas fa-search"></i>
+
+  <!-- Search Modal -->
+      <div class="modal" tabindex="-1" id="searchModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content-me">
+              <div class="modal-header-edit">
+                <h5 class="modal-title" >Search by...</h5>
+                <button
+                  type="button"
+                  class="close"
+                  aria-label="Close"
+                  id="searchModalClose"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <label for = "editTitle">Title:</label>
+                  <input class="form-control-me" name = "Title"/>
+                  
+                  <label for="Year">Year:</label>
+                  <input class="form-control-me" name = "Year" type="number"/>
+        
+                  <label for = "Runtime">Runtime:</label>
+                  <input class="form-control-me" name = "Runtime" type="number"/>
+        
+                  <label for = "Genre">Genre:</label>
+                  <input class="form-control-me" name = "Genre"/>
+        
+                  <label for = "Language">Language:</label>
+                  <input class="form-control-me" name = "Language"/>
+        
+                  <label for = "Country">Country:</label>
+                  <input class="form-control-me" name = "Country" type="text"/>
+        
+                  <label for="imdbRating">imdbRating:</label>
+                  <input class="form-control-me" name = "imdbRating" type="number"/>
+        
+              </div>
+              <div class="modal-footer-me" >
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  id="searchButton"
+                >
+                <i class="fas fa-search-plus"></i> Search  
+                </button>
+                <button type="button" class="btn btn-danger" id="searchClose">
+                  Close
+                </button>
+              </div>
+            </div>
           </div>
-        </button>
-      </div> -->
+        </div>
+
+        <!-- Parallax Header -->
       <div class="parallax-header">
         <div class="frontpage_text">
           <h3 class="">Let's Put A Smile On That Face!</h3>

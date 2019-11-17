@@ -1,16 +1,54 @@
-// Search related variables
-// const searchfield = document.getElementById("searchfield");
-// const search = document.getElementById("search");
-// const searchCategories = document.getElementById("search-options");
+const searchBtn = document.getElementById("search-button");
+const searchModal = document.getElementById("searchModal");
+// Open search modal
+searchBtn.addEventListener("click", () => {
+  displayElement(searchModal);
+  searchMovieDataBase.addEListeners();
+});
 
-// let filteredMovies = () => searchfield.value;
+const searchMovieDataBase = {
+  addEListeners: function() {
+    const searchModalCloseBtn = document.querySelector("#searchModalClose");
+    let searchCloseBtn = document.querySelector("#searchClose");
 
-// let searchedCategory = () => {
-//   const selection = searchCategories[searchCategories.selectedIndex].value;
-//   return selection;
-// };
+    searchModalCloseBtn.addEventListener("click", () => {
+      hideElement(searchModal);
+    });
 
-// searchfield.addEventListener("keyup", filteredMovies);
-// searchfield.addEventListener("keyup", () => {
-//   renderFilteredMovies(searchedCategory());
-// });
+    searchCloseBtn.addEventListener("click", () => {
+      hideElement(searchModal);
+    });
+  }
+};
+
+let doTheSearch = document.querySelector("#searchButton");
+doTheSearch.addEventListener("click", () => {
+  hideElement(searchModal);
+  const searchObject = getValuesFromInputFields();
+  renderFilteredMovies(createSearchUrl(searchObject));
+});
+const getValuesFromInputFields = () => {
+  const searchObject = {};
+  let inputs = document.querySelectorAll(".form-control-me");
+  inputs.forEach(input => {
+    input.addEventListener("keyup", event => {
+      value = event.value;
+      return value;
+    });
+    input.value
+      ? (searchObject[input.name] = input.value)
+      : console.log(`Field ${input.name} is empty => not adding it to object`);
+  });
+  inputs.forEach(input => (input.value = ""));
+  return searchObject;
+};
+
+const createSearchUrl = querry => {
+  let urlNeeded = "https://movies-api-siit.herokuapp.com/movies?";
+  let querryString = Object.entries(querry);
+  querryString.forEach(keyValuePair => {
+    urlNeeded += keyValuePair[0] + "=" + keyValuePair[1] + "&";
+  });
+  const finalResult = urlNeeded.slice(0, -1);
+  return finalResult;
+};

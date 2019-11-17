@@ -76,11 +76,11 @@ body {
 
 #burgerButton {
   position: absolute;
-  top: 10px;
+  top: 25px;
   right: 10px;
   padding-top: 30px;
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
   background-image: url("../assets/photo/hamburger-menu.jpg");
   background-size: cover;
 }
@@ -106,7 +106,8 @@ ul {
 #menuBurger-register,
 #menuBurger-home,
 #menuBurger-creators,
-#menuBurger-logout {
+#menuBurger-logout,
+#menuBurger-search {
   background-color: black;
   text-align: center;
   list-style-type: none;
@@ -129,7 +130,8 @@ ul {
 #menuBurger-register:hover,
 #menuBurger-logout:hover,
 #menuBurger-creators:hover,
-#burgerButton {
+#burgerButton,
+#menuBurger-search:hover {
   color: rgba(2, 216, 13, 0.8) !important;
   cursor: pointer;
 }
@@ -149,7 +151,6 @@ ul {
     top: 20px;
     color: #fff;
     text-decoration: none;
-    font-family: "Indie Flower", cursive;
     font-size: 2em;
     font-weight: 900;
     margin: 0px 0px 0px 10%;
@@ -508,11 +509,11 @@ select {
 
 #burgerButton {
   position: absolute;
-  top: 15px;
+  top: 25px;
   right: 10px;
   padding-top: 30px;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-image: url("../assets/photo/hamburger-menu.jpg");
   background-size: cover;
   z-index: 101;

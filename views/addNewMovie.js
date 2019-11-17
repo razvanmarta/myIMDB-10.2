@@ -25,18 +25,6 @@ function openModal() {
   modal.style.display = "block";
 }
 
-function outsideModal(event) {
-  if (event.target === modal) {
-    fadeOutModal(modal);
-  }
-  if (event.target === modalAuth) {
-    fadeOutModal(modalAuth);
-  }
-  if (event.target === modalLogin) {
-    fadeOutModal(modalLogin);
-  }
-}
-
 window.addEventListener("click", outsideModal);
 
 function emptyFilmImpute() {

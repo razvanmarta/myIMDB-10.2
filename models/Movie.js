@@ -28,6 +28,7 @@ const makeCallToServer = async apiURL => {
 };
 
 const renderFilteredMovies = async param => {
+  console.log(param);
   const filteredFilms = filteredMovies();
   if (!filteredFilms) {
     return;

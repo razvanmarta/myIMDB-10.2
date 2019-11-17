@@ -1,6 +1,8 @@
 #add-movie {
-  float: right;
   margin-right: 15px;
+  position: absolute;
+  top: 170px;
+  right: 5px;
 }
 
 .wrappermodalFilm {

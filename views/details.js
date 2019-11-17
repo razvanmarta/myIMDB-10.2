@@ -203,7 +203,7 @@ getMovie();
 getTrailer();
 
 //close modals
-function outsideModal(event) {
+function outsideModalDetails(event) {
   if (event.target === modalAuth) {
     fadeOutModal(modalAuth);
   }
@@ -212,7 +212,7 @@ function outsideModal(event) {
   }
 }
 
-window.addEventListener("click", outsideModal);
+window.addEventListener("click", outsideModalDetails);
 
 updatedMovieAlert = document.getElementById("updatedMovie-alert");
 

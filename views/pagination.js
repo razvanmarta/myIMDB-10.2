@@ -10,7 +10,7 @@ const disablePaginationButton = () => {
 };
 
 const updatePageNumber = (pageNumber, nrOfPages) => {
-  pageNr.innerText = `Page ${pageNumber} of ${nrOfPages}`;
+  pageNr.innerText = `${pageNumber} of ${nrOfPages}`;
 };
 
 prevPage.addEventListener("click", () => makeCallToServer(prev));

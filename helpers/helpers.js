@@ -53,3 +53,49 @@ const fadeOutModal = element => {
     element.style.display = "none";
   }, 800);
 };
+
+function outsideModal(event) {
+  if (event.target === modal) {
+    fadeOutModal(modal);
+  }
+  if (event.target === modalAuth) {
+    fadeOutModal(modalAuth);
+  }
+  if (event.target === modalLogin) {
+    fadeOutModal(modalLogin);
+  }
+}
+
+// USE THIS INSTEAD OF window.location.href
+const checkPath = state => {
+  const path = window.location.href
+    .split("/")
+    .slice(-1)[0]
+    .split(".")[0];
+  if (!state) {
+    switch (path) {
+      case "home":
+        disableButtons(addModalBtn);
+        addModalBtn.setAttribute("tooltip", "tooltip");
+        break;
+      case "details":
+        getTrailer();
+        break;
+      default:
+        console.log("You are on creators Page");
+    }
+  } else {
+    switch (path) {
+      case "home":
+        enableButtons(addModalBtn);
+        addModalBtn.removeAttribute("tooltip");
+        break;
+      case "details":
+        getMovie();
+        getTrailer();
+        break;
+      default:
+        console.log("You are on creators Page");
+    }
+  }
+};

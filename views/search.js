@@ -1,16 +1,16 @@
 // Search related variables
-const searchfield = document.getElementById("searchfield");
-const search = document.getElementById("search");
-const searchCategories = document.getElementById("search-options");
+// const searchfield = document.getElementById("searchfield");
+// const search = document.getElementById("search");
+// const searchCategories = document.getElementById("search-options");
 
-let filteredMovies = () => searchfield.value;
+// let filteredMovies = () => searchfield.value;
 
-let searchedCategory = () => {
-  const selection = searchCategories[searchCategories.selectedIndex].value;
-  return selection;
-};
+// let searchedCategory = () => {
+//   const selection = searchCategories[searchCategories.selectedIndex].value;
+//   return selection;
+// };
 
-searchfield.addEventListener("keyup", filteredMovies);
-searchfield.addEventListener("keyup", () =>
-  renderFilteredMovies(searchedCategory())
-);
+// searchfield.addEventListener("keyup", filteredMovies);
+// searchfield.addEventListener("keyup", () => {
+//   renderFilteredMovies(searchedCategory());
+// });

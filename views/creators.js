@@ -1,4 +1,4 @@
-function outsideModal(event) {
+function outsideModalCreators(event) {
   if (event.target === modalAuth) {
     fadeOutModal(modalAuth);
   }
@@ -6,7 +6,7 @@ function outsideModal(event) {
     fadeOutModal(modalLogin);
   }
 }
-window.addEventListener("click", outsideModal);
+window.addEventListener("click", outsideModalCreators);
 
 const boxes = document.getElementsByClassName("inner");
 

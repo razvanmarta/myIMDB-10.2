@@ -167,24 +167,82 @@ ul {
 }
 /* end of styling burger menu */
 
+/* Parallax */
+html {
+  scroll-behavior: smooth;
+}
+.parallax-header {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("/assets/photo/parallaxheader.jpg");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-family: "Permanent Marker";
+  letter-spacing: 0.3em;
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.parallax-footer {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("/assets/photo/parallaxfooter.jpg");
+  min-height: 40vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-family: "Permanent Marker";
+  letter-spacing: 0.3em;
+  font-size: 3.5rem;
+  text-align: center;
+}
+.frontpage_text {
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.arrow-parallax {
+  position: absolute;
+  bottom: 5%;
+  color: #fff !important;
+  left: calc(50% - 24.2815px);
+}
 /* Movie Container items start */
 .movieList-container {
   margin: 20px auto;
   padding-top: 20px;
-  width: 95%;
-  background-color: rgba(51, 51, 51, 0.877);
+  width: 99%;
   position: relative;
   border-radius: 5px;
-  border-style: ridge;
   text-align: center;
 }
 .movieList-Title {
-  margin: 0 auto;
+  margin: 50px auto;
   color: rgb(255, 255, 255);
-  border-width: thick;
-  border-bottom: 3px solid gray;
-  padding-bottom: 5px;
-  width: 200px;
+  border-bottom: 1px solid gray;
+  padding-top: 30px;
+  padding-bottom: 35px;
+  width: 330px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
 }
 .movieList {
   margin: 30px auto;

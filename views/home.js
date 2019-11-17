@@ -163,19 +163,12 @@ const showUserIsLoggedIn = () => {
   displayElement(logoutBurgerBtn);
 
   displayElement(userContainer);
-  if (window.location.href.includes("home.html")) {
-    enableButtons(addModalBtn);
-    addModalBtn.removeAttribute("tooltip");
-  } else {
-    getMovie();
-    getTrailer();
-  }
+  checkPath(true);
 };
 
 //Brings back Login and Register buttons to page and logs the user out
 const showUserIsLoggedOut = () => {
   const token = sessionStorage.getItem("accessToken");
-  // logOut(token);
   User.logOutUser(token);
   clearModalFields();
   sessionStorage.removeItem("accessToken");
@@ -189,12 +182,7 @@ const showUserIsLoggedOut = () => {
   displayElement(loginBurgerBtn);
 
   hideElement(userContainer);
-  if (window.location.href.includes("home.html")) {
-    disableButtons(addModalBtn);
-    addModalBtn.setAttribute("tooltip", "tooltip");
-  } else {
-    getTrailer();
-  }
+  checkPath(false);
 };
 
 //Switch to login modal, from register modal function

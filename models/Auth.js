@@ -55,9 +55,9 @@ class User {
         showUserIsLoggedIn();
         displayUserName(this.username);
         registratedAlert.classList.remove("d-none");
-        setTimeout(function() {
-          registratedAlert.classList.add("d-none");
-        }, 3000);
+        // setTimeout(function() {
+        //   registratedAlert.classList.add("d-none");
+        // }, 3000);
       }
     } catch (error) {
       console.log(error);

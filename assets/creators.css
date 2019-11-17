@@ -5,7 +5,7 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-body {  
+body {
   background: #000000;
   background: -webkit-linear-gradient(to right, #434343, #000000);
   background: linear-gradient(to right, #434343, #000000);
@@ -33,6 +33,7 @@ section#timeline article {
   margin: 0 0 20px 0;
   position: relative;
 }
+
 section#timeline article:after {
   content: "";
   display: block;
@@ -44,6 +45,7 @@ section#timeline article div.inner {
   margin: 5px 0 0 0;
   border-radius: 6px;
 }
+
 section#timeline article div.inner span.date {
   display: block;
   width: 60px;
@@ -59,21 +61,29 @@ section#timeline article div.inner span.date {
   text-transform: uppercase;
   background: #25303b;
   color: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 0 7px #25303b;
 }
+
+section#timeline article div.inner span.date:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(161, 158, 161, 1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(161, 158, 161, 1);
+  box-shadow: 0px 0px 10px 0px rgba(161, 158, 161, 1);
+}
+
 section#timeline article div.inner span.date span {
   display: block;
   text-align: center;
 }
-section#timeline article div.inner span.date span.day {
+/* section#timeline article div.inner span.date span.day {
   font-size: 10px;
-}
+} */
 section#timeline article div.inner span.date span.month {
-  font-size: 18px;
+  font-size: 14px;
 }
 section#timeline article div.inner span.date span.year {
-  font-size: 10px;
+  font-size: 16px;
 }
 section#timeline article div.inner h2 {
   padding: 15px;
@@ -92,17 +102,20 @@ section#timeline article div.inner h2:after {
   right: -5px;
   width: 10px;
   height: 10px;
-  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 section#timeline article div.inner p {
-  padding: 15px;
+  z-index: 10000;
+  padding: 10px;
   margin: 0;
   font-size: 14px;
-  background: #fff;
+  background: whitesmoke;
   color: #656565;
   border-radius: 0 0 6px 6px;
-  max-height: 200px;
-  overflow: auto;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 section#timeline article:nth-child(2n + 1) div.inner div {
@@ -151,13 +164,67 @@ section#timeline article:nth-child(5) div.inner h2:after {
 }
 
 .showCreatorsBox {
-  width: 100% !important;
+  width: 130% !important;
+  height: 600px !important;
   transition: width 1s;
   -webkit-transition: width 1s;
+  overflow: visible;
 }
 .hideCreatorsBox {
   width: 0px !important;
+  height: 400px !important;
   transition: width 1s;
   -webkit-transition: width 1s;
   overflow: hidden;
+}
+
+.resize {
+  width: 200px;
+  height: 200px;
+  padding: 2px;
+  margin: 2px;
+  /* display: inline-flex; */
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 4px rgba(184, 177, 184, 1);
+  transition: all 0.3s ease-out;
+}
+
+.resize:hover {
+  transform: scale(0.9);
+}
+
+#picture-dialog-container img {
+  width: 500px;
+  height: 500px;
+  max-width: 100%;
+  min-width: 35%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0 !important;
+  display: block;
+  border-radius: 25px;
+}
+
+#creators-container {
+  margin: auto;
+  width: auto !important;
+  height: auto;
+  border-style: solid;
+  border-color: black;
+  border-radius: 25px;
+  min-width: 300px;
+  max-width: 35% !important;
+}
+
+#creators-picture-modal {
+  background-color: rgba(0, 0, 0, 0.9);
+  animation-name: delayModal;
+  animation-duration: 0.8s;
 }

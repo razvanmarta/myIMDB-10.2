@@ -2,7 +2,8 @@
   background-color: rgba(0, 0, 0, 0.9);
   animation-name: delayModal;
   animation-duration: 0.8s;
-  margin-top: 50px;
+
+  z-index: 101;
 }
 
 @keyframes delayModal {

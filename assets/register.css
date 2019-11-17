@@ -3,6 +3,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   animation-name: delayModal;
   animation-duration: 0.8s;
+  z-index: 101;
 }
 
 @keyframes fadeOut {
@@ -92,18 +93,21 @@
 
 #registrated-alert {
   position: absolute;
-  top: 5.5%;
+  top: 300px !important;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 30%;
   text-align: center;
   border-width: 2px;
   border-style: solid;
-  border-color: lightskyblue;
-  border-radius: 25px;
-  color: #0f5561;
-  background-color: #d1ecf1;
+  border-color: #1e2123;
+  color: white;
+  background-color: #494c4c;
   margin-top: 0.1rem;
   font-size: 1rem;
   padding: 0.5rem;
+  max-height: 100%;
+  text-align: center;
+  display: grid;
+  border: 4px solid rgba(2, 216, 13, 0.8);
 }

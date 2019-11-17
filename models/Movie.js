@@ -28,14 +28,7 @@ const makeCallToServer = async apiURL => {
 };
 
 const renderFilteredMovies = async param => {
-  console.log(param);
-  const filteredFilms = filteredMovies();
-  if (!filteredFilms) {
-    return;
-  }
-  const response = await fetch(
-    `https://movies-api-siit.herokuapp.com/movies?${param}=${filteredFilms}`
-  );
+  const response = await fetch(param);
   const data = await response.json();
   const results = await data.results;
   const page = await data.pagination.links;

@@ -205,7 +205,7 @@ html {
       rgba(0, 0, 0, 0.2)
     ),
     url("../assets/photo/parallaxfooter.jpg");
-  min-height: 40vh;
+  min-height: 90vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -256,13 +256,10 @@ html {
   margin: 30px auto;
   width: 99%;
   min-height: 325px;
-  /* height: 600px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 1px solid rgb(214, 214, 214);
   border-radius: 5px;
-  background-color: rgb(19, 19, 19);
   padding: 1.5%;
   position: relative;
   overflow-y: auto;
@@ -270,7 +267,6 @@ html {
 .movie-item {
   cursor: pointer;
   width: 300px;
-  /* max-height: 400px; */
   margin: 15px;
   position: relative;
   border: 2px solid black;

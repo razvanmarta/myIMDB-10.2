@@ -138,11 +138,9 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-fm {
-}
-
 .modal-content-fm {
-  position: relative;
+  position: absolute;
+  top: 50%;
   display: flex;
   justify-content: space-between;
   -webkit-box-orient: vertical;

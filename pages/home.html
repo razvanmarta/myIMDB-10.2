@@ -159,14 +159,21 @@
       
       <!-- start MOVIE modal -->
 
-      <div id="modalFilmContainer" tabindex="-1" class="wrappermodalFilm">
-        <div class="modal-fm" role="document">
-          <div class="modal-content-fm">
-            <div class="modal-film-header">
-              <h4>Add a movie...</h4>
-              <span class="closeFilmBtn" aria-hidden="true">&times;</span>
+      <div id="modalFilmContainer" tabindex="-1" class="modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content-me">
+            <div class="modal-header-edit">
+              <h4 class="modal-title">Add a movie...</h4>
+              <button
+                  type="button"
+                  class="close"
+                  aria-label="Close"
+                  id="addModalClose"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="modal-film-body">
+            <div class="modal-body">
               <label for="enterFilmTitle">Title :</label>
                 <input
                   type="text"
@@ -272,7 +279,7 @@
                   required
                 />
             </div>
-            <div class="modal-film-footer">
+            <div class="modal-footer-me">
               <button
                 type="button"
                 class="btn btn-primary"
@@ -440,6 +447,5 @@
     <script src="../views/register.js"></script>
     <script src="../views/addNewMovie.js"></script>
     <script src="../views/login.js"></script>
-    <script src="../views/logout.js"></script>
   </body>
 </html>

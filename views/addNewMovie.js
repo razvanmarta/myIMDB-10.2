@@ -1,5 +1,5 @@
 const modalBtn = document.getElementById("add-movie");
-const closeBtn = document.getElementsByClassName("closeFilmBtn")[0];
+const closeBtn = document.getElementById("addModalClose");
 const modal = document.getElementById("modalFilmContainer");
 const saveChange = document.getElementById("saveFilmChanges");
 const discardChange = document.getElementById("discardFilmChanges");

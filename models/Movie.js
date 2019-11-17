@@ -121,7 +121,7 @@ function aNewMovie(myFilm) {
   })
     .then(res => {
       if (res.ok) {
-        addBanner();
+        successAddedMovie();
       } else if (response.status == 409) {
       }
       if (res.status === 403) {

@@ -1,5 +1,4 @@
 let value = "";
-let editSaveBtn = document.querySelector("#editSaveChanges");
 
 movieDetails = {
   displayMovieDetails: function() {
@@ -109,7 +108,6 @@ movieDetails = {
 
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
-      successEdit();
     });
 
     if (checkIfLoggedIn()) {
@@ -125,69 +123,66 @@ movieDetails = {
     editModalBody.innerHTML = `
 
           <label for = "editTitle">Title:</label>
-          <input class="form-control-me" id="editTitle"  onkeyup = handleInput(this) name = "Title" value ="${this.Title}">
+          <input class="form-control-me" id="editTitle" name = "Title" value ="${this.Title}">
           
           <label for="editGenre">Genre:</label>
-          <input class="form-control-me"  onkeyup = handleInput(this) name = "Genre" value = "${this.Genre}">
+          <input class="form-control-me" name = "Genre" value = "${this.Genre}">
 
           <label for = "editType">Type:</label>
-          <input class="form-control-me"  onkeyup = handleInput(this) name = "Type" value = "${this.Type}">
+          <input class="form-control-me" name = "Type" value = "${this.Type}">
 
           <label for = "editReleased">Released:</label>
-          <input class="form-control-me"  onkeyup = handleInput(this) name = "Released" value = "${this.Released}">
+          <input class="form-control-me" name = "Released" value = "${this.Released}">
 
           <label for = "editRated">Rated:</label>
-          <input class="form-control-me"  onkeyup = handleInput(this) name = "Rated" value ="${this.Rated}">
+          <input class="form-control-me" name = "Rated" value ="${this.Rated}">
 
           <label for = "editimdbRating">imdbRating:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "imdbRating" value ="${this.imdbRating}">
+          <input class="form-control-me" name = "imdbRating" value ="${this.imdbRating}">
 
           <label for="editDirector">Director:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "Director" value = "${this.Director}">
+          <input class="form-control-me" name = "Director" value = "${this.Director}">
 
           <label for="editWriter">Writer:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "Writer" value ="${this.Writer}">
+          <input class="form-control-me" name = "Writer" value ="${this.Writer}">
 
           <label for="editAuthor">Actors:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "Actors" value ="${this.Actors}">
+          <input class="form-control-me" name = "Actors" value ="${this.Actors}">
 
           <label for="editRuntime">Runtime:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "Runtime" value = "${this.Runtime}">
+          <input class="form-control-me" name = "Runtime" value = "${this.Runtime}">
 
           <label for="editLanguage">Language:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "Language" value = "${this.Language}">
+          <input class="form-control-me" name = "Language" value = "${this.Language}">
 
           <label for="editAwards">Awards:</label>
-          <input class="form-control-me" onkeyup = handleInput(this) name = "Awards" value = "${this.Awards}">
+          <input class="form-control-me" name = "Awards" value = "${this.Awards}">
 
           <label for="editPlot">Plot:</label>
-          <input class="form-control-me"  id="editPlot" onkeyup = handleInput(this) name = "Plot" value = "${this.Plot}">`;
+          <input class="form-control-me"  id="editPlot" name = "Plot" value = "${this.Plot}">`;
   }
 };
 
 //get the inputs value in the movieDetails propreties
+
 const getEditDetails = movieDetails => {
   let inputs = document.querySelectorAll(".form-control-me");
   for (let i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("keyup", event => {
+      value = event.value;
+      return value;
+    });
     movieDetails[inputs[i].name] = inputs[i].value;
   }
-  // the Http request for the new Data
+  // the Http request with the new Data
   updateMovie(movieDetails);
 };
 
+//rereder movie details
+let editSaveBtn = document.querySelector("#editSaveChanges");
 editSaveBtn.addEventListener("click", () => {
-  hideElement(editModal);
-  successEdit();
   getEditDetails(movieDetails);
-  //rereder movie details
 });
-
-//get the value of inputs
-
-handleInput = event => {
-  value = event.value;
-  return value;
-};
 
 // code for getting the trailer
 const displayTrailer = trailer => {
@@ -215,6 +210,8 @@ function outsideModalDetails(event) {
 }
 
 window.addEventListener("click", outsideModalDetails);
+
+// alert for successful edited movie
 const successEdit = () => {
   registratedAlert.classList.remove("d-none");
   registratedAlert.innerText = "The movie has been successfully updated!";

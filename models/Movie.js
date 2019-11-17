@@ -98,7 +98,9 @@ const updateMovie = movieDetails => {
     body: JSON.stringify(movieDetails)
   })
     .then(response => {
+      console.log(response);
       if (response.ok) {
+        successEdit();
       }
       return response.json();
     })
@@ -107,7 +109,7 @@ const updateMovie = movieDetails => {
       movieDetails.editBtnEvents(data);
       getTrailer();
     })
-    .catch(error => console.error(`Error: ${error}`));
+    .catch(error => console.log(`Error: ${error}`));
 };
 
 // add a new movie

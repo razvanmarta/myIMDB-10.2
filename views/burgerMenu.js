@@ -27,11 +27,18 @@ logoutBurgerBtn.addEventListener("click", () => {
 });
 
 // hide menu-item on click outside the list of items
-outsideClick.addEventListener("click", () => {
-  if ((dropDownList.className = "showDropDownList")) {
+outsideClick.addEventListener("click", event => {
+  console.log(event.target.parentElement);
+  console.log(event.target.firstElementChild);
+  if (
+    event.target.parentElement !== dropDownList &&
+    event.target.parentElement.firstElementChild !== burgerButton
+  ) {
     dropDownList.classList.remove("showDropDownList");
     dropDownList.classList.add("hideDropDownList");
   }
+  // if ((dropDownList.className = "showDropDownList")) {
+  // }
 });
 
 // hide home

@@ -228,3 +228,7 @@ section#timeline article:nth-child(5) div.inner h2:after {
   animation-name: delayModal;
   animation-duration: 0.8s;
 }
+
+.stage-info {
+  float: right;
+}

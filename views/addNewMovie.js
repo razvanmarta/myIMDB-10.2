@@ -101,9 +101,10 @@ class AddNewFilm {
   }
 }
 
-const addBanner = () => {
-  addedNewMovieAlert.classList.remove("displayNone");
-  setTimeout(function() {
-    addedNewMovieAlert.classList.add("displayNone");
+const successAddedMovie = () => {
+  registratedAlert.classList.remove("d-none");
+  registratedAlert.innerText = "Movie added successfully !";
+  setTimeout(() => {
+    registratedAlert.classList.add("d-none");
   }, 3000);
 };

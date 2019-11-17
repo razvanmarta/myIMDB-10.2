@@ -178,7 +178,7 @@ html {
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("/assets/photo/parallaxheader.jpg");
+    url("../assets/photo/parallaxheader.jpg");
   min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
@@ -198,7 +198,7 @@ html {
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("/assets/photo/parallaxfooter.jpg");
+    url("../assets/photo/parallaxfooter.jpg");
   min-height: 40vh;
   background-attachment: fixed;
   background-position: center;
@@ -221,8 +221,10 @@ html {
 .arrow-parallax {
   position: absolute;
   bottom: 5%;
-  color: #fff !important;
   left: calc(50% - 24.2815px);
+}
+.arrowDown {
+  color: #fff;
 }
 /* Movie Container items start */
 .movieList-container {

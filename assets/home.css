@@ -125,12 +125,21 @@ ul {
   font-style: oblique;
   font-size: 1.4em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+<<<<<<< HEAD
   border: 0.5px solid rgba(248, 248, 248, 0.8);
   padding: 40px 0;
   -webkit-box-shadow: 0px 6px 5px 0px rgba(248, 248, 248, 0.8);
   -moz-box-shadow: 0px 6px 5px 0px rgba(248, 248, 248, 0.8);
   box-shadow: 0px 6px 5px 0px rgba(248, 248, 248, 0.8);
   /* opacity: 1; */
+=======
+  border: 0.5px solid rgba(184, 177, 184, 1);
+  padding: 40px 0;
+  -webkit-box-shadow: 0px 6px 5px 0px rgba(184, 177, 184, 1);
+  -moz-box-shadow: 0px 6px 5px 0px rgba(184, 177, 184, 1);
+  box-shadow: 0px 6px 5px 0px rgba(184, 177, 184, 1);
+  opacity: 0.8;
+>>>>>>> 1161b30642e9205110dcc6975930ba64e43d4dba
 }
 
 #menuBurger-home:hover,

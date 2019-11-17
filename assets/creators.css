@@ -199,15 +199,16 @@ section#timeline article:nth-child(5) div.inner h2:after {
 }
 
 #picture-dialog-container img {
-  width: 500px;
+  /* width: 500px; */
   height: 500px;
   max-width: 100%;
   min-width: 35%;
   overflow: hidden;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: 0;
-  margin-right: 0 !important;
+  /* margin-left: 0;
+  margin-right: 0 !important; */
+  margin: auto;
   display: block;
   border-radius: 25px;
 }
@@ -216,11 +217,12 @@ section#timeline article:nth-child(5) div.inner h2:after {
   margin: auto;
   width: auto !important;
   height: auto;
-  border-style: solid;
-  border-color: black;
+  border: none;
   border-radius: 25px;
   min-width: 300px;
-  max-width: 35% !important;
+  max-width: 60% !important;
+  background-color: transparent;
+  text-align: center;
 }
 
 #creators-picture-modal {
@@ -229,6 +231,16 @@ section#timeline article:nth-child(5) div.inner h2:after {
   animation-duration: 0.8s;
 }
 
-.stage-info {
+.stage-info-right {
   float: right;
+  margin-right: 20%;
+  background-color: wheat;
+  display: none;
+}
+
+.stage-info-left {
+  float: left;
+  margin-right: 20%;
+  background-color: wheat;
+  display: none;
 }

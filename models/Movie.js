@@ -99,7 +99,6 @@ const updateMovie = movieDetails => {
   })
     .then(response => {
       if (response.ok) {
-        addBanner();
       }
       return response.json();
     })

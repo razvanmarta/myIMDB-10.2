@@ -109,6 +109,7 @@ movieDetails = {
 
     editSaveBtn.addEventListener("click", () => {
       hideElement(editModal);
+      successEdit();
     });
 
     if (checkIfLoggedIn()) {
@@ -176,6 +177,7 @@ const getEditDetails = movieDetails => {
 
 editSaveBtn.addEventListener("click", () => {
   hideElement(editModal);
+  successEdit();
   getEditDetails(movieDetails);
   //rereder movie details
 });
@@ -213,12 +215,10 @@ function outsideModalDetails(event) {
 }
 
 window.addEventListener("click", outsideModalDetails);
-
-updatedMovieAlert = document.getElementById("updatedMovie-alert");
-
-const addBanner = () => {
-  displayElement(updatedMovieAlert);
-  setTimeout(function() {
-    hideElement(updatedMovieAlert);
+const successEdit = () => {
+  registratedAlert.classList.remove("d-none");
+  registratedAlert.innerText = "The movie has been successfully updated!";
+  setTimeout(() => {
+    registratedAlert.classList.add("d-none");
   }, 3000);
 };

@@ -156,22 +156,3 @@ label {
   padding: 1.5rem;
   vertical-align: text-top;
 }
-
-#updatedMovie-alert {
-  display: none;
-  position: absolute;
-  top: 5.5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30%;
-  text-align: center;
-  border-width: 2px;
-  border-style: solid;
-  border-color: lightskyblue;
-  border-radius: 25px;
-  color: #0f5561;
-  background-color: #d1ecf1;
-  margin-top: 0.1rem;
-  font-size: 1rem;
-  padding: 0.5rem;
-}

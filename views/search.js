@@ -3,7 +3,6 @@ const searchModal = document.getElementById("searchModal");
 // Open search modal
 searchBtn.addEventListener("click", () => {
   displayElement(searchModal);
-  searchMovieDataBase.addEListeners();
 });
 
 const searchMovieDataBase = {
@@ -20,6 +19,7 @@ const searchMovieDataBase = {
     });
   }
 };
+searchMovieDataBase.addEListeners();
 
 let doTheSearch = document.querySelector("#searchButton");
 doTheSearch.addEventListener("click", () => {

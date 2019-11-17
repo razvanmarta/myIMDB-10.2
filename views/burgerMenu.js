@@ -6,6 +6,7 @@ const loginBurgerBtn = document.getElementById("menuBurger-login");
 const registerBurgerBtn = document.getElementById("menuBurger-register");
 const logoutBurgerBtn = document.getElementById("menuBurger-logout");
 const creatorsBurgerBtn = document.getElementById("menuBurger-creators");
+const searchBurgerBtn = document.getElementById("menuBurger-search");
 
 function toggleDropList() {
   if ((dropDownList.className = "hideDropDownList")) {
@@ -73,4 +74,8 @@ creatorsBurgerBtn.addEventListener("click", () => {
     dropDownList.classList.add("hideDropDownList");
   }
   window.location = "creators.html";
+});
+
+searchBurgerBtn.addEventListener("click", () => {
+  displayElement(searchModal);
 });

@@ -1,7 +1,9 @@
-const creatorsPopup = document.getElementById("creators-picture-modal");
 const boxes = document.getElementsByClassName("inner");
-const stageInfoLeft = document.getElementsByClassName("stage-info-left");
-const stageInfoRight = document.getElementById("stage-info-right");
+const creatorsPopup = document.getElementById("creators-picture-modal");
+const creatorsImages = document.getElementsByClassName("resize");
+const creatorsPopupContainer = document.getElementById(
+  "picture-dialog-container"
+);
 
 // Outside click function
 
@@ -19,6 +21,7 @@ function outsideModalCreators(event) {
 window.addEventListener("click", outsideModalCreators);
 
 //Open and close stage boxes and text
+
 for (let i = 0; i < boxes.length; i++) {
   let item = boxes[i];
 
@@ -29,20 +32,23 @@ for (let i = 0; i < boxes.length; i++) {
     if (item.children[1].classList.contains("showCreatorsBox")) {
       item.children[1].classList.remove("showCreatorsBox");
       item.children[1].classList.add("hideCreatorsBox");
-      item.parentElement.children[0].style.display = "none";
+      item.parentElement.children[0].style.display = "block";
+      setTimeout(() => {
+        item.parentElement.children[0].style.display = "none";
+      }, 1000);
     } else {
       item.children[1].classList.add("showCreatorsBox");
       item.children[1].classList.remove("hideCreatorsBox");
-      item.parentElement.children[0].style.display = "block";
+      item.parentElement.children[0].style.display = "none";
+      setTimeout(() => {
+        item.parentElement.children[0].style.display = "block";
+      }, 1000);
     }
   });
 }
 
-//popup for full size image view
-const creatorsImages = document.getElementsByClassName("resize");
-const creatorsPopupContainer = document.getElementById(
-  "picture-dialog-container"
-);
+// Popup for full size image view
+
 for (let i = 0; i < creatorsImages.length; i++) {
   creatorsImages[i].addEventListener("click", () => {
     let img = document.createElement("img");

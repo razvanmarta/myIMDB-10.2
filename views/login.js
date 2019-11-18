@@ -31,6 +31,7 @@ logInEventButton.addEventListener("click", function(event) {
   };
   // Create the globaly accesable userObject
   sessionStorage.setItem("userName", logInUser.username);
+
   const newUser = new User(logInUser);
   newUser.loginUser();
   // logIn(loginURL, logInUser);

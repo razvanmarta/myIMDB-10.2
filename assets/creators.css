@@ -6,9 +6,7 @@ body {
 }
 
 body {
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
+  background: #222;
 }
 
 section#timeline {
@@ -83,13 +81,12 @@ section#timeline article div.inner span.date span.year {
   font-size: 16px;
 }
 section#timeline article div.inner h2 {
-  padding: 15px;
+  padding: 7px;
   margin: 0;
   color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: -1px;
-  border-radius: 6px 6px 0 0;
   position: relative;
 }
 section#timeline article div.inner h2:after {
@@ -156,6 +153,24 @@ section#timeline article:nth-child(5) div.inner h2:after {
   background: #9b59b6;
 }
 
+.showCreatorsBox::-webkit-scrollbar {
+  width: 7px;
+  background-color: #282828;
+}
+.showCreatorsBox::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.showCreatorsBox::-webkit-scrollbar-thumb {
+  background: #eae4d3;
+  border-radius: 5px;
+}
+.showCreatorsBox::-webkit-scrollbar-thumb:hover {
+  background: lightgray;
+  cursor: pointer;
+}
+
 .showCreatorsBox {
   width: 115% !important;
   height: 200px !important;
@@ -164,12 +179,14 @@ section#timeline article:nth-child(5) div.inner h2:after {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .hideCreatorsBox {
   width: 0px !important;
   max-height: 200px !important;
   transition: width 1s;
   -webkit-transition: width 1s;
   overflow: hidden;
+  margin: auto;
 }
 
 .resize {
@@ -223,14 +240,27 @@ section#timeline article:nth-child(5) div.inner h2:after {
 
 .stage-info-right {
   position: absolute;
-  right: -20%;
+  right: -18%;
   top: 0;
   width: 30%;
   height: 200px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-right: 20%;
-  background-color: wheat;
+  /* background-color: wheat; */
   display: none;
+  animation-name: delayModal;
+  animation-duration: 0.8s;
+  overflow: hidden;
+  /* color: lightgray; */
+  text-shadow: 0px 0.5px 1px whitesmoke;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  /* font-size: 1.2vw; */
+  padding-top: 20px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2;
 }
 
 .stage-info-left {
@@ -239,8 +269,20 @@ section#timeline article:nth-child(5) div.inner h2:after {
   top: 0;
   width: 30%;
   height: 200px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-right: 20%;
-  background-color: wheat;
+  /* background-color: wheat; */
   display: none;
+  animation-name: delayModal;
+  animation-duration: 0.8s;
+  overflow: hidden;
+  text-shadow: 0px 0.5px 1px whitesmoke;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  /* font-size: 1.2vw; */
+  padding-top: 20px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2;
 }

@@ -17,6 +17,8 @@ class User {
       body: JSON.stringify({ username, password })
     };
   }
+
+  //Login user
   async loginUser() {
     try {
       const response = await fetch(this.endpoint, this.options);
@@ -38,6 +40,7 @@ class User {
     }
   }
 
+  //Register user
   async registerNewUser() {
     try {
       const response = await fetch(this.endpoint, this.options);
@@ -55,9 +58,9 @@ class User {
         showUserIsLoggedIn();
         displayUserName(this.username);
         registratedAlert.classList.remove("d-none");
-        // setTimeout(function() {
-        //   registratedAlert.classList.add("d-none");
-        // }, 3000);
+        setTimeout(function() {
+          registratedAlert.classList.add("d-none");
+        }, 3000);
       }
     } catch (error) {
       console.log(error);

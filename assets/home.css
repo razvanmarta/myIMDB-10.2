@@ -1,6 +1,7 @@
 body {
   margin: 1px;
   background-color: rgb(27, 27, 27);
+  overflow-x: hidden;
 }
 
 /* Navbar Start */
@@ -182,8 +183,8 @@ ul {
 
 /* Parallax */
 html {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth; 
+  overflow-x: hidden; 
 }
 
 .parallax-header {

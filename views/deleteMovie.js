@@ -22,10 +22,11 @@ closeDeleteModalBtn.addEventListener("click", closeDeleteModal);
 confirmDeleteBtn.addEventListener("click", () => {
   deleteMovieFromDb();
   hideElement(deleteModal);
-  // showSuccessfulDeletePopUp();
   registratedAlert.classList.remove("d-none");
   registratedAlert.innerText = "Movie was deleted!";
+  const laugh = new InteractionSounds();
+  laugh.deleteSound();
   setTimeout(() => {
     window.location = "home.html";
-  }, 3000);
+  }, 4000);
 });

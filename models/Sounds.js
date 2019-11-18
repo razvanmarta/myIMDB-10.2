@@ -1,14 +1,19 @@
 class InteractionSounds {
   constructor() {
-    this.jokerLaugh = new Audio("../assets/sounds/smile.mp3");
-    this.jokerLaugh.volume = 0.5;
+    this.landingPage = new Audio("../assets/sounds/smile.mp3");
+    this.deleteMovie = new Audio("../assets/sounds/laugh.mp3");
+    this.landingPage.volume = 0.5;
     this.rewindMusic();
   }
   startMusic() {
-    this.jokerLaugh.play();
+    this.landingPage.play();
   }
   rewindMusic() {
-    this.jokerLaugh.currentTime = 0;
+    this.landingPage.currentTime = 0;
+    this.deleteMovie.currentTime = 0;
+  }
+  deleteSound() {
+    this.deleteMovie.play();
   }
 }
 

@@ -1,5 +1,10 @@
 const searchBtn = document.getElementById("search-button");
 const searchModal = document.getElementById("searchModal");
+const refreshList = document.querySelector(".refresh-movielist");
+
+refreshList.addEventListener("click", () => {
+  makeCallToServer(apiURL);
+});
 // Open search modal
 searchBtn.addEventListener("click", () => {
   displayElement(searchModal);

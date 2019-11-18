@@ -44,6 +44,23 @@ const clearModalFields = () => {
   loginAlert.innerHTML = "";
 };
 
+// Empty fields on addNewMovie
+function emptyFilmImpute() {
+  theMovie.Title.value = "";
+  theMovie.Genre.value = "";
+  theMovie.Type.value = "";
+  theMovie.Released.value = "";
+  theMovie.Rated.value = "";
+  theMovie.imdbRating.value = "";
+  theMovie.Director.value = "";
+  theMovie.Writer.value = "";
+  theMovie.Actors.value = "";
+  theMovie.Runtime.value = "";
+  theMovie.Language.value = "";
+  theMovie.Awards.value = "";
+  theMovie.Plot.value = "";
+}
+
 //Fade out modal function
 
 const fadeOutModal = element => {

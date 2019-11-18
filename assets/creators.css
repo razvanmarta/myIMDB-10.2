@@ -76,9 +76,6 @@ section#timeline article div.inner span.date span {
   display: block;
   text-align: center;
 }
-/* section#timeline article div.inner span.date span.day {
-  font-size: 10px;
-} */
 section#timeline article div.inner span.date span.month {
   font-size: 14px;
 }
@@ -122,10 +119,6 @@ section#timeline article:nth-child(2n + 1) div.inner div {
   float: right;
 }
 
-/* section#timeline article div.inner div {
-  height: 510px;
-} */
-
 section#timeline article:nth-child(2n + 2) div.inner {
   float: right;
 }
@@ -164,26 +157,26 @@ section#timeline article:nth-child(5) div.inner h2:after {
 }
 
 .showCreatorsBox {
-  width: 130% !important;
-  height: 600px !important;
+  width: 115% !important;
+  height: 200px !important;
   transition: width 1s;
   -webkit-transition: width 1s;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .hideCreatorsBox {
   width: 0px !important;
-  height: 400px !important;
+  max-height: 200px !important;
   transition: width 1s;
   -webkit-transition: width 1s;
   overflow: hidden;
 }
 
 .resize {
-  width: 200px;
-  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
   padding: 2px;
   margin: 2px;
-  /* display: inline-flex; */
   border: 1px solid black;
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
@@ -199,15 +192,12 @@ section#timeline article:nth-child(5) div.inner h2:after {
 }
 
 #picture-dialog-container img {
-  /* width: 500px; */
   height: 500px;
   max-width: 100%;
   min-width: 35%;
   overflow: hidden;
   flex-wrap: wrap;
   justify-content: center;
-  /* margin-left: 0;
-  margin-right: 0 !important; */
   margin: auto;
   display: block;
   border-radius: 25px;
@@ -232,14 +222,24 @@ section#timeline article:nth-child(5) div.inner h2:after {
 }
 
 .stage-info-right {
-  float: right;
+  position: absolute;
+  right: -20%;
+  top: 0;
+  width: 30%;
+  height: 200px;
+  border: 1px solid red;
   margin-right: 20%;
   background-color: wheat;
   display: none;
 }
 
 .stage-info-left {
-  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 200px;
+  border: 1px solid red;
   margin-right: 20%;
   background-color: wheat;
   display: none;

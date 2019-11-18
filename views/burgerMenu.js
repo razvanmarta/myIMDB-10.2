@@ -75,7 +75,3 @@ creatorsBurgerBtn.addEventListener("click", () => {
   }
   window.location = "creators.html";
 });
-
-searchBurgerBtn.addEventListener("click", () => {
-  displayElement(searchModal);
-});

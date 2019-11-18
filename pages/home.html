@@ -76,7 +76,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content-me">
               <div class="modal-header-edit">
-                <h5 class="modal-title" >Search by...</h5>
+                <h5 class="modal-title" ><i class="fas fa-search fa-lg"></i> Search by...</h5>
                 <button
                   type="button"
                   class="close"
@@ -117,39 +117,43 @@
                 >
                 <i class="fas fa-search-plus"></i> Search  
                 </button>
-                <button type="button" class="btn btn-danger" id="searchClose">
+                <button type="button" class="btn btn-danger" id="searchClose"><i class="fas fa-window-close"></i> 
                   Close
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <!-- Parallax Header -->
-      <div class="parallax-header">
-        <div class="frontpage_text">
-          <h3 class="">Let's Put A Smile On That Face!</h3>
+        <div class="parallax-header">
+          <div class="frontpage_text">
+            <h3 class="">Let's Put A Smile On That Face!</h3>
+          </div>
+          <div class="arrow-parallax"><a href="#movie-list"><i class="fas fa-angle-double-down arrowDown"></i></a></div>
         </div>
-        <div class="arrow-parallax"><a href="#movie-list"><i class="fas fa-angle-double-down arrowDown"></i></a></div>
-      </div>
-      <div id="movie-list"class="movieList-container">
-
-        <!-- add movie button -->
-      
-        <button tooltip tooltip-top 
-        tooltip-content = "Login/Register to access this feature"
-        id="add-movie" class="btn btn-outline-dark" disabled = "true"><strong>Add movie</strong></button>
-        <!-- add movie button -->
-
-        <h2 class="movieList-Title">MOVIE LIST</h2>
-        <div class="movie-counter"></div>
-        <div class="movieList"></div>
-        <div class="page-counter">
+        <div class="awesomeborder">
+          <div id="movie-list"class="movieList-container">
+            
+            <!-- add movie button -->
+            
+          <button tooltip tooltip-top 
+          tooltip-content = "Login/Register to access this feature"
+          id="add-movie" class="btn btn-outline-dark" disabled = "true"><strong><i class="far fa-plus-square"></i> Add movie</strong></button>
+          <!-- add movie button -->
+          
+          <h2 class="movieList-Title">MOVIE LIST</h2>
+          <div class="movie-counter"></div>
+          <div class="movieList"></div>
+          <div class="page-counter">
+            <button class="first-page btn btn-outline-dark"><i class="fas fa-fast-backward"></i></i></button>
             <button class="previous-page btn btn-outline-dark"><i class="fas fa-arrow-circle-left"></i></button>
-          <div class="pageNumber">-1-</div>
-          <button class="next-page btn btn-outline-dark"><i class="fas fa-arrow-circle-right"></i></button>
+            <div class="pageNumber">-1-</div>
+            <button class="next-page btn btn-outline-dark"><i class="fas fa-arrow-circle-right"></i></button>
+            <button class="last-page btn btn-outline-dark"><i class="fas fa-fast-forward"></i></i></button>
+          </div>
         </div>
-      </div>
+
+        </div>
       
       <!-- start MOVIE modal -->
 
@@ -157,7 +161,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content-me">
             <div class="modal-header-edit">
-              <h4 class="modal-title">Add a movie...</h4>
+              <h4 class="modal-title"><i class="fas fa-plus-circle fa-lg"></i> Add a movie...</h4>
               <button
                   type="button"
                   class="close"
@@ -278,13 +282,15 @@
                 type="button"
                 class="btn btn-primary"
                 id="saveFilmChanges">
-                Save changes
+                <i class="fas fa-save"></i>
+                 Save changes
               </button>
               <button
                 type="button"
                 class="btn btn-danger "
                 id="discardFilmChanges">
-                Discard changes
+                <i class="fas fa-eraser"></i> 
+                Clear Fields
               </button>
             </div>
             <div
@@ -432,6 +438,7 @@
        <!-- Footer End -->
 
     <script src="../helpers/helpers.js"></script>
+    <script src="../models/Sounds.js"></script>
     <script src="../models/Movie.js"></script>
     <script src="../views/burgerMenu.js"></script>
     <script src="../views/home.js"></script>

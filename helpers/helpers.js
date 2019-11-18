@@ -55,6 +55,7 @@ const fadeOutModal = element => {
 };
 
 function outsideModal(event) {
+  console.log(event.target);
   if (event.target === modal) {
     fadeOutModal(modal);
   }
@@ -63,6 +64,9 @@ function outsideModal(event) {
   }
   if (event.target === modalLogin) {
     fadeOutModal(modalLogin);
+  }
+  if (event.target === searchModal) {
+    fadeOutModal(searchModal);
   }
 }
 

@@ -108,7 +108,7 @@ ul {
   font-size: 2em;
   font-weight: 900;
   text-align: center;
-  padding: 16px;
+  padding: 21px;
 }
 #menuBurger-login,
 #menuBurger-register,
@@ -125,21 +125,12 @@ ul {
   font-style: oblique;
   font-size: 1.4em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-<<<<<<< HEAD
-  border: 0.5px solid rgba(248, 248, 248, 0.8);
+  border: 0.5px solid rgb(255, 255, 255);
   padding: 40px 0;
-  -webkit-box-shadow: 0px 6px 5px 0px rgba(248, 248, 248, 0.8);
-  -moz-box-shadow: 0px 6px 5px 0px rgba(248, 248, 248, 0.8);
-  box-shadow: 0px 6px 5px 0px rgba(248, 248, 248, 0.8);
-  /* opacity: 1; */
-=======
-  border: 0.5px solid rgba(184, 177, 184, 1);
-  padding: 40px 0;
-  -webkit-box-shadow: 0px 6px 5px 0px rgba(184, 177, 184, 1);
-  -moz-box-shadow: 0px 6px 5px 0px rgba(184, 177, 184, 1);
-  box-shadow: 0px 6px 5px 0px rgba(184, 177, 184, 1);
-  opacity: 0.8;
->>>>>>> 1161b30642e9205110dcc6975930ba64e43d4dba
+  -webkit-box-shadow: 0px 6px 5px 0px rgb(255, 255, 255);
+  -moz-box-shadow: 0px 6px 5px 0px rgb(255, 255, 255);
+  box-shadow: 0px 6px 5px 0px rgb(255, 255, 255);
+  opacity: 0.9;
 }
 
 #menuBurger-home:hover,
@@ -148,7 +139,8 @@ ul {
 #menuBurger-logout:hover,
 #menuBurger-creators:hover,
 #menuBurger-search:hover {
-  color: rgba(2, 216, 13, 0.8) !important;
+  /* color: rgba(2, 216, 13, 0.8) !important; */
+  background-color: rgba(2, 216, 13, 0.9) !important ;
   cursor: pointer;
 }
 
@@ -352,19 +344,20 @@ html {
   align-items: center;
   margin-bottom: 15px;
 }
+.first-page,
+.last-page,
 .next-page,
 .previous-page {
-  margin-left: 10px;
+  margin: 0 10px;
   font-size: 15px !important;
-}
-.previous-page {
-  margin-right: 10px;
+  border: 2px solid !important;
 }
 .pageNumber {
   text-align: center;
   color: #fff;
   font-size: 15px;
-  font-family: monospace;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 2px;
 }
 /* Movie Container items end */
 
@@ -521,4 +514,14 @@ select {
 }
 [tooltip-top]:hover::before {
   transform: translate(-50%, 0);
+}
+.awesomeborder {
+  width: 100%;
+  background-image: url(../assets/photo/border.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1000;
+  border-bottom: 2px solid gray;
+  border-top: 2px solid gray;
 }

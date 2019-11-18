@@ -52,3 +52,7 @@ const createSearchUrl = querry => {
   const finalResult = urlNeeded.slice(0, -1);
   return finalResult;
 };
+
+searchBurgerBtn.addEventListener("click", () => {
+  displayElement(searchModal);
+});

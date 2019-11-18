@@ -5,6 +5,8 @@
 
 let next = null; //nextPage
 let prev = null; //previousPage
+let first = "https://movies-api-siit.herokuapp.com/movies?take=10&skip=0";
+let last = "https://movies-api-siit.herokuapp.com/movies?take=10&skip=90";
 
 // Used to handle servercalls for movies
 const makeCallToServer = async apiURL => {
@@ -12,7 +14,7 @@ const makeCallToServer = async apiURL => {
     const request = await fetch(apiURL);
     const data = await request.json();
     const results = data.results;
-    console.log(results);
+    console.log(data);
     const page = data.pagination.links;
     const pageNumber = data.pagination.currentPage;
     const nrOfPages = data.pagination.numberOfPages;

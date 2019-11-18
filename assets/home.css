@@ -209,6 +209,14 @@ html {
   font-size: 20px;
   font-weight: 900;
 }
+.quote-author {
+  position: absolute;
+  bottom: -35%;
+  right: 0;
+  font-size: 0.2em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: gray;
+}
 .parallax-footer {
   background-image: linear-gradient(
       to bottom,
@@ -232,7 +240,7 @@ html {
   text-align: center;
   margin: 0;
   position: absolute;
-  top: 75%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

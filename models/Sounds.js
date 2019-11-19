@@ -2,7 +2,7 @@ class InteractionSounds {
   constructor() {
     this.landingPage = new Audio("../assets/sounds/smile.mp3");
     this.deleteMovie = new Audio("../assets/sounds/laugh.mp3");
-    this.landingPage.volume = 0.5;
+    this.landingPage.volume = 0.1;
     this.rewindMusic();
   }
   startMusic() {
@@ -13,6 +13,7 @@ class InteractionSounds {
     this.deleteMovie.currentTime = 0;
   }
   deleteSound() {
+    console.log(this);
     this.deleteMovie.play();
   }
 }

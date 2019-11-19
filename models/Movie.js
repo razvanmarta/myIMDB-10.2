@@ -139,7 +139,7 @@ function aNewMovie(myFilm) {
     });
 }
 //delete movie
-const deleteMovieFromDb = () => {
+const deleteMovieFromDb = async () => {
   const id = sessionStorage.getItem("movieID");
   const accessToken = sessionStorage.getItem("accessToken");
   fetch(`https://movies-api-siit.herokuapp.com/movies/${id}`, {

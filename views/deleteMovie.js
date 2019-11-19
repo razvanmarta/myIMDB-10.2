@@ -20,13 +20,18 @@ const closeDeleteModal = () => {
 discardDeleteModalBtn.addEventListener("click", closeDeleteModal);
 closeDeleteModalBtn.addEventListener("click", closeDeleteModal);
 confirmDeleteBtn.addEventListener("click", () => {
-  deleteMovieFromDb();
   hideElement(deleteModal);
+  const play = new InteractionSounds();
+  deleteMovieFromDb()
+    .then(play.deleteSound())
+    .then(
+      setTimeout(() => {
+        window.location = "home.html";
+      }, 4000)
+    );
   registratedAlert.classList.remove("d-none");
   registratedAlert.innerText = "Movie was deleted!";
-  const laugh = new InteractionSounds();
-  laugh.deleteSound();
-  setTimeout(() => {
-    window.location = "home.html";
-  }, 4000);
+  // laugh.deleteSound();
+  // setTimeout(() => {
+  // }, 4000);
 });
